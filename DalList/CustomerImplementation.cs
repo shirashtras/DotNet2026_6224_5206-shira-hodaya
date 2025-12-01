@@ -10,7 +10,6 @@ internal class CustomerImplementation : ICustomer
         DataSource.customers.Add(item);
         return item.id;
     }
-
     public Customer? Read(int id)
     {
         foreach (Customer customer in DataSource.customers)
