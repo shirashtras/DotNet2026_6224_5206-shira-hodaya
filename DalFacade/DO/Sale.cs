@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DalList
+namespace DalFacade.DO
 {
     /// <summary>
     /// ישות עבור מבצע
@@ -19,20 +19,20 @@ namespace DalList
     public record Sale
     (
         int id,
-        int ?idProduct,
-        int ?count,
-        double ?price,
-        bool ?isSaleToAll,
-        DateTime ?startDate,
-        DateTime ?endDate
+        int? idProduct,
+        int? count,
+        double? price,
+        bool? isSaleToAll,
+        DateTime? startDate,
+        DateTime? endDate
     )
     {
         /// <summary>
         /// בנאי לאתחול השדות
         /// </summary>
-        public Sale():this(0,0,0,0.00,false,new DateTime(1647,0,0),DateTime.Now)
+        public Sale() : this(0, 0, 0, 0.00, false, new DateTime(1647, 0, 0), DateTime.Now)
         {
-            
+
         }
 
     }

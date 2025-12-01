@@ -1,12 +1,11 @@
-﻿using DalFacade.DO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DalList
-{
+namespace DalFacade.DO { 
+
     /// <summary>
     /// ישות מוצר
     /// </summary>
@@ -17,20 +16,21 @@ namespace DalList
     /// <param name="count">כמות במלאי</param>
     public record Product
     (
-        int id, 
-        string ?name,
+        int id,
+        string? name,
         Category category,
-        double ?price,
-        int ?count
+        double? price,
+        int? count
     )
     {
         /// <summary>
         /// בנאי לאתחול שדות / ערכים
         /// </summary>
-        public Product():this(1,"", Category.Cakes, 0.0,0)
+        public Product() : this(1, "", Category.Cakes, 0.0, 0)
         {
-            
+
         }
 
     }
+
 }

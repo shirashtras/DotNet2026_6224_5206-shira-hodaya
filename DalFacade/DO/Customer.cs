@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DalList
-{
+namespace DalFacade.DO{
+
+
     /// <summary>
     /// ישות עבור לקוח 
     /// </summary>
@@ -16,18 +17,19 @@ namespace DalList
     public record Customer
     (
         int id,
-        string ?nameCustomer,
-        string ?adress,
-        string ?phoneNumber
+        string? nameCustomer,
+        string? adress,
+        string? phoneNumber
 
     )
     {
         /// <summary>
         /// בנאי המאתחל ערכים
         /// </summary>
-        public Customer():this(0,"","","")
+        public Customer() : this(0, "", "", "")
         {
-            
+
         }
     }
+
 }
