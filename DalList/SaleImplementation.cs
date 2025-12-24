@@ -1,16 +1,24 @@
-﻿using DalFacade.DO;
-using DalFacade.DalApi;
-
+﻿using DO;
+using DalApi;
 namespace DalList;
 
 internal class SaleImplementation : ISale
 {
+    private int? idProduct;
 
     public int Create(Sale item)
     {
+        for (int i = 0; i < DataSource.sales.Count; i++)
+        {
+            if (DataSource.sales[i] != null && DataSource.sales[i].idProduct == item.idProduct)
+            {
+                throw new InvalidOperationException("המבצע כבר קיים ברשימת המבצעים");
+            }
+        }
         DataSource.sales.Add(item);
         return item.id;
     }
+
 
     public Sale? Read(int id)
     {
@@ -29,22 +37,34 @@ internal class SaleImplementation : ISale
 
     public void Update(Sale item)
     {
-        Sale sale = item;
-        foreach (Sale sl in DataSource.sales)
+        bool found = false;
+        for (int i = 0; i < DataSource.sales.Count; i++)
         {
-            if (sl.id == item.id)
-                DataSource.sales.Remove(sl);
-
+            if (DataSource.sales[i] != null && DataSource.sales[i].idProduct == item.idProduct)
+            {
+                DataSource.sales[i] = item;
+                found = true;
+            }
+            if (!found)
+                throw new InvalidOperationException("המבצע לא נמצא לעדכון");
         }
-        DataSource.sales.Add(sale);
     }
 
     public void Delete(int id)
     {
-        foreach (Sale sl in DataSource.sales)
+        bool found = false;
+        for (int i = 0; i < DataSource.sales.Count; i++)
         {
-            if (sl.id == id)
-                DataSource.sales.Remove(sl);
+            if (DataSource.sales[i] != null && DataSource.sales[i].idProduct == idProduct)
+            {
+                DataSource.sales.Remove(DataSource.sales[i]);
+                found = true;
+            }
         }
+        if (!found)
+
+            throw new InvalidOperationException("המבצע לא נמצא למחיקה");
+
     }
+
 }

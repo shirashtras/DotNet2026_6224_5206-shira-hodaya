@@ -1,6 +1,5 @@
 ﻿
-using DalFacade.DO;
-
+using DO;
 namespace DalList;
 
 internal static class DataSource

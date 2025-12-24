@@ -1,5 +1,5 @@
-﻿using DalFacade.DO;
-using DalFacade.DalApi;
+﻿using DO;
+using DalApi;
 namespace DalList;
 
 
@@ -7,9 +7,19 @@ internal class CustomerImplementation : ICustomer
 {
     public int Create(Customer item)
     {
+
+        for (int i = 0; i < DataSource.customers.Count; i++)
+        {
+            if (DataSource.customers[i] != null && DataSource.customers[i].id == item.id)
+            {
+                throw new InvalidOperationException("לקוח זה כבר קיים ברשימת הלקוחות");
+            }
+        }
+
         DataSource.customers.Add(item);
         return item.id;
     }
+
     public Customer? Read(int id)
     {
         foreach (Customer customer in DataSource.customers)
@@ -27,22 +37,38 @@ internal class CustomerImplementation : ICustomer
 
     public void Update(Customer item)
     {
-        Customer customer = item;
-        foreach (Customer cus in DataSource.customers)
+        bool found = false;
+        for (int i = 0; i < DataSource.customers.Count; i++)
         {
-            if (cus.id == item.id)
-                DataSource.customers.Remove(cus);
+            if (DataSource.customers[i] != null && DataSource.customers[i].id == item.id)
+            {
+                DataSource.customers[i] = item;
+                found = true;
 
+            }
         }
-        DataSource.customers.Add(customer);
+        if (!found)
+            throw new InvalidOperationException("הלקוח לא נמצא לעדכון");
     }
 
     public void Delete(int id)
     {
-        foreach (Customer cus in DataSource.customers)
+        bool found = false;
+        for (int i = 0; i < DataSource.customers.Count; i++)
         {
-            if (cus.id == id)
-                DataSource.customers.Remove(cus);
+            if (DataSource.customers[i] != null && DataSource.customers[i].id == id)
+            {
+                DataSource.customers.Remove(DataSource.customers[i]);
+                found = true;
+            }
         }
+
+        if (!found)
+
+            throw new InvalidOperationException("הלקוח לא נמצא למחיקה");
+
     }
 }
+    
+
+  

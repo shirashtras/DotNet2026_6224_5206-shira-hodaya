@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DalFacade.DO{
-
-
+﻿
+namespace DO
+{
     /// <summary>
     /// ישות עבור לקוח 
     /// </summary>
