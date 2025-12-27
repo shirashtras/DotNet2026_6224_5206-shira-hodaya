@@ -48,16 +48,16 @@ public static class Intialization
     //    CreateCustomers();
     //    CreateSales();
     //    createProducts();
-    //    s_dalProduct = productDal;
-    //    s_dalCustomer = customerDal;
-    //    s_dalSale = saleDal;
+    //    //s_dalProduct = productDal;
+    //    //s_dalCustomer = customerDal;
+    //    //s_dalSale = saleDal;
     //}
     public static void Intialize(IDal idal)
     {
         CreateCustomers();
         CreateSales();
         createProducts();
-        s_dal=idal;
+        s_dal =idal;
     }
 
 }

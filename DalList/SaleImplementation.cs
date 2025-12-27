@@ -45,9 +45,10 @@ internal class SaleImplementation : ISale
                 DataSource.sales[i] = item;
                 found = true;
             }
-            if (!found)
-                throw new InvalidOperationException("המבצע לא נמצא לעדכון");
+           
         }
+        if (!found)
+            throw new InvalidOperationException("המבצע לא נמצא לעדכון");
     }
 
     public void Delete(int id)
@@ -55,7 +56,7 @@ internal class SaleImplementation : ISale
         bool found = false;
         for (int i = 0; i < DataSource.sales.Count; i++)
         {
-            if (DataSource.sales[i] != null && DataSource.sales[i].idProduct == idProduct)
+            if (DataSource.sales[i] != null && DataSource.sales[i]!.id == id)
             {
                 DataSource.sales.Remove(DataSource.sales[i]);
                 found = true;
