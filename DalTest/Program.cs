@@ -24,45 +24,45 @@ namespace DalTest
                         ProductMenu();
                         break;
                     case 2:
-                        SaleMenu();
+                        //SaleMenu();
                         break;
                     case 3:
-                        CustomerMenu();
+                        //CustomerMenu();
                         break;
                 }
             } while (choice != 0);
         }
-        private static void SubMenu<T>(ICrud<T> crud, string title, Add add, Update update)
-        {
-            int choice;
-            do
-            {
-                choice = PrintSubMenu(title);
-                switch (choice)
-                {
-                    case 1:
-                        add();
-                        break;
-                    case 2:
-                        update();
-                        break;
-                    case 3:
-                        Read(crud);
-                        break;
-                    case 4:
-                        ReadAll(crud);
-                        break;
-                    case 5:
-                        Delete(crud);
-                        break;
-                }
+        //private static void SubMenu<T>(ICrud<T> crud, string title, Add add, Update update)
+        //{
+        //    int choice;
+        //    do
+        //    {
+        //        choice = PrintSubMenu(title);
+        //        switch (choice)
+        //        {
+        //            case 1:
+        //                add();
+        //                break;
+        //            case 2:
+        //                update();
+        //                break;
+        //            case 3:
+        //                Read(crud);
+        //                break;
+        //            case 4:
+        //                ReadAll(crud);
+        //                break;
+        //            case 5:
+        //                Delete(crud);
+        //                break;
+        //        }
 
-            }
-            while (choice != 0);
-        }
+        //    }
+        //    while (choice != 0);
+        //}
         private static void ProductMenu()
         {
-            SubMenu(s_dal.Product, "Product", AddProduct, UpdateProduct);
+            //SubMenu(s_dal.Product, "Product", AddProduct, UpdateProduct);
         }
         //private static void SaleMenu()
         //{
