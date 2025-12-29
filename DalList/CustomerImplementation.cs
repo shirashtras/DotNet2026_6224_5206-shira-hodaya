@@ -7,32 +7,34 @@ internal class CustomerImplementation : ICustomer
 {
     public int Create(Customer item)
     {
-
+        int newId = DataSource.Config.productNext;
         for (int i = 0; i < DataSource.customers.Count; i++)
         {
-            if (DataSource.customers[i] != null && DataSource.customers[i].id == item.id)
+            if (DataSource.customers[i] != null && DataSource.customers[i]!.id == item.id)
             {
-                throw new InvalidOperationException("לקוח זה כבר קיים ברשימת הלקוחות");
+                throw new Exception("This customer exists in the customers list");
             }
         }
 
-        DataSource.customers.Add(item);
-        return item.id;
+        Customer newCustomer = item with { id = newId };
+        DataSource.customers.Add(newCustomer);
+        return newId;
     }
 
     public Customer? Read(int id)
     {
-        foreach (Customer customer in DataSource.customers)
+        foreach (Customer? customer in DataSource.customers)
         {
-            if (customer.id == id)
+            if (customer != null && customer!.id == id)
                 return customer;
         }
         return null;
     }
 
-    public List<Customer> ReadAll()
+
+    public List<Customer?> ReadAll()
     {
-        return DataSource.customers == null ? null : DataSource.customers;
+        return DataSource.customers!;
     }
 
     public void Update(Customer item)
@@ -40,15 +42,16 @@ internal class CustomerImplementation : ICustomer
         bool found = false;
         for (int i = 0; i < DataSource.customers.Count; i++)
         {
-            if (DataSource.customers[i] != null && DataSource.customers[i].id == item.id)
+            if (DataSource.customers[i] != null && DataSource.customers[i]!.id == item.id)
             {
                 DataSource.customers[i] = item;
                 found = true;
+                break;
 
             }
         }
         if (!found)
-            throw new InvalidOperationException("הלקוח לא נמצא לעדכון");
+            throw new Exception("This customer is not exists in the customers list");
     }
 
     public void Delete(int id)
@@ -56,16 +59,18 @@ internal class CustomerImplementation : ICustomer
         bool found = false;
         for (int i = 0; i < DataSource.customers.Count; i++)
         {
-            if (DataSource.customers[i] != null && DataSource.customers[i].id == id)
+            if (DataSource.customers[i] != null && DataSource.customers[i]!.id == id)
             {
-                DataSource.customers.Remove(DataSource.customers[i]);
+                DataSource.customers.RemoveAt(i);
                 found = true;
+                break;
+
             }
         }
 
         if (!found)
 
-            throw new InvalidOperationException("הלקוח לא נמצא למחיקה");
+            throw new Exception("The customer is not exist to delete");
 
     }
 }

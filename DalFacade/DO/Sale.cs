@@ -6,7 +6,7 @@ namespace DO
     /// ישות עבור מבצע
     /// </summary>
     /// <param name="id">מספר מזהה ייחודי </param>
-    /// <param name="idProduct">מספר מזהה של המוצר</param>
+    /// <param name="idSale">מספר מזהה של המבצע</param>
     /// <param name="count">כמות נדרשת לקבלת מבצע</param>
     /// <param name="price">מחיר כולל במבצע</param>
     /// <param name="isSaleToAll">האם המבצע מיועד לכלל הלקוחות או רק ללקוחות מועדון</param>
@@ -15,7 +15,7 @@ namespace DO
     public record Sale
     (
         int id,
-        int? idProduct,
+        int idSale,
         int? count,
         double? price,
         bool? isSaleToAll,

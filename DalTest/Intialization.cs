@@ -1,13 +1,10 @@
 ﻿using DO;
-using  DalApi;
+using DalApi;
 namespace DalTest;
 
 
-public static class Intialization
+public static class Initialization
 {
-    //private static IProduct s_dalProduct;
-    //private static ISale s_dalSale;
-    //private static ICustomer s_dalCustomer;
     private static IDal s_dal;
 
 
@@ -23,16 +20,16 @@ public static class Intialization
     }
     public static void CreateSales()
     {
-        s_dal.Sale.Create(new Sale(1, 111, 3, 20, true, DateTime.Now, DateTime.Now.AddMonths(2)));
-        s_dal.Sale.Create(new Sale(2, 222, 4, 10, false, DateTime.Now, DateTime.Now.AddMonths(3)));
-        s_dal.Sale.Create(new Sale(3, 333, 2, 50, true, DateTime.Now, DateTime.Now.AddDays(12)));
-        s_dal.Sale.Create(new Sale(4, 444, 3, 30, false, DateTime.Now, DateTime.Now.AddYears(1)));
-        s_dal.Sale.Create(new Sale(5, 555, 5, 100, false, DateTime.Now, DateTime.Now.AddMonths(4)));
-        s_dal.Sale.Create(new Sale(6, 666, 2, 40, true, DateTime.Now, DateTime.Now.AddDays(40)));
-        s_dal.Sale.Create(new Sale(7, 777, 5, 60, false, DateTime.Now, DateTime.Now.AddMonths(6)));
+        s_dal.Sale.Create(new Sale(0,111, 3, 20, true, DateTime.Now, DateTime.Now.AddMonths(2)));
+        s_dal.Sale.Create(new Sale(0, 222, 4, 10, false, DateTime.Now, DateTime.Now.AddMonths(3)));
+        s_dal.Sale.Create(new Sale(0, 333, 2, 50, true, DateTime.Now, DateTime.Now.AddDays(12)));
+        s_dal.Sale.Create(new Sale(0, 444, 3, 30, false, DateTime.Now, DateTime.Now.AddYears(3)));
+        s_dal.Sale.Create(new Sale(0, 555, 5, 100, false, DateTime.Now, DateTime.Now.AddMonths(4)));
+        s_dal.Sale.Create(new Sale(0, 666, 2, 40, true, DateTime.Now, DateTime.Now.AddDays(40)));
+        s_dal.Sale.Create(new Sale(0, 777, 5, 60, false, DateTime.Now, DateTime.Now.AddMonths(6)));
 
     }
-    public static void createProducts()
+    public static void CreateProducts()
     {
         s_dal.Product.Create(new Product(11, "Water", Category.SoftDrinks, 7, 50));
         s_dal.Product.Create(new Product(22, "Cola", Category.SoftDrinks, 6, 40));
@@ -43,21 +40,15 @@ public static class Intialization
         s_dal.Product.Create(new Product(77, "Borax", Category.Pastries, 4, 80));
     }
 
-    //public static void Intialize(IProduct productDal, ICustomer customerDal, ISale saleDal)
-    //{
-    //    CreateCustomers();
-    //    CreateSales();
-    //    createProducts();
-    //    //s_dalProduct = productDal;
-    //    //s_dalCustomer = customerDal;
-    //    //s_dalSale = saleDal;
-    //}
-    public static void Intialize(IDal idal)
+
+    public static void Initialize(IDal idal)
     {
+        s_dal = idal;
         CreateCustomers();
         CreateSales();
-        createProducts();
-        s_dal =idal;
+        CreateProducts();
+
     }
+
 
 }
