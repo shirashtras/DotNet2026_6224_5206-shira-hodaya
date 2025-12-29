@@ -20,29 +20,6 @@ internal class ProductImplementation : IProduct
             
     }
 
-    //public int Create(Product item)
-    //{
-    //    if (item.id != 0)
-    //    {
-    //        for (int i = 0; i < DataSource.products.Count; i++)
-    //        {
-    //            if (DataSource.products[i] != null &&
-    //                DataSource.products[i]!.id == item.id)
-    //            {
-    //                throw new Exception("Product already exists");
-    //            }
-    //        }
-    //    }
-
-    //    int newId = DataSource.s_nextProductId++;
-
-    //    Product newProduct = item with { id = newId };
-
-    //    DataSource.products.Add(newProduct);
-
-    //    return newId;
-    //}
-
     public Product? Read(int id)
     {
         foreach (Product? pr in DataSource.products)
