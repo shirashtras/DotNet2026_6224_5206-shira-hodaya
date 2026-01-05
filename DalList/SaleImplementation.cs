@@ -4,20 +4,22 @@ namespace DalList;
 
 internal class SaleImplementation : ISale
 {
+    /// <summary>
+    /// פונקציה ליצירת מבצע
+    /// </summary>
+    /// <param name="item">מקבל ישות מבצע</param>
+    /// <returns>מחזיר מזהה מבצע</returns>
     public int Create(Sale item)
     {
-        int newId = DataSource.Config.saleNext;
-        foreach (Sale? sale in DataSource.sales)
-        {
-            if (sale != null && sale.id == newId)
-                throw new Exception("Sale with this id already exists");
-        }
 
-        Sale newSale = item with { id = newId };
-        DataSource.sales.Add(newSale);
-        return newId;
+        DataSource.sales.Add(item);
+        return item.id;
     }
-
+    /// <summary>
+    /// פונקציה לקריאת מבצע על פי מזהה מבצע
+    /// </summary>
+    /// <param name="id">מקבל מזהה מבצע</param>
+    /// <returns>מחזיר את המבצע המבוקש</returns>
 
     public Sale? Read(int id)
     {
@@ -28,39 +30,27 @@ internal class SaleImplementation : ISale
         }
         return null;
     }
-
+    /// <summary>
+    /// פונקציה לקריאת כל פרטי המבצעים
+    /// </summary>
+    /// <returns>מחזיר העתק של רשימת המבצעים</returns>
     public List<Sale?> ReadAll()
     {
-        return DataSource.sales!;
+        return new List<Sale?>(DataSource.sales!);
     }
-
-    public void Update(Sale item)
-    {
-        bool found = false;
-        for (int i = 0; i < DataSource.sales.Count; i++)
-        {
-            if (DataSource.sales[i] != null && DataSource.sales[i]!.id == item.id)
-            {
-                DataSource.sales[i] = item;
-                found = true;
-                break;
-            }
-
-        }
-        if (!found)
-            throw new Exception("The sale isn't exist to update");
-
-    }
-
-
+    /// <summary>
+    /// פוקנצייה למחיקת מבצע
+    /// </summary>
+    /// <param name="id">מקבל מזהה מבצע למחיקה</param>
+    /// <exception cref="Exception">זורק שגיאה באם המזהה מבצע לא קיים</exception>
     public void Delete(int id)
     {
         bool found = false;
-        for (int i = 0; i < DataSource.sales.Count; i++)
+        foreach (Sale? sl in DataSource.sales!)
         {
-            if (DataSource.sales[i] != null && DataSource.sales[i]!.id == id)
+            if (sl != null && sl!.id == id)
             {
-                DataSource.sales.RemoveAt(i);
+                DataSource.sales.Remove(sl);
                 found = true;
                 break;
 
@@ -71,5 +61,17 @@ internal class SaleImplementation : ISale
             throw new Exception("The id sale isn't fount to delete");
 
     }
+
+    /// <summary>
+    /// פונקציה לעדכון מבצע על פי מזהה
+    /// </summary>
+    /// <param name="item">מקבל ישות מבצע</param>
+    public void Update(Sale item)
+    {
+        Delete(item.id);
+        DataSource.sales!.Add(item);
+    }
+
+
 
 }

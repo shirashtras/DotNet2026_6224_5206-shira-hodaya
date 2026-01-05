@@ -4,16 +4,24 @@ namespace DalList;
 
 internal class ProductImplementation : IProduct
 {
+    /// <summary>
+    /// פונקציה להוספת מוצר
+    /// </summary>
+    /// <param name="item">מקבל  מוצר</param>
+    /// <returns>מחזיר מזהה מוצר</returns>
     public int Create(Product item)
     {
-        int newId = DataSource.Config.productNext;
 
-        Product newProduct = item with { id = newId };
-        DataSource.products.Add(newProduct);
-        return newId;
+        DataSource.products.Add(item);
+        return item.id;
 
     }
 
+    /// <summary>
+    /// פונקציה לקריאת מוצר
+    /// </summary>
+    /// <param name="id">מקבל מזהה מוצר</param>
+    /// <returns>מחזיר את המוצר המבוקש, באם לא יוחזר null</returns>
     public Product? Read(int id)
     {
         foreach (Product? pr in DataSource.products)
@@ -24,35 +32,36 @@ internal class ProductImplementation : IProduct
         return null;
     }
 
+    /// <summary>
+    /// פונקציה שמחזירה את רשימת המוצרים
+    /// </summary>
+    /// <returns>העתק רשימה ובה כל המוצרים</returns>
     public List<Product?> ReadAll()
     {
         return new List<Product?>(DataSource.products!);
     }
-
+    /// <summary>
+    /// פונקציה לעדכון מוצר
+    /// </summary>
+    /// <param name="item">מקבל את המוצר המבוקש לעדכון</param>
     public void Update(Product item)
     {
-        bool found = false;
-        for (int i = 0; i < DataSource.products.Count; i++)
-        {
-            if (DataSource.products[i] != null && DataSource.products[i]!.id == item.id)
-            {
-                DataSource.products[i] = item;
-                found = true;
-                break;
-
-            }
-        }
-        if (!found)
-            throw new Exception("The product isn't found to update");
+        Delete(item.id);
+        DataSource.products!.Add(item);
     }
+    /// <summary>
+    /// פונקציה למחיקת לקוח
+    /// </summary>
+    /// <param name="id">מקבל מזהה לקוח למחיקה</param>
+    /// <exception cref="Exception">שגיאה באם מזהה לקוח לא קיים</exception>
     public void Delete(int id)
     {
         bool found = false;
-        for (int i = 0; i < DataSource.products.Count; i++)
+        foreach (Product? pr in DataSource.products)
         {
-            if (DataSource.products[i] != null && DataSource.products[i]!.id == id)
+            if (pr != null && pr!.id == id)
             {
-                DataSource.products.RemoveAt(i);
+                DataSource.products.Remove(pr);
                 found = true;
                 break;
             }
@@ -63,5 +72,12 @@ internal class ProductImplementation : IProduct
             throw new Exception("The product isn't found to delete");
 
     }
-
 }
+
+
+
+
+
+
+
+
