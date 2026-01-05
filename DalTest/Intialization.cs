@@ -45,8 +45,8 @@ public static class Initialization
     {
         s_dal = idal;
         CreateCustomers();
-        CreateSales();
         CreateProducts();
+        CreateSales();
 
     }
 

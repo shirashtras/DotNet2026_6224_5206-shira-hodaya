@@ -5,22 +5,22 @@ namespace DalList;
 
 internal class CustomerImplementation : ICustomer
 {
+    /// <summary>
+    /// פונקצייה ליצירת לקוח חדש
+    /// </summary>
+    /// <param name="item">מקבלת את כל פרטי הלקוח</param>
+    /// <returns>מחזירה מספר מזהה של הלקוח החדש</returns>
     public int Create(Customer item)
     {
-        int newId = DataSource.Config.productNext;
-        for (int i = 0; i < DataSource.customers.Count; i++)
-        {
-            if (DataSource.customers[i] != null && DataSource.customers[i]!.id == item.id)
-            {
-                throw new Exception("This customer exists in the customers list");
-            }
-        }
-
-        Customer newCustomer = item with { id = newId };
-        DataSource.customers.Add(newCustomer);
-        return newId;
+       
+        DataSource.customers.Add(item);
+        return item.id;
     }
-
+    /// <summary>
+    /// פונקצייה לקריאת לקוח נוכחי על פי מזהה
+    /// </summary>
+    /// <param name="id">מקבל מזהה לקוח</param>
+    /// <returns>מחזיר לקוח, ואם לא נמצא יחזיר ערך null</returns>
     public Customer? Read(int id)
     {
         foreach (Customer? customer in DataSource.customers)
@@ -30,43 +30,42 @@ internal class CustomerImplementation : ICustomer
         }
         return null;
     }
-
-
+    /// <summary>
+    /// פונקציה שמחזירה את פרטי כל הלקוחות
+    /// </summary>
+    /// <returns>העתק של פרטי הלקוחות</returns>
     public List<Customer?> ReadAll()
     {
-        return DataSource.customers!;
+        return new List<Customer?>(DataSource.customers!);
     }
 
+    /// <summary>
+    /// פונקציה לעדכון לקוח
+    /// </summary>
+    /// <param name="item"> יישות לקוח עבור עדכון</param>
     public void Update(Customer item)
     {
-        bool found = false;
-        for (int i = 0; i < DataSource.customers.Count; i++)
-        {
-            if (DataSource.customers[i] != null && DataSource.customers[i]!.id == item.id)
-            {
-                DataSource.customers[i] = item;
-                found = true;
-                break;
-
-            }
-        }
-        if (!found)
-            throw new Exception("This customer is not exists in the customers list");
+        Delete(item.id);
+        DataSource.customers!.Add(item);
     }
-
+    /// <summary>
+    /// פונקציה למחיקת לקוח עפ"י מזהה
+    /// </summary>
+    /// <param name="id"> מקבל את המזהה לקוח למחיקה</param>
+    /// <exception cref="Exception">אם המזהה לקוח לא קיים</exception>
     public void Delete(int id)
     {
         bool found = false;
-        for (int i = 0; i < DataSource.customers.Count; i++)
+        foreach (Customer? item in DataSource.customers)
         {
-            if (DataSource.customers[i] != null && DataSource.customers[i]!.id == id)
+            if (item != null && item.id == id)
             {
-                DataSource.customers.RemoveAt(i);
+                DataSource.customers.Remove(item);
                 found = true;
                 break;
 
             }
-        }
+         }
 
         if (!found)
 

@@ -7,17 +7,11 @@ internal class ProductImplementation : IProduct
     public int Create(Product item)
     {
         int newId = DataSource.Config.productNext;
-        for (int i = 0; i < DataSource.products.Count; i++)
-        {
-            if (DataSource.products[i] != null && DataSource.products[i]!.id == item.id)
-            {
-                throw new Exception("The product exists in the list");
-            }
-        }
+
         Product newProduct = item with { id = newId };
         DataSource.products.Add(newProduct);
         return newId;
-            
+
     }
 
     public Product? Read(int id)
@@ -32,7 +26,7 @@ internal class ProductImplementation : IProduct
 
     public List<Product?> ReadAll()
     {
-        return DataSource.products!;
+        return new List<Product?>(DataSource.products!);
     }
 
     public void Update(Product item)

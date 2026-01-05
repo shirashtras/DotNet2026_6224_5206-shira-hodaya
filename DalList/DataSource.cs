@@ -11,7 +11,7 @@ internal static class DataSource
 
     internal static class Config
     {
-        internal const int productId = 2000;
+        internal const int productId = 3000;
         private static int ProductId = productId;
         public static int productNext
         {
@@ -25,7 +25,7 @@ internal static class DataSource
             get { return SaleId++; }
         }
 
-        internal const int customerId = 3000;
+        internal const int customerId = 2000;
         private static int CustomerId = customerId;
         public static int customerNext
         {
