@@ -31,13 +31,13 @@ public static class Initialization
     }
     public static void CreateProducts()
     {
-        s_dal.Product.Create(new Product(11, "Water", Category.SoftDrinks, 7, 50));
-        s_dal.Product.Create(new Product(22, "Cola", Category.SoftDrinks, 6, 40));
-        s_dal.Product.Create(new Product(33, "Chocolate Cake", Category.Cakes, 20, 100));
-        s_dal.Product.Create(new Product(44, "Hot Coffee", Category.HotDrinks, 12, 50));
-        s_dal.Product.Create(new Product(55, "Hot Chocolate", Category.HotDrinks, 10, 500));
-        s_dal.Product.Create(new Product(66, "American IceCream", Category.IceCream, 6, 90));
-        s_dal.Product.Create(new Product(77, "Borax", Category.Pastries, 4, 80));
+        s_dal.Product.Create(new Product(0,"Water", Category.SoftDrinks, 7, 50));
+        s_dal.Product.Create(new Product(0, "Cola", Category.SoftDrinks, 6, 40));
+        s_dal.Product.Create(new Product(0, "Chocolate Cake", Category.Cakes, 20, 100));
+        s_dal.Product.Create(new Product(0, "Hot Coffee", Category.HotDrinks, 12, 50));
+        s_dal.Product.Create(new Product(0, "Hot Chocolate", Category.HotDrinks, 10, 500));
+        s_dal.Product.Create(new Product(0, "American IceCream", Category.IceCream, 6, 90));
+        s_dal.Product.Create(new Product(0, "Borax", Category.Pastries, 4, 80));
     }
 
 

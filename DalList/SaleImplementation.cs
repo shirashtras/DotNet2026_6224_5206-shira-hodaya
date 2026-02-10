@@ -11,7 +11,6 @@ internal class SaleImplementation : ISale
     /// <returns>מחזיר מזהה מבצע</returns>
     public int Create(Sale item)
     {
-
         DataSource.sales.Add(item);
         return item.id;
     }
@@ -23,43 +22,36 @@ internal class SaleImplementation : ISale
 
     public Sale? Read(int id)
     {
-        foreach (Sale? sl in DataSource.sales)
-        {
-            if (sl?.id == id)
-                return sl;
-        }
-        return null;
+        //אופציונלי לעשות select/where
+        Sale sale = DataSource.sales.FirstOrDefault(c => c.id == id);
+        if (sale == null)
+            throw new DalIdNotExists("saleId not exists");
+        return sale;
+    }
+    /// <summary>
+    /// פונקציה למציאת אובייקט על פי תנאי
+    /// וכאשר לא נמצא אובייקט תזרק שגיאה
+    /// </summary>
+    /// <param name="filter"></param>
+    /// <returns></returns> 
+    /// <exception cref="DalFilterNotExists"></exception>
+    public Sale? Read(Func<Sale, bool> filter)
+    {
+        var q = DataSource.sales.FirstOrDefault(s=>filter(s!));
+        if (q == null)
+            throw new DalFilterNotExists("filter not found");
+        return q;
     }
     /// <summary>
     /// פונקציה לקריאת כל פרטי המבצעים
     /// </summary>
     /// <returns>מחזיר העתק של רשימת המבצעים</returns>
-    public List<Sale?> ReadAll()
+    public List<Sale?> ReadAll(Func<Sale, bool>? filter)
     {
-        return new List<Sale?>(DataSource.sales!);
-    }
-    /// <summary>
-    /// פוקנצייה למחיקת מבצע
-    /// </summary>
-    /// <param name="id">מקבל מזהה מבצע למחיקה</param>
-    /// <exception cref="Exception">זורק שגיאה באם המזהה מבצע לא קיים</exception>
-    public void Delete(int id)
-    {
-        bool found = false;
-        foreach (Sale? sl in DataSource.sales!)
-        {
-            if (sl != null && sl!.id == id)
-            {
-                DataSource.sales.Remove(sl);
-                found = true;
-                break;
-
-            }
-        }
-        if (!found)
-
-            throw new Exception("The id sale isn't fount to delete");
-
+        if (filter == null)
+            return new List<Sale?>(DataSource.sales);
+        var q = DataSource.sales.Where(s => filter(s!));
+        return q.ToList();
     }
 
     /// <summary>
@@ -71,7 +63,18 @@ internal class SaleImplementation : ISale
         Delete(item.id);
         DataSource.sales!.Add(item);
     }
-
+    /// <summary>
+    /// פוקנצייה למחיקת מבצע
+    /// </summary>
+    /// <param name="id">מקבל מזהה מבצע למחיקה</param>
+    /// <exception cref="Exception">זורק שגיאה באם המזהה מבצע לא קיים</exception>
+    public void Delete(int id)
+    {
+        Sale s = DataSource.sales.FirstOrDefault(s => s.id == id);
+        if (s == null)
+            throw new DalIdNotExists("The saleId is not exist to delete");
+        DataSource.sales.Remove(s);
+    }
 
 
 }

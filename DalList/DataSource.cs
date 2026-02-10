@@ -25,12 +25,6 @@ internal static class DataSource
             get { return SaleId++; }
         }
 
-        internal const int customerId = 2000;
-        private static int CustomerId = customerId;
-        public static int customerNext
-        {
-            get { return CustomerId++; }
-        }
 
     }
 

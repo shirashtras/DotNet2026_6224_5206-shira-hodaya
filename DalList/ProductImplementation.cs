@@ -11,10 +11,8 @@ internal class ProductImplementation : IProduct
     /// <returns>מחזיר מזהה מוצר</returns>
     public int Create(Product item)
     {
-
         DataSource.products.Add(item);
         return item.id;
-
     }
 
     /// <summary>
@@ -24,21 +22,37 @@ internal class ProductImplementation : IProduct
     /// <returns>מחזיר את המוצר המבוקש, באם לא יוחזר null</returns>
     public Product? Read(int id)
     {
-        foreach (Product? pr in DataSource.products)
-        {
-            if (pr?.id == id)
-                return pr;
-        }
-        return null;
+        Product product = DataSource.products.FirstOrDefault(c => c.id == id);
+        if (product == null)
+            throw new DalIdNotExists("productId not exists");
+        return product;
+    }
+    /// <summary>
+    /// פונקציה למציאת אובייקט על פי תנאי
+    /// וכאשר לא נמצא אובייקט תזרק שגיאה
+    /// </summary>
+    /// <param name="filter"></param>
+    /// <returns></returns>
+    /// <exception cref="DalFilterNotExists"></exception>
+    public Product? Read(Func<Product, bool> filter)
+    {
+        var p = DataSource.products.FirstOrDefault(p=>filter(p!));
+        if ( p == null)
+            throw new DalFilterNotExists("filter not found");
+        return p;
     }
 
     /// <summary>
     /// פונקציה שמחזירה את רשימת המוצרים
     /// </summary>
     /// <returns>העתק רשימה ובה כל המוצרים</returns>
-    public List<Product?> ReadAll()
+    public List<Product?> ReadAll(Func<Product, bool>? filter)
     {
-        return new List<Product?>(DataSource.products!);
+        if (filter == null)
+            return new List<Product?>(DataSource.products);
+        var product = DataSource.products.Where(p=> filter(p!));
+        return product.ToList();
+
     }
     /// <summary>
     /// פונקציה לעדכון מוצר
@@ -56,20 +70,10 @@ internal class ProductImplementation : IProduct
     /// <exception cref="Exception">שגיאה באם מזהה לקוח לא קיים</exception>
     public void Delete(int id)
     {
-        bool found = false;
-        foreach (Product? pr in DataSource.products)
-        {
-            if (pr != null && pr!.id == id)
-            {
-                DataSource.products.Remove(pr);
-                found = true;
-                break;
-            }
-        }
-
-        if (!found)
-
-            throw new Exception("The product isn't found to delete");
+        Product p = DataSource.products.FirstOrDefault(p => p.id == id);
+        if (p == null)
+            throw new DalIdNotExists("The productId is not exist to delete");
+        DataSource.products.Remove(p);
 
     }
 }

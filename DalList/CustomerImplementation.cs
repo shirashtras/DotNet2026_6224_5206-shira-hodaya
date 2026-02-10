@@ -12,31 +12,53 @@ internal class CustomerImplementation : ICustomer
     /// <returns>מחזירה מספר מזהה של הלקוח החדש</returns>
     public int Create(Customer item)
     {
-       
-        DataSource.customers.Add(item);
-        return item.id;
+        var q = DataSource.customers.Any(c => c?.id == item.id);
+        if (q)
+            throw new DalIdExists("id customer is already exists");
+        else
+        {
+            DataSource.customers.Add(item);
+            return item.id;
+        }
     }
     /// <summary>
     /// פונקצייה לקריאת לקוח נוכחי על פי מזהה
     /// </summary>
     /// <param name="id">מקבל מזהה לקוח</param>
-    /// <returns>מחזיר לקוח, ואם לא נמצא יחזיר ערך null</returns>
+    /// <returns>מחזיר לקוח, ואם לא נמצא יזרוק שגיאה </returns>
     public Customer? Read(int id)
     {
-        foreach (Customer? customer in DataSource.customers)
-        {
-            if (customer != null && customer!.id == id)
-                return customer;
-        }
-        return null;
+        Customer customer = DataSource.customers.FirstOrDefault(c => c.id == id);
+        if (customer == null)
+            throw new DalIdNotExists("customer not exists");
+        return customer;
+
+    }
+    /// <summary>
+    /// פונקציה למציאת אובייקט על פי תנאי
+    /// וכאשר לא נמצא אובייקט תזרק שגיאה
+    /// </summary>
+    /// <param name="filter"></param>
+    /// <returns></returns>
+    /// <exception cref="DalFilterNotExists"></exception>
+    public Customer? Read(Func<Customer, bool> filter)
+    {
+        var q = DataSource.customers.FirstOrDefault(c=>filter(c!));
+        if (q == null)
+            throw new DalFilterNotExists("filter not found");
+        return q;
     }
     /// <summary>
     /// פונקציה שמחזירה את פרטי כל הלקוחות
     /// </summary>
     /// <returns>העתק של פרטי הלקוחות</returns>
-    public List<Customer?> ReadAll()
+    public List<Customer?> ReadAll(Func<Customer, bool>? filter)
     {
-        return new List<Customer?>(DataSource.customers!);
+        if (filter == null)
+            return new List<Customer?>(DataSource.customers);
+        var customer = DataSource.customers.Where(c => filter(c!));
+        return customer.ToList();
+
     }
 
     /// <summary>
@@ -55,24 +77,15 @@ internal class CustomerImplementation : ICustomer
     /// <exception cref="Exception">אם המזהה לקוח לא קיים</exception>
     public void Delete(int id)
     {
-        bool found = false;
-        foreach (Customer? item in DataSource.customers)
-        {
-            if (item != null && item.id == id)
-            {
-                DataSource.customers.Remove(item);
-                found = true;
-                break;
-
-            }
-         }
-
-        if (!found)
-
-            throw new Exception("The customer is not exist to delete");
+        Customer c = DataSource.customers.FirstOrDefault(c => c.id == id);
+        if (c == null)
+            throw new DalIdNotExists("The customerId is not exist to delete");
+        DataSource.customers.Remove(c);
 
     }
-}
-    
 
-  
+
+}
+
+
+
