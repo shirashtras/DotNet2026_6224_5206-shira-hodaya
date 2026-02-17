@@ -1,5 +1,7 @@
 ﻿using DO;
 using DalApi;
+using System.Reflection;
+using Tools;
 namespace DalList;
 
 internal class SaleImplementation : ISale
@@ -11,6 +13,9 @@ internal class SaleImplementation : ISale
     /// <returns>מחזיר מזהה מבצע</returns>
     public int Create(Sale item)
     {
+        LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+        , MethodBase.GetCurrentMethod().Name
+        , "create sale");
         DataSource.sales.Add(item);
         return item.id;
     }
@@ -25,7 +30,15 @@ internal class SaleImplementation : ISale
         //אופציונלי לעשות select/where
         Sale sale = DataSource.sales.FirstOrDefault(c => c.id == id);
         if (sale == null)
+        {
+            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+             , MethodBase.GetCurrentMethod().Name
+             , "cant Read sale because saleId not exists");
             throw new DalIdNotExists("saleId not exists");
+        }
+        LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+          , MethodBase.GetCurrentMethod().Name
+          , "Read sale");
         return sale;
     }
     /// <summary>
@@ -39,7 +52,16 @@ internal class SaleImplementation : ISale
     {
         var q = DataSource.sales.FirstOrDefault(s=>filter(s!));
         if (q == null)
+        {
+            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+            , MethodBase.GetCurrentMethod().Name
+            , "cant Read sale with this filter ");
             throw new DalFilterNotExists("filter not found");
+        }
+            
+        LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+          , MethodBase.GetCurrentMethod().Name
+          , "Read sale");
         return q;
     }
     /// <summary>
@@ -51,6 +73,9 @@ internal class SaleImplementation : ISale
         if (filter == null)
             return new List<Sale?>(DataSource.sales);
         var q = DataSource.sales.Where(s => filter(s!));
+        LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+            , MethodBase.GetCurrentMethod().Name
+            , "cant ReadAll sale because saleId not exists");
         return q.ToList();
     }
 

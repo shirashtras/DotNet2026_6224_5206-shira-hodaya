@@ -1,7 +1,8 @@
 ﻿using DO;
 using DalApi;
+using Tools;
+using System.Reflection;
 namespace DalList;
-
 
 internal class CustomerImplementation : ICustomer
 {
@@ -14,10 +15,18 @@ internal class CustomerImplementation : ICustomer
     {
         var q = DataSource.customers.Any(c => c?.id == item.id);
         if (q)
+        {
+            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+            , MethodBase.GetCurrentMethod().Name
+            , "create customer didnt succed because  id customer is already exists");
             throw new DalIdExists("id customer is already exists");
+        }
         else
         {
             DataSource.customers.Add(item);
+            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+                , MethodBase.GetCurrentMethod().Name
+                , "Create Cutomer");
             return item.id;
         }
     }
@@ -30,7 +39,16 @@ internal class CustomerImplementation : ICustomer
     {
         Customer customer = DataSource.customers.FirstOrDefault(c => c.id == id);
         if (customer == null)
+        {
+            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+            , MethodBase.GetCurrentMethod().Name
+            , "Read customer didnt succed because  id customer is already exists");
             throw new DalIdNotExists("customer not exists");
+        }
+
+        LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+                , MethodBase.GetCurrentMethod().Name
+                , "Read Cutomer");
         return customer;
 
     }
@@ -43,9 +61,18 @@ internal class CustomerImplementation : ICustomer
     /// <exception cref="DalFilterNotExists"></exception>
     public Customer? Read(Func<Customer, bool> filter)
     {
-        var q = DataSource.customers.FirstOrDefault(c=>filter(c!));
+        var q = DataSource.customers.FirstOrDefault(c => filter(c!));
         if (q == null)
+        {
+            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+             , MethodBase.GetCurrentMethod().Name
+             , "Read filter customer didnt succed because filter not found");
             throw new DalFilterNotExists("filter not found");
+        }
+
+        LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+                , MethodBase.GetCurrentMethod().Name
+                , "Read Filter Cutomer");
         return q;
     }
     /// <summary>
@@ -57,6 +84,9 @@ internal class CustomerImplementation : ICustomer
         if (filter == null)
             return new List<Customer?>(DataSource.customers);
         var customer = DataSource.customers.Where(c => filter(c!));
+        LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+                , MethodBase.GetCurrentMethod().Name
+                , "ReadAll Cutomer");
         return customer.ToList();
 
     }
@@ -69,6 +99,9 @@ internal class CustomerImplementation : ICustomer
     {
         Delete(item.id);
         DataSource.customers!.Add(item);
+        LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+        , MethodBase.GetCurrentMethod().Name
+        , "Update customer");
     }
     /// <summary>
     /// פונקציה למחיקת לקוח עפ"י מזהה
@@ -79,9 +112,17 @@ internal class CustomerImplementation : ICustomer
     {
         Customer c = DataSource.customers.FirstOrDefault(c => c.id == id);
         if (c == null)
+        {
+            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+            , MethodBase.GetCurrentMethod().Name
+            , "Delete customer didnt succed because The customerId is not exist to delete");
             throw new DalIdNotExists("The customerId is not exist to delete");
+        }
+          
         DataSource.customers.Remove(c);
-
+        LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+        , MethodBase.GetCurrentMethod().Name
+        , "Read customer");
     }
 
 
