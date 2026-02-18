@@ -1,6 +1,6 @@
 ﻿using DalApi;
 using DO;
-
+using Tools;
 namespace DalTest
 {
     internal class Program
@@ -27,7 +27,9 @@ namespace DalTest
                         case 3:
                             CustomerMenu();
                             break;
-
+                        case 4:
+                            LogManager.DeleteRecentFiles();
+                            break;
                     }
                 }
 
@@ -316,7 +318,7 @@ namespace DalTest
         public static int PrintMainMenu()
         {
             int choice;
-            Console.WriteLine("Main Menu: 1 - Product 2 - Sales 3 - Customers 0 - Exit");
+            Console.WriteLine("Main Menu: 1 - Product 2 - Sales 3 - Customers 4-Delete folders 0 - Exit");
             int.TryParse(Console.ReadLine(), out choice);
             return choice;
         }
