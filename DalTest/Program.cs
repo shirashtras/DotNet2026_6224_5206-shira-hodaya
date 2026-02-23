@@ -1,5 +1,6 @@
 ﻿using DalApi;
 using DO;
+using Tools;
 
 namespace DalTest
 {
@@ -27,7 +28,9 @@ namespace DalTest
                         case 3:
                             CustomerMenu();
                             break;
-
+                        case 4:
+                            LogManager.DeleteOldFolder();
+                            break;
                     }
                 }
 

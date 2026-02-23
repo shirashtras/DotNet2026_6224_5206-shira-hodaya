@@ -75,7 +75,7 @@ internal class SaleImplementation : ISale
         var q = DataSource.sales.Where(s => filter(s!));
         LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
             , MethodBase.GetCurrentMethod().Name
-            , "cant ReadAll sale because saleId not exists");
+            , "ReadAll sale");
         return q.ToList();
     }
 
@@ -87,6 +87,10 @@ internal class SaleImplementation : ISale
     {
         Delete(item.id);
         DataSource.sales!.Add(item);
+        LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+        , MethodBase.GetCurrentMethod().Name
+        , "Update sale ");
+
     }
     /// <summary>
     /// פוקנצייה למחיקת מבצע
@@ -97,8 +101,17 @@ internal class SaleImplementation : ISale
     {
         Sale s = DataSource.sales.FirstOrDefault(s => s.id == id);
         if (s == null)
+        {
+            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+        , MethodBase.GetCurrentMethod().Name
+        , " cant Delete sale because The saleId is not exist to delete");
             throw new DalIdNotExists("The saleId is not exist to delete");
-        DataSource.sales.Remove(s);
+        }
+        LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+        , MethodBase.GetCurrentMethod().Name
+        , "Delete sale");
+     DataSource.sales.Remove(s);
+
     }
 
 

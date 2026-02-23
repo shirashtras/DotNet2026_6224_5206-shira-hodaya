@@ -34,7 +34,7 @@ namespace Tools
             {
                 File.Create(file).Close();
             }
-            using (StreamWriter writeText = new StreamWriter(folder))
+            using (StreamWriter writeText = new StreamWriter(file))
             {
                 writeText.WriteLine($"{DateTime.Now}\t{projectName}.{funcName}:\t{message}");
             }
@@ -47,11 +47,11 @@ namespace Tools
 
             foreach (string dir in nameFolders)
             {
-                string[] dateFolder = dir.Split('/');
+                string[] dateFolder = dir.Split('\\');
                 if (dateFolder.Length > 2)
                     continue;
-                int year = (int.Parse(dateFolder[0]));
-                int month = (int.Parse(dateFolder[1]));
+                int year = (int.Parse(dateFolder[1]));
+                int month = (int.Parse(dateFolder[2]));
                 if (year == DateTime.Now.Year)
                 {
                     if (month + 2 < DateTime.Now.Month)
