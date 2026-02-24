@@ -4,6 +4,7 @@ using System.Reflection;
 using Tools;
 namespace DalList;
 
+
 internal class SaleImplementation : ISale
 {
     /// <summary>

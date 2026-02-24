@@ -1,17 +1,18 @@
 ﻿using DalApi;
 using DO;
 using Tools;
+using System.Reflection;
 
 namespace DalTest
 {
     internal class Program
     {
 
-         static IDal s_dal = new DalList.DalList();
+         static IDal s_dal = DalApi.Factory.Get;
         private static void Main(string[] args)
         {
 
-            Initialization.Initialize(s_dal);
+            Initialization.Initialize();
             int choice;
             try
             {
@@ -70,6 +71,7 @@ namespace DalTest
         private static void SaleMenu()
         {
             int choice;
+         
             do
             {
                 choice = PrintSubMenu("Sale");
