@@ -1,8 +1,11 @@
 ﻿using DalApi;
 using DO;
 using Tools;
+<<<<<<< HEAD
 using System.Reflection;
 
+=======
+>>>>>>> ac91d3ea0823dd79a5fcddffbd515040c0ea1c02
 namespace DalTest
 {
     internal class Program
@@ -30,7 +33,11 @@ namespace DalTest
                             CustomerMenu();
                             break;
                         case 4:
+<<<<<<< HEAD
                             LogManager.DeleteOldFolder();
+=======
+                            LogManager.DeleteRecentFiles();
+>>>>>>> ac91d3ea0823dd79a5fcddffbd515040c0ea1c02
                             break;
                     }
                 }
@@ -321,7 +328,7 @@ namespace DalTest
         public static int PrintMainMenu()
         {
             int choice;
-            Console.WriteLine("Main Menu: 1 - Product 2 - Sales 3 - Customers 0 - Exit");
+            Console.WriteLine("Main Menu: 1 - Product 2 - Sales 3 - Customers 4-Delete folders 0 - Exit");
             int.TryParse(Console.ReadLine(), out choice);
             return choice;
         }
