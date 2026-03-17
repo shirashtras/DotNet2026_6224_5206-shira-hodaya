@@ -1,17 +1,12 @@
 ﻿using DalApi;
 using DO;
 using Tools;
-<<<<<<< HEAD
-using System.Reflection;
-
-=======
->>>>>>> ac91d3ea0823dd79a5fcddffbd515040c0ea1c02
 namespace DalTest
 {
     internal class Program
     {
 
-         static IDal s_dal = DalApi.Factory.Get;
+        static IDal s_dal = DalApi.Factory.Get;
         private static void Main(string[] args)
         {
 
@@ -33,11 +28,7 @@ namespace DalTest
                             CustomerMenu();
                             break;
                         case 4:
-<<<<<<< HEAD
-                            LogManager.DeleteOldFolder();
-=======
-                            LogManager.DeleteRecentFiles();
->>>>>>> ac91d3ea0823dd79a5fcddffbd515040c0ea1c02
+                            LogManager.DeleteLastTwoMonthsFolders();
                             break;
                     }
                 }
@@ -78,7 +69,7 @@ namespace DalTest
         private static void SaleMenu()
         {
             int choice;
-         
+
             do
             {
                 choice = PrintSubMenu("Sale");
