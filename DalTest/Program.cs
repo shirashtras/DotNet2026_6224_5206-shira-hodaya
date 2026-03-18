@@ -1,12 +1,13 @@
 ﻿using DalApi;
 using DO;
 using Tools;
+
 namespace DalTest
 {
     internal class Program
     {
-
-        static IDal s_dal = DalApi.Factory.Get;
+      
+        static IDal s_dal =DalApi.Factory.Get;
         private static void Main(string[] args)
         {
             Initialization.Initialize();

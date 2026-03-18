@@ -34,7 +34,7 @@ internal static class DataSource
         }
 
   
-        public static int saleSaleId
+        public static int getSaleId
         {
             get
             {

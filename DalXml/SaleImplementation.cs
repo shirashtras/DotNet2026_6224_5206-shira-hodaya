@@ -1,14 +1,10 @@
 ﻿using DalApi;
 using DO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 using Tools;
+
+
 
 namespace Dal
 {
@@ -32,124 +28,132 @@ namespace Dal
             return saleXml;
         }
 
-        /// <summary>
-        /// פונקציה ליצירת מבצע
-        /// </summary>
-        /// <param name="item">מקבל ישות מבצע</param>
-        /// <returns>מחזיר מזהה מבצע</returns>
-        public int Create(Sale item)
+        public Sale? Read(Func<Sale, bool>? filter)
         {
             sales = LoadXElement();
-            int newId = Config.saleSaleId();
-            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
-            , MethodBase.GetCurrentMethod().Name
-            , "create sale");
-            sales.Add(item);
-            return item.id;
-        }
-        /// <summary>
-        /// פונקציה לקריאת מבצע על פי מזהה מבצע
-        /// </summary>
-        /// <param name="id">מקבל מזהה מבצע</param>
-        /// <returns>מחזיר את המבצע המבוקש</returns>
-
-        public Sale? Read(int id)
-        {
-            sales = LoadList();
-            Sale sale = sales.FirstOrDefault(s => s.id == id);
-            if (sale == null)
-            {
-                LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
-                 , MethodBase.GetCurrentMethod().Name
-                 , "cant Read sale because saleId not exists");
-                throw new DalIdNotExists("saleId not exists");
-            }
-            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
-              , MethodBase.GetCurrentMethod().Name
-              , "Read sale");
-            return sale;
-        }
-        /// <summary>
-        /// פונקציה למציאת אובייקט על פי תנאי
-        /// וכאשר לא נמצא אובייקט תזרק שגיאה
-        /// </summary>
-        /// <param name="filter"></param>
-        /// <returns></returns> 
-        /// <exception cref="DalFilterNotExists"></exception>
-        public Sale? Read(Func<Sale, bool> filter)
-        {
-            sales=LoadXElement();
+            LogManager.writeToLog("start read sale by filter", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
             var q = (from s in sales.Elements(SALE)
                      select new Sale()
                      {
                          id = (int)s.Element(ID),
-                         idSale = (int)s.Element(PRODUCTID),
-                         price = (double)s.Element(SALEPRICE),
-                         count = (int)s.Element(QUANTITYREQUIER),
-                         isSaleToAll = (bool)s.Element(ISSALETOCUSTOMER),
-                         startDate = (DateTime)s.Element(STARTSALE),
-                         endDate = (DateTime)s.Element(ENDSALE)
+                         idSale = (int)s.Element(IDSALE),
+                         price = (double)s.Element(PRICE),
+                         count = (int)s.Element(COUNT),
+                         isSaleToAll = (bool)s.Element(ISSALETOALL),
+                         startDate = (DateTime)s.Element(STARTDATE),
+                         endDate = (DateTime)s.Element(ENDDATE)
                      }).ToList();
-            if (q == null)
+            if (filter != null)
             {
-                LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
-                , MethodBase.GetCurrentMethod().Name
-                , "cant Read sale with this filter ");
-                throw new DalFilterNotExists("filter not found");
+                LogManager.writeToLog("finish read sale by filter", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+                return q.FirstOrDefault(s => filter(s));
             }
-
-            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
-              , MethodBase.GetCurrentMethod().Name
-              , "Read sale");
-            return q;
+            LogManager.writeToLog("לא נמצא מבצע שעונה על תנאי זה", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+            throw new DalFilterNotExists("לא נמצא מבצע שעונה על תנאי זה");
         }
-        /// <summary>
-        /// פונקציה לקריאת כל פרטי המבצעים
-        /// </summary>
-        /// <returns>מחזיר העתק של רשימת המבצעים</returns>
-        public List<Sale?> ReadAll(Func<Sale, bool>? filter)
+        public int Create(Sale item)
         {
-            if (filter == null)
-                return new List<Sale?>(sales);
-            var q = sales.Where(s => filter(s!));
-            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
-                , MethodBase.GetCurrentMethod().Name
-                , "ReadAll sale");
-            return q.ToList();
+            sales = LoadXElement();
+            LogManager.writeToLog("start to create sale", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+
+            int newId = Config.getSaleId;
+            Sale newSale = item with { id = newId };
+            sales.Add(new XElement
+                (SALE,
+                new XElement(ID, newSale.id),
+                new XElement(IDSALE, newSale.idSale),
+                new XElement(PRICE, newSale.price),
+                new XElement(COUNT, newSale.count),
+                new XElement(ISSALETOALL, newSale.isSaleToAll),
+                new XElement(STARTDATE, newSale.startDate),
+                new XElement(ENDDATE, newSale.endDate)));
+            sales.Save(path);
+            LogManager.writeToLog("finish to create sale", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+            return newSale.id;
         }
 
-        /// <summary>
-        /// פונקציה לעדכון מבצע על פי מזהה
-        /// </summary>
-        /// <param name="item">מקבל ישות מבצע</param>
-        public void Update(Sale item)
-        {
-            Delete(item.id);
-            sales!.Add(item);
-            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
-            , MethodBase.GetCurrentMethod().Name
-            , "Update sale ");
 
-        }
-        /// <summary>
-        /// פוקנצייה למחיקת מבצע
-        /// </summary>
-        /// <param name="id">מקבל מזהה מבצע למחיקה</param>
-        /// <exception cref="Exception">זורק שגיאה באם המזהה מבצע לא קיים</exception>
         public void Delete(int id)
         {
-            Sale s =sales.FirstOrDefault(s => s.id == id);
-            if (s == null)
+            sales = LoadXElement();
+            LogManager.writeToLog("start to delete sale by id", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+            var q = (from s in sales.Elements(SALE)
+                     where int.Parse(s.Element(ID).Value) == id
+                     select s).FirstOrDefault();
+            if (q != null)
             {
-                LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
-            , MethodBase.GetCurrentMethod().Name
-            , " cant Delete sale because The saleId is not exist to delete");
-                throw new DalIdNotExists("The saleId is not exist to delete");
+                LogManager.writeToLog("finish to delete sale by id", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+                q.Remove();
+                sales.Save(path);
             }
-            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
-            , MethodBase.GetCurrentMethod().Name
-            , "Delete sale");
-            sales.Remove(s);
+            else
+            {
+                LogManager.writeToLog("לא נמצא מבצע עם קוד זה", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+
+                throw new DalIdNotExists("לא נמצא מבצע עם קוד זה");
+            }
+        }
+
+        public Sale? Read(int id)
+        {
+            sales = LoadXElement();
+            LogManager.writeToLog("start to read sale by id", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+            var q = (from s in sales.Elements(SALE)
+                     where int.Parse(s.Element(ID).Value) == id
+                     select s).FirstOrDefault();
+            if (q != null)
+            {
+                LogManager.writeToLog("finish to read sale by id", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+                return new Sale()
+                {
+                    id = (int)q.Element(ID),
+                    idSale = (int)q.Element(IDSALE),
+                    price = (double)q.Element(PRICE),
+                    count = (int)q.Element(COUNT),
+                    isSaleToAll = (bool)q.Element(ISSALETOALL),
+                    startDate = (DateTime)q.Element(STARTDATE),
+                    endDate = (DateTime)q.Element(ENDDATE)
+                };
+            }
+            LogManager.writeToLog("לא נמצא מבצע עם קוד זה", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+
+            throw new DalIdNotExists("לא נמצא מבצע עם קוד זה");
+        }
+        public List<Sale?> ReadAll(Func<Sale, bool>? filter)
+        {
+            sales = LoadXElement();
+            LogManager.writeToLog("start to read all sale/by id", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+            var sa = (from s in sales.Elements(SALE)
+                      select new Sale()
+                      {
+                          id = (int)s.Element(ID),
+                          idSale = (int)s.Element(IDSALE),
+                          price = (double)s.Element(PRICE),
+                          count = (int)s.Element(COUNT),
+                          isSaleToAll = (bool)s.Element(ISSALETOALL),
+                          startDate = (DateTime)s.Element(STARTDATE),
+                          endDate = (DateTime)s.Element(ENDDATE)
+
+                      }).ToList();
+            if (filter == null)
+            {
+                LogManager.writeToLog("finish to read all sale", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+                return sa;
+            }
+            else
+            {
+                LogManager.writeToLog("finish to read sale by filter", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+                return sa.Where(s => filter(s)).ToList();
+            }
+        }
+
+        public void Update(Sale item)
+        {
+            LogManager.writeToLog("start to upadate sale", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
+
+            Delete(item.id);
+            Create(item);
+            LogManager.writeToLog("finish to update sale", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
 
         }
 
