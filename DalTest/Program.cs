@@ -9,7 +9,6 @@ namespace DalTest
         static IDal s_dal = DalApi.Factory.Get;
         private static void Main(string[] args)
         {
-
             Initialization.Initialize();
             int choice;
             try
