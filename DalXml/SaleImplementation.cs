@@ -20,7 +20,7 @@ namespace Dal
 
         const string SALE = "Sale";
         
-        const string path = @"..\xml\sales.xml";
+        const string path = @"..\sales.xml";
         XElement sales;
         private XElement LoadXElement()
         {
@@ -56,7 +56,7 @@ namespace Dal
             sales = LoadXElement();
             LogManager.writeToLog("start to create sale", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
 
-            int newId = Config.getSaleId;
+            int newId = Config.GetSaleId;
             Sale newSale = item with { id = newId };
             sales.Add(new XElement
                 (SALE,

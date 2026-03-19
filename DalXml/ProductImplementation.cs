@@ -12,7 +12,7 @@ namespace Dal
 {
     internal class ProductImplementation :IProduct
     {
-        const string path = @"..\xml\product.xml";
+        const string path = @"..\products.xml";
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Product>));
         List<Product>? products;
         private List<Product> LoadList()

@@ -8,17 +8,15 @@ using System.Threading.Tasks;
 
 namespace Dal
 {
-    internal sealed class DalXml:IDal
+    internal sealed class DalXml : IDal
     {
         public ICustomer Customer => new CustomerImplementation();
         public IProduct Product => new ProductImplementation();
         public ISale Sale => new SaleImplementation();
+        public static IDal Instance { get; } = new DalXml();
 
-        private DalXml()
-        {
-        }
-        private readonly DalXml instance = new DalXml();
+        private DalXml() { }
 
-        public DalXml Instance { get { return instance; } }
+       
     }
 }
