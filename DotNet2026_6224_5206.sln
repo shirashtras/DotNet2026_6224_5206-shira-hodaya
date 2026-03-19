@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xml", "xml", "{A74CC9BA-682
 		sales.xml = sales.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalXml", "DalXml\DalXml.csproj", "{CDC60576-9F93-452C-878C-6E93A6D99981}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DalXml", "DalXml\DalXml.csproj", "{CDC60576-9F93-452C-878C-6E93A6D99981}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
