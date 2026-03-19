@@ -8,6 +8,9 @@ namespace DalTest
     {
       
         static IDal s_dal =DalApi.Factory.Get;
+        static ICustomer dalCustomer = s_dal.Customer;
+        static IProduct dalProduct = s_dal.Product;
+        static ISale dalSale = s_dal.Sale;
         private static void Main(string[] args)
         {
             Initialization.Initialize();
