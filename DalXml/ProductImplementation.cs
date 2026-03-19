@@ -17,11 +17,13 @@ namespace Dal
         List<Product>? products;
         private List<Product> LoadList()
         {
+
             using (StreamReader sr = new StreamReader(path))
             {
                 products = xmlSerializer.Deserialize(sr) as List<Product>;
 
             }
+           
             return products;
         }
         private void SaveList(List<Product> list)
@@ -39,22 +41,22 @@ namespace Dal
         public int Create(Product item)
         {
             products = LoadList();
-            var q = products.Any(p =>p?.id == item.id);
-            if (q)
+            int newId = Config.GetProductId;
+            Product newItem = item with { id = newId };
+
+            if (products.Any(p => p.id == newItem.id))
             {
-                LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+                throw new DalIdExists("שגיאה בלתי צפויה: המזהה מהקונפיג כבר קיים במערכת");
+            }
+
+            products.Add(newItem);
+            SaveList(products);
+
+            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
                 , MethodBase.GetCurrentMethod().Name
-                , "create product didnt succed because  id product is already exists");
-                throw new DalIdExists("id product is already exists");
-            }
-            else
-            {
-                products.Add(item);
-                LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
-                    , MethodBase.GetCurrentMethod().Name
-                    , "Create Product");
-                return item.id;
-            }
+                , $"Created Product with ID: {newItem.id}");
+
+            return newItem.id;
         }
         /// <summary>
         /// פונקצייה לקריאת מוצר נוכחי על פי מזהה
@@ -127,13 +129,16 @@ namespace Dal
         /// <param name="item"> יישות מוצר עבור עדכון</param>
         public void Update(Product item)
         {
-            products = LoadList();
             Delete(item.id);
+            products = LoadList();
             products!.Add(item);
             LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
             , MethodBase.GetCurrentMethod().Name
             , "Update product");
+            SaveList(products);
+
         }
+     
         /// <summary>
         /// פונקציה למחיקת מוצר עפ"י מזהה
         /// </summary>
@@ -155,6 +160,7 @@ namespace Dal
             LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
             , MethodBase.GetCurrentMethod().Name
             , "Read product");
+            SaveList(products);
         }
 
     }

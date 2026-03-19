@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xml", "xml", "{A74CC9BA-682
 	ProjectSection(SolutionItems) = preProject
 		customers.xml = customers.xml
 		xml\dal-config.xml = xml\dal-config.xml
+		xml\data-config.xml = xml\data-config.xml
 		products.xml = products.xml
 		sales.xml = sales.xml
 	EndProjectSection

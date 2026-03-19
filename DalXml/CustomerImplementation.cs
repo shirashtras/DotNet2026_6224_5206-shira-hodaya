@@ -17,9 +17,11 @@ namespace Dal
         List<Customer>? customers;
         private List<Customer> LoadList()
         {
+            if (!File.Exists(path))
+                return new List<Customer>();
             using (StreamReader sr = new StreamReader(path))
             {
-                customers = xmlSerializer.Deserialize(sr) as List<Customer>;
+                customers = xmlSerializer.Deserialize(sr) as List<Customer>?? new List<Customer>(); 
 
             }
             return customers;
@@ -39,22 +41,22 @@ namespace Dal
         public int Create(Customer item)
         {
             customers = LoadList();
-            var q = customers.Any(c => c?.id == item.id);
-            if (q)
+            int newId = Config.GetProductId;
+            Customer newItem = item with { id = newId };
+
+            if (customers.Any(p => p.id == newItem.id))
             {
-                LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
+                throw new DalIdExists("שגיאה בלתי צפויה: המזהה מהקונפיג כבר קיים במערכת");
+            }
+
+            customers.Add(newItem);
+            SaveList(customers);
+
+            LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
                 , MethodBase.GetCurrentMethod().Name
-                , "create customer didnt succed because  id customer is already exists");
-                throw new DalIdExists("id customer is already exists");
-            }
-            else
-            {
-                customers.Add(item);
-                LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
-                    , MethodBase.GetCurrentMethod().Name
-                    , "Create Cutomer");
-                return item.id;
-            }
+                , $"Created Product with ID: {newItem.id}");
+
+            return newItem.id;
         }
         /// <summary>
         /// פונקצייה לקריאת לקוח נוכחי על פי מזהה
@@ -127,11 +129,16 @@ namespace Dal
         /// <param name="item"> יישות לקוח עבור עדכון</param>
         public void Update(Customer item)
         {
+            customers = LoadList();
             Delete(item.id);
+            customers = LoadList();
             customers!.Add(item);
+
             LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
             , MethodBase.GetCurrentMethod().Name
             , "Update customer");
+            SaveList(customers);
+            
         }
         /// <summary>
         /// פונקציה למחיקת לקוח עפ"י מזהה
@@ -140,6 +147,7 @@ namespace Dal
         /// <exception cref="Exception">אם המזהה לקוח לא קיים</exception>
         public void Delete(int id)
         {
+            customers = LoadList();
             Customer c = customers.FirstOrDefault(c => c.id == id);
             if (c == null)
             {
@@ -153,8 +161,8 @@ namespace Dal
             LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
             , MethodBase.GetCurrentMethod().Name
             , "Read customer");
+            SaveList(customers);
         }
-
 
 
     }
