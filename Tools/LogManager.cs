@@ -33,82 +33,14 @@ namespace Tools
             {
                 File.Create(file).Close();
             }
-<<<<<<< HEAD
-            using (StreamWriter writeText = new StreamWriter(file))
-=======
+
             using (StreamWriter writeText = new StreamWriter(file, true))
->>>>>>> ac91d3ea0823dd79a5fcddffbd515040c0ea1c02
+
             {
                 writeText.WriteLine($"{DateTime.Now}\t{projectName}.{funcName}:\t{message}");
             }
         }
-        //public static void DeleteOldFolder()
-        //{
-        //    if (!Directory.Exists(LogDirPath))
-        //        return;
-        //    string[] nameFolders = Directory.GetDirectories(LogDirPath);
 
-        //    foreach (string dir in nameFolders)
-        //    {
-
-        //        //string[] dateFolder = dir.Split(folderName);
-        //        //if (dateFolder.Length > 2)
-        //        //    continue;
-        //        //int year = (int.Parse(dateFolder[0]));
-        //        //int month = (int.Parse(dateFolder[1]));
-        //        //if (year == DateTime.Now.Year)
-        //        //{
-        //        //    if (month + 2 < DateTime.Now.Month)
-        //        //    {
-        //        //        Directory.Delete(dir, true);
-        //        //    }
-        //        //}
-        //        //else
-        //        //{
-        //        //    if (DateTime.Now.Month == 1)
-        //        //    {
-        //        //        if (month != 11 && month != 12)
-        //        //        {
-        //        //            Directory.Delete(dir, true);
-        //        //        }
-        //        //    }
-        //        //    if (DateTime.Now.Month == 2)
-        //        //    {
-        //        //        if (month != 12)
-        //        //        {
-        //        //            Directory.Delete(dir, true);
-        //        //        }
-        //        //    }
-        //        try
-        //        {
-        //            // Extract the folder name (e.g., "YYYY/MM")
-        //            string folderName = Path.GetFileName(dir);
-        //            if (string.IsNullOrEmpty(folderName))
-        //                continue;
-
-        //            // Split folder name into year and month
-        //            string[] dateParts = folderName.Split(Path.DirectorySeparatorChar);
-        //            if (dateParts.Length != 2 || !int.TryParse(dateParts[0], out int year) || !int.TryParse(dateParts[1], out int month))
-        //                continue;
-
-        //            // Calculate the folder's date
-        //            DateTime folderDate = new DateTime(year, month, 1);
-
-        //            // Calculate the threshold date (2 months ago)
-        //            DateTime thresholdDate = DateTime.Now.AddMonths(-2);
-
-        //            // Delete folder if it's older than the threshold date
-        //            if (folderDate < thresholdDate)
-        //            {
-        //                Directory.Delete(dir, true);
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Console.WriteLine($"Error deleting folder '{dir}': {ex.Message}");
-        //        }
-        //    }
-        //}
         public static void DeleteOldFolder()
         {
             if (!Directory.Exists(LogDirPath))
@@ -118,34 +50,21 @@ namespace Tools
 
             foreach (string dir in nameFolders)
             {
-<<<<<<< HEAD
-                string[] dateFolder = dir.Split('\\');
-                if (dateFolder.Length > 2)
-                    continue;
-                int year = (int.Parse(dateFolder[1]));
-                int month = (int.Parse(dateFolder[2]));
-                if (year == DateTime.Now.Year)
-=======
                 try
->>>>>>> ac91d3ea0823dd79a5fcddffbd515040c0ea1c02
                 {
-                    // Extract the folder name (e.g., "YYYY/MM")
                     string folderName = Path.GetFileName(dir);
                     if (string.IsNullOrEmpty(folderName))
                         continue;
 
-                    // Split folder name into year and month
-                    string[] dateParts = folderName.Split('-'); // Assuming folder names are in "YYYY-MM" format
+                   
+                    string[] dateParts = folderName.Split('/'); 
                     if (dateParts.Length != 2 || !int.TryParse(dateParts[0], out int year) || !int.TryParse(dateParts[1], out int month))
                         continue;
 
-                    // Calculate the folder's date
                     DateTime folderDate = new DateTime(year, month, 1);
 
-                    // Calculate the threshold date (2 months ago)
                     DateTime thresholdDate = DateTime.Now.AddMonths(-2);
 
-                    // Delete folder if it's older than the threshold date
                     if (folderDate < thresholdDate)
                     {
                         Directory.Delete(dir, true);
@@ -158,53 +77,5 @@ namespace Tools
                 }
             }
         }
-        public static void DeleteRecentFiles()
-        {
-            if (!Directory.Exists(LogDirPath))
-                return;
-
-            string[] directories = Directory.GetDirectories(LogDirPath);
-
-            foreach (string dir in directories)
-            {
-                try
-                {
-                    // Get all files in the directory
-                    string[] files = Directory.GetFiles(dir, "*.txt", SearchOption.AllDirectories);
-
-                    foreach (string file in files)
-                    {
-                        // Get the creation time of the file
-                        DateTime creationTime = File.GetCreationTime(file);
-
-                        // Calculate the threshold date (2 months ago)
-                        DateTime thresholdDate = DateTime.Now.AddMonths(-2);
-
-                        // Delete file if it was created within the last 2 months
-                        if (creationTime >= thresholdDate)
-                        {
-                            File.Delete(file);
-                            Console.WriteLine($"Deleted file: {file}");
-                        }
-                    }
-
-                    // After deleting files, check if the directory is empty and delete it
-                    if (Directory.GetFiles(dir).Length == 0 && Directory.GetDirectories(dir).Length == 0)
-                    {
-                        Directory.Delete(dir, true);
-                        Console.WriteLine($"Deleted empty directory: {dir}");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error processing directory '{dir}': {ex.Message}");
-                }
-            }
-        }
     }
-    }
-
-
-        
-
-
+}

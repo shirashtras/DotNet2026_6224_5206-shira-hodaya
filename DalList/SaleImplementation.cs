@@ -4,7 +4,6 @@ using System.Reflection;
 using Tools;
 namespace DalList;
 
-
 internal class SaleImplementation : ISale
 {
     /// <summary>
@@ -51,7 +50,7 @@ internal class SaleImplementation : ISale
     /// <exception cref="DalFilterNotExists"></exception>
     public Sale? Read(Func<Sale, bool> filter)
     {
-        var q = DataSource.sales.FirstOrDefault(s=>filter(s!));
+        var q = DataSource.sales.FirstOrDefault(s => filter(s!));
         if (q == null)
         {
             LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
@@ -59,7 +58,7 @@ internal class SaleImplementation : ISale
             , "cant Read sale with this filter ");
             throw new DalFilterNotExists("filter not found");
         }
-            
+
         LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
           , MethodBase.GetCurrentMethod().Name
           , "Read sale");
@@ -111,7 +110,7 @@ internal class SaleImplementation : ISale
         LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
         , MethodBase.GetCurrentMethod().Name
         , "Delete sale");
-     DataSource.sales.Remove(s);
+        DataSource.sales.Remove(s);
 
     }
 
