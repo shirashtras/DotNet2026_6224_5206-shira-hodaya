@@ -27,7 +27,6 @@ internal class SaleImplementation : ISale
 
     public Sale? Read(int id)
     {
-        //אופציונלי לעשות select/where
         Sale sale = DataSource.sales.FirstOrDefault(c => c.id == id);
         if (sale == null)
         {

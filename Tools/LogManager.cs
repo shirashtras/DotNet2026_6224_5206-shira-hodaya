@@ -35,21 +35,32 @@ namespace Tools
             }
 
             using (StreamWriter writeText = new StreamWriter(file, true))
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0f768fb0cac83c82a0547067e934e76c3ec5f9fe
             {
                 writeText.WriteLine($"{DateTime.Now}\t{projectName}.{funcName}:\t{message}");
             }
         }
 
+<<<<<<< HEAD
         public static void DeleteOldFolder()
+=======
+        public static void DeleteLastTwoMonthsFolders()
+>>>>>>> 0f768fb0cac83c82a0547067e934e76c3ec5f9fe
         {
             if (!Directory.Exists(LogDirPath))
                 return;
 
-            string[] nameFolders = Directory.GetDirectories(LogDirPath);
+            DateTime now = DateTime.Now;
 
-            foreach (string dir in nameFolders)
+            DateTime startOfCurrentMonth = new DateTime(now.Year, now.Month, 1);
+            DateTime startOfPreviousMonth = startOfCurrentMonth.AddMonths(-1);
+
+            foreach (var yearDir in Directory.GetDirectories(LogDirPath))
             {
+<<<<<<< HEAD
                 try
                 {
                     string folderName = Path.GetFileName(dir);
@@ -66,16 +77,71 @@ namespace Tools
                     DateTime thresholdDate = DateTime.Now.AddMonths(-2);
 
                     if (folderDate < thresholdDate)
+=======
+                string yearName = Path.GetFileName(yearDir);
+                if (!int.TryParse(yearName, out int year))
+                    continue;
+
+                foreach (var monthDir in Directory.GetDirectories(yearDir))
+                {
+                    string monthName = Path.GetFileName(monthDir);
+                    if (!int.TryParse(monthName, out int month))
+                        continue;
+
+                    DateTime folderDate;
+
+                    try
+>>>>>>> 0f768fb0cac83c82a0547067e934e76c3ec5f9fe
                     {
-                        Directory.Delete(dir, true);
-                        Console.WriteLine($"Deleted folder: {dir}");
+                        folderDate = new DateTime(year, month, 1);
                     }
+<<<<<<< HEAD
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error deleting folder '{dir}': {ex.Message}");
+=======
+                    catch
+                    {
+                        continue;
+                    }
+
+                
+                    if (folderDate >= startOfPreviousMonth)
+                    {
+                        try
+                        {
+                            Directory.Delete(monthDir, true);
+                            Console.WriteLine($"Deleted folder: {monthDir}");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error deleting {monthDir}: {ex.Message}");
+                        }
+                    }
+                }
+
+                if (!Directory.GetDirectories(yearDir).Any())
+                {
+                    try
+                    {
+                        Directory.Delete(yearDir);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error deleting year folder {yearDir}: {ex.Message}");
+                    }
+>>>>>>> 0f768fb0cac83c82a0547067e934e76c3ec5f9fe
                 }
             }
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> 0f768fb0cac83c82a0547067e934e76c3ec5f9fe

@@ -6,11 +6,14 @@ namespace DalTest
 {
     internal class Program
     {
+      
+        static IDal s_dal =DalApi.Factory.Get;
 
-         static IDal s_dal = DalApi.Factory.Get;
+        static ICustomer dalCustomer = s_dal.Customer;
+        static IProduct dalProduct = s_dal.Product;
+        static ISale dalSale = s_dal.Sale;
         private static void Main(string[] args)
         {
-
             Initialization.Initialize();
             int choice;
             try
@@ -29,8 +32,12 @@ namespace DalTest
                             CustomerMenu();
                             break;
                         case 4:
+<<<<<<< HEAD
                             LogManager.DeleteOldFolder();
 
+=======
+                            LogManager.DeleteLastTwoMonthsFolders();
+>>>>>>> 0f768fb0cac83c82a0547067e934e76c3ec5f9fe
                             break;
                     }
                 }
@@ -71,7 +78,7 @@ namespace DalTest
         private static void SaleMenu()
         {
             int choice;
-         
+
             do
             {
                 choice = PrintSubMenu("Sale");

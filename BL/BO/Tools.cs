@@ -1,11 +1,12 @@
-﻿using System;
+﻿using DO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.BO
+namespace BO
 {
     internal static class Tools
     {
@@ -21,5 +22,62 @@ namespace BL.BO
             }
             return str;
         }
+        public static DO.Customer ConvertBoCustomerToDoCustomer(this BO.Customer customer)
+        {
+            return new DO.Customer(customer.Customer_Id, customer.Customer_Name, customer.Customer_Phone, customer.Customer_Address);
+        }
+        public static BO.Customer ConvertDoCustomerToBoCustomer(this DO.Customer customer)
+        {
+            return new BO.Customer()
+            {
+                Customer_Id = customer.id,
+                Customer_Name = customer.nameCustomer,
+                Customer_Address = customer.adress,
+                Customer_Phone = customer.phoneNumber
+            };
+        }
+      
+
+        public static DO.Product ConvertBoProductToDoProduct(this BO.Product product)
+        {
+            return new DO.Product(product.Product_Id, product.Product_Name, product.Price, product.Count, (DO.categoryProduct)product.category);
+        }
+
+        public static BO.Product ConvertDoProductToBoProduct(this DO.Product product)
+        {
+            try
+            {
+                if (product == null)
+                    return null;
+                return new BO.Product() { Product_Id = product.id, Product_Name = product.name, Price = (double)product.price, Count = (int)product.count, category = (Category)product.category };
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+
+        }
+
+        public static DO.Sale ConvertBoSaleToDoSale(this BO.Sale sale)
+        {
+            return new DO.Sale(sale.SaleId, sale.ProductId, sale.Price_Sale, sale.If_All_Customers, sale.Date_Start_Sale, sale.Count_Sale, sale.Date_End_Sale);
+        }
+
+        public static BO.Sale ConvertDoSaleToBoSale(this DO.Sale sale)
+        {
+            return new BO.Sale()
+            {
+                SaleId = sale.SaleId,
+                ProductId = sale.ProductId,
+                Price_Sale = sale.Price_Sale,
+                If_All_Customers = sale.If_All_Customers,
+                Date_Start_Sale = sale.Date_Start_Sale,
+                Count_Sale = sale.Count_Sale,
+                Date_End_Sale = sale.Date_End_Sale,
+            };
+
+        }
+
     }
 }

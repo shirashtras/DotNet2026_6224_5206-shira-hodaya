@@ -17,6 +17,7 @@ public static class Initialization
         s_dal.Customer.Create(new Customer(5, "CustomerE", "Elad", "0531248796"));
         s_dal.Customer.Create(new Customer(6, "CustomerF", "Petah Tikva", "0542314594"));
         s_dal.Customer.Create(new Customer(7, "CustomerG", "Ashkelon", "0586352149"));
+       
     }
     public static void CreateSales()
     {

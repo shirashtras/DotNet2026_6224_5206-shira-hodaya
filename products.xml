@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Product>
+    <id>0</id>
+    <name>Water</name>
+    <category>SoftDrinks</category>
+    <price>7</price>
+    <count>50</count>
+  </Product>
+  <Product>
+    <id>1008</id>
+    <name>Water</name>
+    <category>SoftDrinks</category>
+    <price>7</price>
+    <count>50</count>
+  </Product>
+  <Product>
+    <id>1009</id>
+    <name>Cola</name>
+    <category>SoftDrinks</category>
+    <price>6</price>
+    <count>40</count>
+  </Product>
+  <Product>
+    <id>1010</id>
+    <name>Chocolate Cake</name>
+    <category>Cakes</category>
+    <price>20</price>
+    <count>100</count>
+  </Product>
+  <Product>
+    <id>1011</id>
+    <name>Hot Coffee</name>
+    <category>HotDrinks</category>
+    <price>12</price>
+    <count>50</count>
+  </Product>
+  <Product>
+    <id>1012</id>
+    <name>Hot Chocolate</name>
+    <category>HotDrinks</category>
+    <price>10</price>
+    <count>500</count>
+  </Product>
+  <Product>
+    <id>1013</id>
+    <name>American IceCream</name>
+    <category>IceCream</category>
+    <price>6</price>
+    <count>90</count>
+  </Product>
+  <Product>
+    <id>1014</id>
+    <name>Borax</name>
+    <category>Pastries</category>
+    <price>4</price>
+    <count>80</count>
+  </Product>
+  <Product>
+    <id>1015</id>
+    <name>ncxmz</name>
+    <category>HotDrinks</category>
+    <price>20</price>
+    <count>50</count>
+  </Product>
+  <Product>
+    <id>1023</id>
+    <name>Water</name>
+    <category>SoftDrinks</category>
+    <price>7</price>
+    <count>50</count>
+  </Product>
+  <Product>
+    <id>1024</id>
+    <name>Cola</name>
+    <category>SoftDrinks</category>
+    <price>6</price>
+    <count>40</count>
+  </Product>
+  <Product>
+    <id>1025</id>
+    <name>Chocolate Cake</name>
+    <category>Cakes</category>
+    <price>20</price>
+    <count>100</count>
+  </Product>
+  <Product>
+    <id>1026</id>
+    <name>Hot Coffee</name>
+    <category>HotDrinks</category>
+    <price>12</price>
+    <count>50</count>
+  </Product>
+  <Product>
+    <id>1027</id>
+    <name>Hot Chocolate</name>
+    <category>HotDrinks</category>
+    <price>10</price>
+    <count>500</count>
+  </Product>
+  <Product>
+    <id>1028</id>
+    <name>American IceCream</name>
+    <category>IceCream</category>
+    <price>6</price>
+    <count>90</count>
+  </Product>
+  <Product>
+    <id>1029</id>
+    <name>Borax</name>
+    <category>Pastries</category>
+    <price>4</price>
+    <count>80</count>
+  </Product>
+</ArrayOfProduct>
