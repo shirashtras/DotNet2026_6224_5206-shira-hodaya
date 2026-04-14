@@ -37,6 +37,9 @@ namespace BO
 
         }
 
+        public Sale()
+        {
+        }
     }
 }
 

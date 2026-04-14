@@ -12,10 +12,10 @@ namespace DO {
     public record Product
     (
         int id,
-        string? name,
+        string  name,
         Category category,
-        double? price,
-        int? count
+        double price,
+        int count
     )
     {
         /// <summary>

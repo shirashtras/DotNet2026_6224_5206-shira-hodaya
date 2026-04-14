@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace BO;
 
-namespace BL.BO
+[Serializable]
+public class BlIdNotExistsException : Exception
 {
-    internal class Exceptions
-    {
-    }
+    public BlIdNotExistsException(string massage) : base(massage) { }
+    public BlIdNotExistsException(string massage, Exception innerException) : base(massage, innerException) { }
+}
+[Serializable]
+public class BlIdExistsException : Exception
+{
+    public BlIdExistsException(string massage) : base(massage) { }
+    public BlIdExistsException(string massage, Exception innerException) : base(massage, innerException) { }
 }

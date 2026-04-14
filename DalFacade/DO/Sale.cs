@@ -16,9 +16,9 @@ namespace DO
     (
         int id,
         int idSale,
-        int? count,
-        double? price,
-        bool? isSaleToAll,
+        int count,
+        double price,
+        bool isSaleToAll,
         DateTime? startDate,
         DateTime? endDate
     )

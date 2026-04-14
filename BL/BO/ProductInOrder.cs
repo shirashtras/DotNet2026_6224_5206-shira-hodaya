@@ -13,11 +13,12 @@ namespace BO
         public string nameProductInOrder { get; set; }
         public double basePriceProductInOrder { get; set; }
         public int amountProductInOrder { get; set; }
-        private List<SaleInProduct> listSaleToProductInOrder { get; set; }
+        public List<SaleInProduct> listSaleToProductInOrder { get; set; }
         public double finalPriceProductInOrder { get; set; }
         public ProductInOrder()
         {
-                listSaleToProductInOrder = new List<SaleInProduct>();
+            listSaleToProductInOrder = new List<SaleInProduct>();
         }
+
     }
 }

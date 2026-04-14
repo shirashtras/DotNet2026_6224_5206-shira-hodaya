@@ -1,12 +1,115 @@
-﻿using System;
+﻿using BO;
+using DalApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.BlImplementation
+namespace BlImplementation
 {
     internal class ProductImplementation
+       
     {
+        public ProductImplementation()
+        {
+            
+        }
+        private DalApi.IDal _dal = DalApi.Factory.Get;
+
+        public int Create(BO.Product item)
+        {
+            try
+            {
+                Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Create {item} Product");
+                return _dal.Product.Create(item.ConvertBoProductToDoProduct());
+                Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $" {item} was added");
+            }
+            catch (Exception e)
+            {
+                Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Create {item} Product   Exception: {e.Message}");
+                throw new BlIdExistsException("The product is  Exist!");
+            }
+
+
+        }
+
+        public void Delete(int id)
+        {
+            try
+            {
+                Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Delete {id} Product");
+                _dal.Product.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Delete {id} Product  Exception: {ex.Message}");
+                throw new BlIdNotExistsException("The product is not  Exist!");
+            }
+        }
+
+        public BO.Product? Read(int id)
+        {
+            try
+            {
+                Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Read {id} Product");
+                return _dal.Product.Read(id).ConvertDoProductToBoProduct();
+            }
+            catch
+            {
+                Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Read {id} Product  null");
+                throw new BlIdNotExistsException("The product is not Exist!");
+            }
+        }
+
+        public BO.Product? Read(Func<BO.Product, bool> filter)
+        {
+            try
+            {
+                Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Read Product");
+                return _dal.Product.Read(s => filter(s.ConvertDoProductToBoProduct())).ConvertDoProductToBoProduct();
+            }
+            catch
+            {
+                Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Read Product  null");
+                throw new BlIdNotExistsException("The product is not Exist!");
+            }
+
+        }
+
+        public List<BO.Product?> ReadAll(Func<BO.Product, bool>? filter = null)
+        {
+            try
+            {
+                if (filter == null)
+                {
+                    Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"ReadAll Product");
+                    return _dal.Product.ReadAll().Select(s => s.ConvertDoProductToBoProduct()).ToList();
+                }
+                return _dal.Product.ReadAll(s => filter(s.ConvertDoProductToBoProduct())).Select(s => s.ConvertDoProductToBoProduct()).ToList();
+            }
+            catch
+            {
+                throw new BlIdNotExistsException("The products are not  Exist!");
+            }
+
+
+        }
+
+        public void Update(BO.Product item)
+        {
+            try
+            {
+                Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Update {item} Product");
+                _dal.Product.Update(item.ConvertBoProductToDoProduct());
+            }
+            catch (Exception ex)
+            {
+                Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Update {item} Product  Exeption: {ex.Message}");
+                throw new BlIdNotExistsException("The product is not Exist!");
+            }
+        }
     }
 }
+

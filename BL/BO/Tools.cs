@@ -40,7 +40,7 @@ namespace BO
 
         public static DO.Product ConvertBoProductToDoProduct(this BO.Product product)
         {
-            return new DO.Product(product.Product_Id, product.Product_Name, product.Price, product.Count, (DO.categoryProduct)product.category);
+            return new DO.Product(product.Product_Id, product.Product_Name, (Category)product.category, product.Price, product.Count);
         }
 
         public static BO.Product ConvertDoProductToBoProduct(this DO.Product product)
@@ -49,7 +49,12 @@ namespace BO
             {
                 if (product == null)
                     return null;
-                return new BO.Product() { Product_Id = product.id, Product_Name = product.name, Price = (double)product.price, Count = (int)product.count, category = (Category)product.category };
+                return new BO.Product() { 
+                    Product_Id = product.id,
+                    Product_Name = product.name,
+                    Price = (double)product.price,
+                    Count = (int)product.count, 
+                    category = (Category)product.category };
             }
             catch (Exception ex)
             {
@@ -61,21 +66,22 @@ namespace BO
 
         public static DO.Sale ConvertBoSaleToDoSale(this BO.Sale sale)
         {
-            return new DO.Sale(sale.SaleId, sale.ProductId, sale.Price_Sale, sale.If_All_Customers, sale.Date_Start_Sale, sale.Count_Sale, sale.Date_End_Sale);
+            return new DO.Sale(sale.SaleId, sale.ProductId, sale.Count_Sale, sale.Price_Sale, sale.If_All_Customers, sale.Date_Start_Sale, sale.Date_End_Sale);
         }
 
         public static BO.Sale ConvertDoSaleToBoSale(this DO.Sale sale)
         {
             return new BO.Sale()
             {
-                SaleId = sale.SaleId,
-                ProductId = sale.ProductId,
-                Price_Sale = sale.Price_Sale,
-                If_All_Customers = sale.If_All_Customers,
-                Date_Start_Sale = sale.Date_Start_Sale,
-                Count_Sale = sale.Count_Sale,
-                Date_End_Sale = sale.Date_End_Sale,
+                SaleId = sale.id,
+                ProductId = sale.idSale,
+                Price_Sale = (double)sale.price,
+                If_All_Customers = (bool)sale.isSaleToAll,
+                Date_Start_Sale = (DateTime)sale.startDate,
+                Count_Sale = (int)sale.count,
+                Date_End_Sale = sale.endDate,
             };
+          
 
         }
 
