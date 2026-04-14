@@ -1,4 +1,5 @@
-﻿using BL.BO;
+﻿using BIApi;
+using BL.BO;
 using BO;
 using DO;
 using System;
@@ -10,8 +11,8 @@ using System.Threading.Tasks;
 
 namespace BlImplementation
 {
-    internal class OrderImplementation
-        
+    public class OrderImplementation:IOrder
+
     {
         public OrderImplementation()
         {
@@ -103,7 +104,7 @@ namespace BlImplementation
                 var product = _dal.Product.Read(item.idProductInOrder);
                 if (product.count < item.amountProductInOrder)
                     throw new Exception("אין מספיק במלאי");
-                var updatedProduct = product with{ count = product.count - item.amountProductInOrder};
+                var updatedProduct = product with { count = product.count - item.amountProductInOrder };
                 _dal.Product.Update(product);
 
             }

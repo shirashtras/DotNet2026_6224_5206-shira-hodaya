@@ -33,11 +33,6 @@ internal static class DataSource
             }
         }
 
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 0f768fb0cac83c82a0547067e934e76c3ec5f9fe
         public static int getSaleId
         {
             get
@@ -45,11 +40,8 @@ internal static class DataSource
                 SaleId++;
                 dataConfigXml.Element(SALEID).SetValue(SaleId.ToString());
                 dataConfigXml.Save(path);
-<<<<<<< HEAD
                 return SaleId;
-=======
-                return SaleId;  
->>>>>>> 0f768fb0cac83c82a0547067e934e76c3ec5f9fe
+
             }
         }
 

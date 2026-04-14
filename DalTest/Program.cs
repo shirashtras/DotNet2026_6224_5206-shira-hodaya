@@ -32,12 +32,7 @@ namespace DalTest
                             CustomerMenu();
                             break;
                         case 4:
-<<<<<<< HEAD
                             LogManager.DeleteOldFolder();
-
-=======
-                            LogManager.DeleteLastTwoMonthsFolders();
->>>>>>> 0f768fb0cac83c82a0547067e934e76c3ec5f9fe
                             break;
                     }
                 }

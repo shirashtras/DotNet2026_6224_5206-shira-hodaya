@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BIApi
 {
-    internal interface IOrder
+    public interface IOrder
     {
         List<SaleInProduct> AddProductToOrder(Order order, int productId, int countOrder);
 

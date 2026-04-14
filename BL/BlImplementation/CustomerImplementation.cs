@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace BlImplementation
 {
-    public class CustomerImplementation
+    internal class CustomerImplementation : BIApi.ICustomer
     {
 
         public CustomerImplementation()
         {
-            
+
         }
         private DalApi.IDal _dal = DalApi.Factory.Get;
         public int Create(BO.Customer item)

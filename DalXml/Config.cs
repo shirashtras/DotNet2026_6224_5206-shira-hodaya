@@ -1,11 +1,14 @@
 ﻿using System.Xml.Linq;
-
+using System.IO;
 internal static class Config
 {
-    const string path = @"..\xml\data-config.xml";
+
+
+    static readonly string path =
+        Path.Combine(AppContext.BaseDirectory, "xml", "data-config.xml");
 
     const string PRODUCTID = "ProductNum";
-    const string IDSALE = "idSale"; 
+    const string IDSALE = "idSale";
 
     static XElement dataConfigXml = XElement.Load(path);
 

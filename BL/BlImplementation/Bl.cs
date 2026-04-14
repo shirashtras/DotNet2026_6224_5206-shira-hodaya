@@ -13,6 +13,7 @@ namespace BlImplementation
         public IProduct iProduct => new ProductImplementation();
         public ICustomer iCustomer => new CustomerImplementation();
         public ISale iSale => new SaleImplementation();
+        public IOrder iOrder=> new OrderImplementation();
 
     }
 }

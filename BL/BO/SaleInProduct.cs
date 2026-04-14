@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BL.BO
 {
-    internal class SaleInProduct
+    public class SaleInProduct
     {
         public int idSaleInProduct { get; set; }
         public int amountSaleInProduct { get; set; }

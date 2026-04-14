@@ -1,4 +1,5 @@
-﻿using BO;
+﻿using BIApi;
+using BO;
 using DO;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using Tools;
 
 namespace BlImplementation
 {
-    internal class SaleImplementation
+    internal class SaleImplementation:ISale
     {
         public SaleImplementation()
         {

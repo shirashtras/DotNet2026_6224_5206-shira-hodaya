@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BIApi
 {
-    internal interface ISale
+    public interface ISale
     {
         /// <summary>
         /// פונקציה ליצירת אוביקט
