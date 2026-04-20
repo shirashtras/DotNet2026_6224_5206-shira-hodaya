@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,14 +15,14 @@ namespace UI
     public partial class ManagerController : Form
     {
 
+        public enum Types { PRODUCT, SALE, CUSTOMER }
 
-        public ManagerController()
+        private Types type;
+        public ManagerController(Types t)
         {
-
             InitializeComponent();
+            type = t;
 
-            //this.BackgroundImage = Image.FromFile("third-background.jpg");
-            //BackgroundImageLayout = ImageLayout.Stretch;
             switch (type)
             {
                 case Types.PRODUCT:
@@ -34,8 +35,6 @@ namespace UI
                     dataGridView1.DataSource = Factory.Get().iCustomer.ReadAll();
                     break;
             }
-
-
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -66,9 +65,7 @@ namespace UI
         {
 
         }
-        public enum Types { PRODUCT, SALE, CUSTOMER }
 
-        private Types type;
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e, Types type)
         {
@@ -100,5 +97,39 @@ namespace UI
         {
 
         }
+        private void ShowButton1_Click(object sender, EventArgs e)
+        {
+            //    if (!int.TryParse(textBox1.Text, out int id))
+            //    {
+            //        MessageBox.Show("ID must be a number");
+            //        return;
+            //    }
+
+            //    object result = null;
+
+            //    switch (type)
+            //    {
+            //        case Types.PRODUCT:
+            //            result = Factory.Get().iProduct.Read(id);
+            //            break;
+
+            //        case Types.CUSTOMER:
+            //            result = Factory.Get().iCustomer.Read(id);
+            //            break;
+
+            //        case Types.SALE:
+            //            result = Factory.Get().iSale.Read(id);
+            //            break;
+            //    }
+
+            //    if (result == null)
+            //    {
+            //        MessageBox.Show("Not found");
+            //        return;
+            //    }
+
+            //    DisplayObject(result);
+            //}
+        }
     }
-} 
+}

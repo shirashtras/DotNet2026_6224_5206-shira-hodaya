@@ -80,7 +80,7 @@ namespace UI
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ManagerController managerController = new ManagerController();
+            ManagerController managerController = new ManagerController(ManagerController.Types.SALE);
             managerController.FormClosed += (s, args) => this.Show();
             managerController.Show();
         }
@@ -88,7 +88,7 @@ namespace UI
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ManagerController managerController = new ManagerController();
+            ManagerController managerController = new ManagerController(ManagerController.Types.PRODUCT);
             managerController.FormClosed += (s, args) => this.Show();
             managerController.Show();
         }
@@ -96,7 +96,7 @@ namespace UI
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            ManagerController managerController = new ManagerController();
+            ManagerController managerController = new ManagerController(ManagerController.Types.CUSTOMER);
             managerController.FormClosed += (s, args) => this.Show();
             managerController.Show();
         }
