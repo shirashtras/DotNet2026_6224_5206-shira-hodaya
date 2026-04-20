@@ -36,6 +36,8 @@ namespace UI
         {
             ViewAllTabControl1 = new TabControl();
             ViewOneTabPage1 = new TabPage();
+            labelDetails = new Label();
+            ShowButton1 = new Button();
             textBox1 = new TextBox();
             IdLabel1 = new Label();
             ViewAllTabPage2 = new TabPage();
@@ -43,7 +45,9 @@ namespace UI
             CreateTabPage3 = new TabPage();
             DeleteTabPage1 = new TabPage();
             UpdateTabPage1 = new TabPage();
-            ShowButton1 = new Button();
+            OrderByPriceSaleBtn = new Button();
+            OrderByCityBtn = new Button();
+            OrderByPriceBtn = new Button();
             ViewAllTabControl1.SuspendLayout();
             ViewOneTabPage1.SuspendLayout();
             ViewAllTabPage2.SuspendLayout();
@@ -66,6 +70,7 @@ namespace UI
             // 
             // ViewOneTabPage1
             // 
+            ViewOneTabPage1.Controls.Add(labelDetails);
             ViewOneTabPage1.Controls.Add(ShowButton1);
             ViewOneTabPage1.Controls.Add(textBox1);
             ViewOneTabPage1.Controls.Add(IdLabel1);
@@ -78,6 +83,25 @@ namespace UI
             ViewOneTabPage1.Text = "View One";
             ViewOneTabPage1.UseVisualStyleBackColor = true;
             ViewOneTabPage1.Click += ViewOneTabPage1_Click;
+            // 
+            // labelDetails
+            // 
+            labelDetails.AutoSize = true;
+            labelDetails.Location = new Point(313, 276);
+            labelDetails.Name = "labelDetails";
+            labelDetails.Size = new Size(0, 20);
+            labelDetails.TabIndex = 3;
+            labelDetails.Click += label1_Click;
+            // 
+            // ShowButton1
+            // 
+            ShowButton1.Location = new Point(313, 170);
+            ShowButton1.Name = "ShowButton1";
+            ShowButton1.Size = new Size(94, 29);
+            ShowButton1.TabIndex = 2;
+            ShowButton1.Text = "Show";
+            ShowButton1.UseVisualStyleBackColor = true;
+            ShowButton1.Click += ShowButton1_Click;
             // 
             // textBox1
             // 
@@ -118,7 +142,7 @@ namespace UI
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(786, 504);
             dataGridView1.TabIndex = 0;
-            //dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
             // CreateTabPage3
             // 
@@ -156,22 +180,45 @@ namespace UI
             UpdateTabPage1.Text = "Update";
             UpdateTabPage1.UseVisualStyleBackColor = true;
             // 
-            // ShowButton1
+            // OrderByPriceSaleBtn
             // 
-            ShowButton1.Location = new Point(313, 170);
-            ShowButton1.Name = "ShowButton1";
-            ShowButton1.Size = new Size(94, 29);
-            ShowButton1.TabIndex = 2;
-            ShowButton1.Text = "Show";
-            ShowButton1.UseVisualStyleBackColor = true;
-            ShowButton1.Click += ShowButton1_Click;
+            OrderByPriceSaleBtn.Location = new Point(810, 375);
+            OrderByPriceSaleBtn.Name = "OrderByPriceSaleBtn";
+            OrderByPriceSaleBtn.Size = new Size(107, 123);
+            OrderByPriceSaleBtn.TabIndex = 7;
+            OrderByPriceSaleBtn.Text = "מיין לפי מחיר מבצע מהגדול לקטן";
+            OrderByPriceSaleBtn.UseVisualStyleBackColor = true;
+            OrderByPriceSaleBtn.Click += OrderByPriceSaleBtn_Click;
+            // 
+            // OrderByCityBtn
+            // 
+            OrderByCityBtn.Location = new Point(817, 61);
+            OrderByCityBtn.Name = "OrderByCityBtn";
+            OrderByCityBtn.Size = new Size(85, 103);
+            OrderByCityBtn.TabIndex = 7;
+            OrderByCityBtn.Text = "מיין עפ\"י ערים";
+            OrderByCityBtn.UseVisualStyleBackColor = true;
+            OrderByCityBtn.Click += OrderByCityBtn_Click;
+            // 
+            // OrderByPriceBtn
+            // 
+            OrderByPriceBtn.Location = new Point(817, 189);
+            OrderByPriceBtn.Name = "OrderByPriceBtn";
+            OrderByPriceBtn.Size = new Size(75, 158);
+            OrderByPriceBtn.TabIndex = 8;
+            OrderByPriceBtn.Text = "מיין לפי מחיר  מוצר מהקטן לגדול";
+            OrderByPriceBtn.UseVisualStyleBackColor = true;
+            OrderByPriceBtn.Click += OrderByPriceBtn_Click;
             // 
             // ManagerController
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 600);
+            Controls.Add(OrderByPriceSaleBtn);
             Controls.Add(ViewAllTabControl1);
+            Controls.Add(OrderByCityBtn);
+            Controls.Add(OrderByPriceBtn);
             Margin = new Padding(3, 4, 3, 4);
             Name = "ManagerController";
             Text = "ManagerController";
@@ -186,7 +233,7 @@ namespace UI
 
         //private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         //{
-           
+
         //}
 
         #endregion
@@ -200,5 +247,9 @@ namespace UI
         private TextBox textBox1;
         private Label IdLabel1;
         private Button ShowButton1;
+        private Label labelDetails;
+        private Button OrderByCityBtn;
+        private Button OrderByPriceSaleBtn;
+        private Button OrderByPriceBtn;
     }
 }
