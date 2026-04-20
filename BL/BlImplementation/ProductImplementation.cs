@@ -144,10 +144,6 @@ namespace BlImplementation
             }
         }
 
-
-
-
-
     }
 }
 
