@@ -31,12 +31,16 @@ namespace UI
         {
             ViewAllTabControl1 = new TabControl();
             ViewOneTabPage1 = new TabPage();
+            ShowLabel1 = new Label();
+            textBox1 = new TextBox();
+            IdLabel1 = new Label();
             ViewAllTabPage2 = new TabPage();
             dataGridView1 = new DataGridView();
             CreateTabPage3 = new TabPage();
             DeleteTabPage1 = new TabPage();
             UpdateTabPage1 = new TabPage();
             ViewAllTabControl1.SuspendLayout();
+            ViewOneTabPage1.SuspendLayout();
             ViewAllTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -56,6 +60,9 @@ namespace UI
             // 
             // ViewOneTabPage1
             // 
+            ViewOneTabPage1.Controls.Add(ShowLabel1);
+            ViewOneTabPage1.Controls.Add(textBox1);
+            ViewOneTabPage1.Controls.Add(IdLabel1);
             ViewOneTabPage1.Location = new Point(4, 24);
             ViewOneTabPage1.Name = "ViewOneTabPage1";
             ViewOneTabPage1.Padding = new Padding(3);
@@ -64,6 +71,32 @@ namespace UI
             ViewOneTabPage1.Text = "View One";
             ViewOneTabPage1.UseVisualStyleBackColor = true;
             ViewOneTabPage1.Click += ViewOneTabPage1_Click;
+            // 
+            // ShowLabel1
+            // 
+            ShowLabel1.AutoSize = true;
+            ShowLabel1.Location = new Point(288, 125);
+            ShowLabel1.Name = "ShowLabel1";
+            ShowLabel1.Size = new Size(36, 15);
+            ShowLabel1.TabIndex = 2;
+            ShowLabel1.Text = "Show";
+            ShowLabel1.Click += ShowLabel1_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(238, 68);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(159, 23);
+            textBox1.TabIndex = 1;
+            // 
+            // IdLabel1
+            // 
+            IdLabel1.AutoSize = true;
+            IdLabel1.Location = new Point(172, 68);
+            IdLabel1.Name = "IdLabel1";
+            IdLabel1.Size = new Size(17, 15);
+            IdLabel1.TabIndex = 0;
+            IdLabel1.Text = "Id";
             // 
             // ViewAllTabPage2
             // 
@@ -79,9 +112,10 @@ namespace UI
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(3, 3);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(689, 378);
+            dataGridView1.Size = new Size(686, 375);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
@@ -128,11 +162,12 @@ namespace UI
             Text = "ManagerController";
             Load += ManagerController_Load;
             ViewAllTabControl1.ResumeLayout(false);
+            ViewOneTabPage1.ResumeLayout(false);
+            ViewOneTabPage1.PerformLayout();
             ViewAllTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
-       
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -147,5 +182,8 @@ namespace UI
         private TabPage DeleteTabPage1;
         private TabPage UpdateTabPage1;
         private DataGridView dataGridView1;
+        private Label ShowLabel1;
+        private TextBox textBox1;
+        private Label IdLabel1;
     }
 }

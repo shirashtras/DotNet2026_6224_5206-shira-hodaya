@@ -11,7 +11,7 @@ static class DalConfig
     static DalConfig()
     {
        
-        string configPath = Path.Combine(AppContext.BaseDirectory, "xml", "dal-config.xml");
+        string configPath = "../xml/dal-config.xml";
 
         XElement dalConfig =
             XElement.Load(configPath)

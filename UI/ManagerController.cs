@@ -22,6 +22,18 @@ namespace UI
 
             //this.BackgroundImage = Image.FromFile("third-background.jpg");
             //BackgroundImageLayout = ImageLayout.Stretch;
+            switch (type)
+            {
+                case Types.PRODUCT:
+                    dataGridView1.DataSource = Factory.Get().iProduct.ReadAll();
+                    break;
+                case Types.SALE:
+                    dataGridView1.DataSource = Factory.Get().iSale.ReadAll();
+                    break;
+                case Types.CUSTOMER:
+                    dataGridView1.DataSource = Factory.Get().iCustomer.ReadAll();
+                    break;
+            }
 
 
         }
@@ -72,16 +84,21 @@ namespace UI
                     dataGridView1.DataSource = Factory.Get().iCustomer.ReadAll();
                     break;
             }
-            }
-
-            private void ViewOneTabPage1_Click(object sender, EventArgs e)
-            {
-
-            }
-
-            private void ManagerController_Load(object sender, EventArgs e)
-            {
-
-            }
         }
-    } 
+
+        private void ViewOneTabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ManagerController_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShowLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+} 
