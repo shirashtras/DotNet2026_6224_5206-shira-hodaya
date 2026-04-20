@@ -174,4 +174,22 @@
     <adress>hgfds</adress>
     <phoneNumber>h6543</phoneNumber>
   </Customer>
+  <Customer>
+    <id>76543</id>
+    <nameCustomer />
+    <adress />
+    <phoneNumber />
+  </Customer>
+  <Customer>
+    <id>12345555</id>
+    <nameCustomer>shira and hodaya</nameCustomer>
+    <adress>7584930</adress>
+    <phoneNumber>in the computer</phoneNumber>
+  </Customer>
+  <Customer>
+    <id>123455</id>
+    <nameCustomer>fdds</nameCustomer>
+    <adress>2520</adress>
+    <phoneNumber>fds</phoneNumber>
+  </Customer>
 </ArrayOfCustomer>

@@ -10,7 +10,7 @@ static class DalConfig
 
     static DalConfig()
     {
-       
+
         string configPath = "../xml/dal-config.xml";
 
         XElement dalConfig =
@@ -21,9 +21,9 @@ static class DalConfig
             dalConfig.Element("dal")?.Value
             ?? throw new DalConfigException("<dal> element is missing");
 
-                var packages =
-            dalConfig.Element("dal-packages")?.Elements()
-            ?? throw new DalConfigException("<dal-packages> element is missing");
+        var packages =
+    dalConfig.Element("dal-packages")?.Elements()
+    ?? throw new DalConfigException("<dal-packages> element is missing");
 
         s_dalPackages = packages.ToDictionary(p => "" + p.Name, p => p.Value);
     }

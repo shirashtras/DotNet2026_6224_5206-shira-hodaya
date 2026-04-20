@@ -41,12 +41,12 @@ namespace Dal
         public int Create(Customer item)
         {
             customers = LoadList();
-            int newId = Config.GetProductId;
+            int newId = item.id;
             Customer newItem = item with { id = newId };
 
             if (customers.Any(p => p.id == newItem.id))
             {
-                throw new DalIdExists("שגיאה בלתי צפויה: המזהה מהקונפיג כבר קיים במערכת");
+                throw new DalIdExists("המזהה כבר קיים במערכת");
             }
 
             customers.Add(newItem);
@@ -54,10 +54,12 @@ namespace Dal
 
             LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName
                 , MethodBase.GetCurrentMethod().Name
-                , $"Created Product with ID: {newItem.id}");
+                , $"Created Customer with ID: {newItem.id}");
 
             return newItem.id;
         }
+
+      
         /// <summary>
         /// פונקצייה לקריאת לקוח נוכחי על פי מזהה
         /// </summary>
