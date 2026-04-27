@@ -169,12 +169,6 @@
     <phoneNumber>0586352149</phoneNumber>
   </Customer>
   <Customer>
-    <id>1030</id>
-    <nameCustomer>bvcx</nameCustomer>
-    <adress>hgfds</adress>
-    <phoneNumber>h6543</phoneNumber>
-  </Customer>
-  <Customer>
     <id>76543</id>
     <nameCustomer />
     <adress />
@@ -194,8 +188,32 @@
   </Customer>
   <Customer>
     <id>45845</id>
-    <nameCustomer>meir</nameCustomer>
-    <adress>0556748594</adress>
-    <phoneNumber>jlm</phoneNumber>
+    <nameCustomer />
+    <adress />
+    <phoneNumber />
+  </Customer>
+  <Customer>
+    <id>10000</id>
+    <nameCustomer>Mumi</nameCustomer>
+    <adress>485120</adress>
+    <phoneNumber>dcfgvhbn</phoneNumber>
+  </Customer>
+  <Customer>
+    <id>1030</id>
+    <nameCustomer>hiiiii</nameCustomer>
+    <adress>45120215487</adress>
+    <phoneNumber>biiii</phoneNumber>
+  </Customer>
+  <Customer>
+    <id>1245</id>
+    <nameCustomer>xdfc</nameCustomer>
+    <adress>45120</adress>
+    <phoneNumber>sdxfcg</phoneNumber>
+  </Customer>
+  <Customer>
+    <id>474151</id>
+    <nameCustomer>cv bn</nameCustomer>
+    <adress>485120</adress>
+    <phoneNumber>cvg b</phoneNumber>
   </Customer>
 </ArrayOfCustomer>

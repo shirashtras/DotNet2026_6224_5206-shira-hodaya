@@ -459,4 +459,22 @@
     <startDate>2024-08-08T00:00:00</startDate>
     <endDate>2024-08-08T00:00:00</endDate>
   </Sale>
+  <Sale>
+    <id>2003</id>
+    <idSale>45120</idSale>
+    <price>50000</price>
+    <count>152</count>
+    <isSaleToAll>false</isSaleToAll>
+    <startDate>2024-08-08T00:00:00</startDate>
+    <endDate>2024-08-08T00:00:00</endDate>
+  </Sale>
+  <Sale>
+    <id>2005</id>
+    <idSale>48512</idSale>
+    <price>1</price>
+    <count>1</count>
+    <isSaleToAll>true</isSaleToAll>
+    <startDate>2024-08-08T00:00:00</startDate>
+    <endDate>2024-08-08T00:00:00</endDate>
+  </Sale>
 </ArrayOfSale>

@@ -1,5 +1,4 @@
-﻿
-namespace UI
+﻿namespace UI
 {
     partial class ManagerController
     {
@@ -50,7 +49,7 @@ namespace UI
             Count_Salelabel9 = new Label();
             Count_SaletextBox7 = new TextBox();
             If_All_Customerslabel8 = new Label();
-            If_All_CustomerstextBox8 = new TextBox();
+            If_All_CustomersCheckBox = new CheckBox();
             Price_SaleLabel9 = new Label();
             Price_SaleTextBox9 = new TextBox();
             ProductIdlINsALEabel10 = new Label();
@@ -88,7 +87,7 @@ namespace UI
             label11 = new Label();
             textBox12 = new TextBox();
             label12 = new Label();
-            textBox13 = new TextBox();
+            If_All_CustomersCheckBoxUpdate = new CheckBox();
             label13 = new Label();
             textBox14 = new TextBox();
             label14 = new Label();
@@ -324,7 +323,7 @@ namespace UI
             panelSale.Controls.Add(Count_Salelabel9);
             panelSale.Controls.Add(Count_SaletextBox7);
             panelSale.Controls.Add(If_All_Customerslabel8);
-            panelSale.Controls.Add(If_All_CustomerstextBox8);
+            panelSale.Controls.Add(If_All_CustomersCheckBox);
             panelSale.Controls.Add(Price_SaleLabel9);
             panelSale.Controls.Add(Price_SaleTextBox9);
             panelSale.Controls.Add(ProductIdlINsALEabel10);
@@ -393,12 +392,14 @@ namespace UI
             If_All_Customerslabel8.TabIndex = 10;
             If_All_Customerslabel8.Text = "All Customers?";
             // 
-            // If_All_CustomerstextBox8
+            // If_All_CustomersCheckBox
             // 
-            If_All_CustomerstextBox8.Location = new Point(120, 242);
-            If_All_CustomerstextBox8.Name = "If_All_CustomerstextBox8";
-            If_All_CustomerstextBox8.Size = new Size(100, 27);
-            If_All_CustomerstextBox8.TabIndex = 11;
+            If_All_CustomersCheckBox.AutoSize = true;
+            If_All_CustomersCheckBox.Location = new Point(120, 242);
+            If_All_CustomersCheckBox.Name = "If_All_CustomersCheckBox";
+            If_All_CustomersCheckBox.Size = new Size(18, 17);
+            If_All_CustomersCheckBox.TabIndex = 11;
+            If_All_CustomersCheckBox.Checked = false;
             // 
             // Price_SaleLabel9
             // 
@@ -674,7 +675,7 @@ namespace UI
             panelUpdateSale.Controls.Add(label11);
             panelUpdateSale.Controls.Add(textBox12);
             panelUpdateSale.Controls.Add(label12);
-            panelUpdateSale.Controls.Add(textBox13);
+            panelUpdateSale.Controls.Add(If_All_CustomersCheckBoxUpdate);
             panelUpdateSale.Controls.Add(label13);
             panelUpdateSale.Controls.Add(textBox14);
             panelUpdateSale.Controls.Add(label14);
@@ -687,76 +688,78 @@ namespace UI
             panelUpdateSale.TabIndex = 2;
             // 
             // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(10, 65);
-            label9.Name = "label9";
-            label9.Size = new Size(76, 20);
-            label9.TabIndex = 2;
-            label9.Text = "Start Date";
-            // 
-            // textBox10
-            // 
-            textBox10.Location = new Point(120, 62);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(100, 27);
-            textBox10.TabIndex = 3;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(10, 110);
-            label10.Name = "label10";
-            label10.Size = new Size(70, 20);
-            label10.TabIndex = 4;
-            label10.Text = "End Date";
-            // 
-            // textBox11
-            // 
-            textBox11.Location = new Point(120, 107);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(100, 27);
-            textBox11.TabIndex = 5;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(10, 155);
-            label11.Name = "label11";
-            label11.Size = new Size(48, 20);
-            label11.TabIndex = 6;
-            label11.Text = "Count";
-            // 
-            // textBox12
-            // 
-            textBox12.Location = new Point(120, 152);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(100, 27);
-            textBox12.TabIndex = 7;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(10, 245);
-            label12.Name = "label12";
-            label12.Size = new Size(107, 20);
-            label12.TabIndex = 10;
-            label12.Text = "All Customers?";
-            label12.Click += label12_Click;
-            // 
-            // textBox13
-            // 
-            textBox13.Location = new Point(120, 242);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(100, 27);
-            textBox13.TabIndex = 11;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(10, 200);
-            label13.Name = "label13";
-            label13.Size = new Size(41, 20);
+			// 
+			label9.AutoSize = true;
+			label9.Location = new Point(10, 65);
+			label9.Name = "label9";
+			label9.Size = new Size(76, 20);
+			label9.TabIndex = 2;
+			label9.Text = "Start Date";
+			// 
+			// textBox10
+			// 
+			textBox10.Location = new Point(120, 62);
+			textBox10.Name = "textBox10";
+			textBox10.Size = new Size(100, 27);
+			textBox10.TabIndex = 3;
+			// 
+			// label10
+			// 
+			label10.AutoSize = true;
+			label10.Location = new Point(10, 110);
+			label10.Name = "label10";
+			label10.Size = new Size(70, 20);
+			label10.TabIndex = 4;
+			label10.Text = "End Date";
+			// 
+			// textBox11
+		 // 
+		 textBox11.Location = new Point(120, 107);
+		 textBox11.Name = "textBox11";
+		 textBox11.Size = new Size(100, 27);
+		 textBox11.TabIndex = 5;
+		 // 
+		 // label11
+		 // 
+		 label11.AutoSize = true;
+		 label11.Location = new Point(10, 155);
+		 label11.Name = "label11";
+		 label11.Size = new Size(48, 20);
+		 label11.TabIndex = 6;
+		 label11.Text = "Count";
+		 // 
+		 // textBox12
+		 // 
+		 textBox12.Location = new Point(120, 152);
+		 textBox12.Name = "textBox12";
+		 textBox12.Size = new Size(100, 27);
+		 textBox12.TabIndex = 7;
+		 // 
+		 // label12
+		 // 
+		 label12.AutoSize = true;
+		 label12.Location = new Point(10, 245);
+		 label12.Name = "label12";
+		 label12.Size = new Size(107, 20);
+		 label12.TabIndex = 10;
+		 label12.Text = "All Customers?";
+		 label12.Click += label12_Click;
+		 // 
+		 // If_All_CustomersCheckBoxUpdate
+		 // 
+		 If_All_CustomersCheckBoxUpdate.AutoSize = true;
+		 If_All_CustomersCheckBoxUpdate.Location = new Point(120, 242);
+		 If_All_CustomersCheckBoxUpdate.Name = "If_All_CustomersCheckBoxUpdate";
+		 If_All_CustomersCheckBoxUpdate.Size = new Size(18, 17);
+		 If_All_CustomersCheckBoxUpdate.TabIndex = 11;
+		 If_All_CustomersCheckBoxUpdate.Checked = false;
+		 // 
+		 // label13
+		 // 
+		 label13.AutoSize = true;
+		 label13.Location = new Point(10, 200);
+		 label13.Name = "label13";
+		 label13.Size = new Size(41, 20);
             label13.TabIndex = 8;
             label13.Text = "Price";
             // 
@@ -765,7 +768,7 @@ namespace UI
             textBox14.Location = new Point(120, 197);
             textBox14.Name = "textBox14";
             textBox14.Size = new Size(100, 27);
-            textBox14.TabIndex = 9;
+            textBox14.TabIndex = 11;
             // 
             // label14
             // 
@@ -968,7 +971,7 @@ namespace UI
         {
         }
 
-      
+       
 
         private void CreateTabPage3_Click(object sender, EventArgs e)
         {
@@ -986,30 +989,30 @@ namespace UI
         {
         }
 
-        private void CreatetabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (CreatetabControl1.SelectedTab == CreateTabPage3)
-            {
-                HideAllPanels();
+        //private void CreatetabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (CreatetabControl1.SelectedTab == CreateTabPage3)
+        //    {
+        //        HideAllPanels();
 
-                switch (type)
-                {
-                    case Types.PRODUCT:
-                        panelProduct.Show();
-                        break;
+        //        switch (type)
+        //        {
+        //            case Types.PRODUCT:
+        //                panelProduct.Show();
+        //                break;
 
-                    case Types.SALE:
-                        panelSale.Show();
-                        break;
+        //            case Types.SALE:
+        //                panelSale.Show();
+        //                break;
 
-                    case Types.CUSTOMER:
-                        panelCustomer.Show();
-                        break;
-                }
+        //            case Types.CUSTOMER:
+        //                panelCustomer.Show();
+        //                break;
+        //        }
 
-                AdjustIdFields();
-            }
-        }
+        //        AdjustIdFields();
+        //    }
+        //}
 
 
         #endregion
@@ -1040,7 +1043,7 @@ namespace UI
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox SaleIdtextBox7;
         private System.Windows.Forms.Label If_All_Customerslabel8;
-        private System.Windows.Forms.TextBox If_All_CustomerstextBox8;
+        private System.Windows.Forms.CheckBox If_All_CustomersCheckBox;
         private System.Windows.Forms.Label Price_SaleLabel9;
         private System.Windows.Forms.TextBox Price_SaleTextBox9;
         private System.Windows.Forms.Label ProductIdlINsALEabel10;
@@ -1081,7 +1084,7 @@ namespace UI
         private Label label11;
         private TextBox textBox12;
         private Label label12;
-        private TextBox textBox13;
+        private System.Windows.Forms.CheckBox If_All_CustomersCheckBoxUpdate;
         private Label label13;
         private TextBox textBox14;
         private Label label14;

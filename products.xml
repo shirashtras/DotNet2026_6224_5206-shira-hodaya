@@ -155,10 +155,31 @@
     <count>500</count>
   </Product>
   <Product>
+    <id>1042</id>
+    <name>xdcfgv</name>
+    <category>Pastries</category>
+    <price>6</price>
+    <count>562</count>
+  </Product>
+  <Product>
+    <id>1043</id>
+    <name>woww</name>
+    <category>Pastries</category>
+    <price>4512</price>
+    <count>45120</count>
+  </Product>
+  <Product>
     <id>1041</id>
-    <name>fuzetea</name>
-    <category>SoftDrinks</category>
-    <price>20</price>
-    <count>500</count>
+    <name>dxcfvgb </name>
+    <category>Pastries</category>
+    <price>256</price>
+    <count>48512</count>
+  </Product>
+  <Product>
+    <id>1044</id>
+    <name>xdcfvgb</name>
+    <category>HotDrinks</category>
+    <price>458</price>
+    <count>22</count>
   </Product>
 </ArrayOfProduct>
