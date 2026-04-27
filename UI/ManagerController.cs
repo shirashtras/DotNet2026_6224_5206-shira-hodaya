@@ -267,5 +267,122 @@ namespace UI
         {
             HideAllPanels();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            productComboBoxUpdate.DataSource = Enum.GetNames(typeof(Category));
+            try
+            {
+                switch (type)
+                {
+                    case Types.PRODUCT:
+                        var product = new BO.Product
+                        {
+                            Product_Name = textBox2.Text,
+                            Price = double.Parse(textBox6.Text),
+                            Count = int.Parse(textBox7.Text),
+                            category = (Category)Enum.Parse(typeof(Category), productComboBoxUpdate.Text)
+                        };
+
+                        Factory.Get().iProduct.Update(product);
+                        dataGridView1.DataSource = Factory.Get().iProduct.ReadAll().ToList();
+                        break;
+
+                    case Types.CUSTOMER:
+                        var customer = new BO.Customer
+                        {
+                            Customer_Id = int.Parse(IdtextBox4.Text),
+                            Customer_Name = Customer_NametextBox2.Text,
+                            Customer_Address = AddresstextBox2.Text,
+                            Customer_Phone = textBox3.Text
+                        };
+
+                        Factory.Get().iCustomer.Create(customer);
+                        dataGridView1.DataSource = Factory.Get().iCustomer.ReadAll().ToList();
+                        break;
+
+                    case Types.SALE:
+                        var sale = new BO.Sale
+                        {
+                            ProductId = int.Parse(ProductIdtextBox10.Text),
+                            Price_Sale = double.Parse(Price_SaleTextBox9.Text),
+                            Date_Start_Sale = DateTime.Parse(Date_Start_SaletextBox2.Text),
+                            Date_End_Sale = DateTime.Parse(textBox8.Text),
+                            Count_Sale = int.Parse(Count_SaletextBox7.Text),
+                            If_All_Customers = bool.Parse(If_All_CustomerstextBox8.Text)
+                        };
+
+                        Factory.Get().iSale.Create(sale);
+                        dataGridView1.DataSource = Factory.Get().iSale.ReadAll().ToList();
+                        break;
+                }
+
+                MessageBox.Show("Updated successfully!");
+                ClearAllFields();
+            }
+            catch (Exception ex)
+            {
+                // TEMP: show full info while debugging to find root cause
+                MessageBox.Show("Error: " + ex.Message + "\n\nDetails:\n" + ex.ToString());
+            }
+        }
+        private void AdjustIdFieldsUpdate()
+        {
+            if (type == Types.PRODUCT)
+            {
+                ProductIDtextBox2.Visible = false;
+                label2.Visible = false;
+            }
+
+            if (type == Types.SALE)
+            {
+                SaleIdtextBox7.Visible = false;
+                label7.Visible = false;
+            }
+
+            if (type == Types.CUSTOMER)
+            {
+                IdtextBox4.Visible = true;
+                Customer_Idlabel3.Visible = true;
+            }
+        }
+
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void HideAllPanelsUpdate()
+        {
+            panelUpdateCustomer.Visible = false;
+            panelupdatePro.Visible = false;
+            panelUpdateSale.Visible = false;
+        }
+        private void UpdateTabPage1_Click(object sender, EventArgs e)
+        {
+            HideAllPanelsUpdate();
+
+            switch (type)
+            {
+                case Types.PRODUCT:
+                    panelupdatePro.Visible = true;
+                    break;
+
+                case Types.SALE:
+                    panelUpdateSale.Visible = true;
+                    break;
+
+                case Types.CUSTOMER:
+                    panelUpdateCustomer.Visible = true;
+                    break;
+            }
+
+            AdjustIdFields();
+        }
     }
 }

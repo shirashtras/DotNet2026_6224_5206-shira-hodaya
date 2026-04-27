@@ -192,4 +192,10 @@
     <adress>2520</adress>
     <phoneNumber>fds</phoneNumber>
   </Customer>
+  <Customer>
+    <id>45845</id>
+    <nameCustomer>meir</nameCustomer>
+    <adress>0556748594</adress>
+    <phoneNumber>jlm</phoneNumber>
+  </Customer>
 </ArrayOfCustomer>

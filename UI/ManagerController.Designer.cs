@@ -23,567 +23,945 @@ namespace UI
 
         private void InitializeComponent()
         {
-            this.CreatetabControl1 = new System.Windows.Forms.TabControl();
-            this.ViewOneTabPage1 = new System.Windows.Forms.TabPage();
-            this.labelDetails = new System.Windows.Forms.Label();
-            this.ShowButton1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.IdLabel1 = new System.Windows.Forms.Label();
-            this.ViewAllTabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CreateTabPage3 = new System.Windows.Forms.TabPage();
-            this.SubmitBtn = new System.Windows.Forms.Button();
-            this.panelCustomer = new System.Windows.Forms.Panel();
-            this.Customer_Idlabel3 = new System.Windows.Forms.Label();
-            this.IdtextBox4 = new System.Windows.Forms.TextBox();
-            this.Customer_Namelabel1 = new System.Windows.Forms.Label();
-            this.Customer_NametextBox2 = new System.Windows.Forms.TextBox();
-            this.AddresstextBox2label1 = new System.Windows.Forms.Label();
-            this.AddresstextBox2 = new System.Windows.Forms.TextBox();
-            this.PhoneLabel2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.panelSale = new System.Windows.Forms.Panel();
-            this.Date_Start_Salelabel4 = new System.Windows.Forms.Label();
-            this.Date_Start_SaletextBox2 = new System.Windows.Forms.TextBox();
-            this.Date_End_Sale = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.Count_Salelabel9 = new System.Windows.Forms.Label();
-            this.Count_SaletextBox7 = new System.Windows.Forms.TextBox();
-            this.If_All_Customerslabel8 = new System.Windows.Forms.Label();
-            this.If_All_CustomerstextBox8 = new System.Windows.Forms.TextBox();
-            this.Price_SaleLabel9 = new System.Windows.Forms.Label();
-            this.Price_SaleTextBox9 = new System.Windows.Forms.TextBox();
-            this.ProductIdlINsALEabel10 = new System.Windows.Forms.Label();
-            this.ProductIdtextBox10 = new System.Windows.Forms.TextBox();
-            this.SaleIdtextBox7 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panelProduct = new System.Windows.Forms.Panel();
-            this.Product_Namelabel6 = new System.Windows.Forms.Label();
-            this.ProductNametextBox6 = new System.Windows.Forms.TextBox();
-            this.ProductPricelabel5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.ProductCountlabel4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ProductIDtextBox2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ProductCategoriescomboBox1 = new System.Windows.Forms.ComboBox();
-            this.DeleteTabPage1 = new System.Windows.Forms.TabPage();
-            this.UpdateTabPage1 = new System.Windows.Forms.TabPage();
-            this.OrderByPriceSaleBtn = new System.Windows.Forms.Button();
-            this.OrderByCityBtn = new System.Windows.Forms.Button();
-            this.OrderByPriceBtn = new System.Windows.Forms.Button();
-            this.CreatetabControl1.SuspendLayout();
-            this.ViewOneTabPage1.SuspendLayout();
-            this.ViewAllTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.CreateTabPage3.SuspendLayout();
-            this.panelCustomer.SuspendLayout();
-            this.panelSale.SuspendLayout();
-            this.panelProduct.SuspendLayout();
-            this.SuspendLayout();
+            CreatetabControl1 = new TabControl();
+            ViewOneTabPage1 = new TabPage();
+            labelDetails = new Label();
+            ShowButton1 = new Button();
+            textBox1 = new TextBox();
+            IdLabel1 = new Label();
+            ViewAllTabPage2 = new TabPage();
+            dataGridView1 = new DataGridView();
+            CreateTabPage3 = new TabPage();
+            SubmitBtn = new Button();
+            panelCustomer = new Panel();
+            Customer_Idlabel3 = new Label();
+            IdtextBox4 = new TextBox();
+            Customer_Namelabel1 = new Label();
+            Customer_NametextBox2 = new TextBox();
+            AddresstextBox2label1 = new Label();
+            AddresstextBox2 = new TextBox();
+            PhoneLabel2 = new Label();
+            textBox3 = new TextBox();
+            panelSale = new Panel();
+            Date_Start_Salelabel4 = new Label();
+            Date_Start_SaletextBox2 = new TextBox();
+            Date_End_Sale = new Label();
+            textBox8 = new TextBox();
+            Count_Salelabel9 = new Label();
+            Count_SaletextBox7 = new TextBox();
+            If_All_Customerslabel8 = new Label();
+            If_All_CustomerstextBox8 = new TextBox();
+            Price_SaleLabel9 = new Label();
+            Price_SaleTextBox9 = new TextBox();
+            ProductIdlINsALEabel10 = new Label();
+            ProductIdtextBox10 = new TextBox();
+            label7 = new Label();
+            SaleIdtextBox7 = new TextBox();
+            panelProduct = new Panel();
+            Product_Namelabel6 = new Label();
+            ProductNametextBox6 = new TextBox();
+            ProductPricelabel5 = new Label();
+            textBox5 = new TextBox();
+            ProductCountlabel4 = new Label();
+            textBox4 = new TextBox();
+            label2 = new Label();
+            ProductIDtextBox2 = new TextBox();
+            label5 = new Label();
+            ProductCategoriescomboBox1 = new ComboBox();
+            DeleteTabPage1 = new TabPage();
+            UpdateTabPage1 = new TabPage();
+            updateBtn = new Button();
+            panelUpdateCustomer = new Panel();
+            label16 = new Label();
+            textBox17 = new TextBox();
+            label17 = new Label();
+            textBox18 = new TextBox();
+            label18 = new Label();
+            textBox19 = new TextBox();
+            label19 = new Label();
+            textBox20 = new TextBox();
+            panelUpdateSale = new Panel();
+            label9 = new Label();
+            textBox10 = new TextBox();
+            label10 = new Label();
+            textBox11 = new TextBox();
+            label11 = new Label();
+            textBox12 = new TextBox();
+            label12 = new Label();
+            textBox13 = new TextBox();
+            label13 = new Label();
+            textBox14 = new TextBox();
+            label14 = new Label();
+            textBox15 = new TextBox();
+            label15 = new Label();
+            textBox16 = new TextBox();
+            panelupdatePro = new Panel();
+            label1 = new Label();
+            textBox2 = new TextBox();
+            label3 = new Label();
+            textBox6 = new TextBox();
+            label4 = new Label();
+            textBox7 = new TextBox();
+            label6 = new Label();
+            textBox9 = new TextBox();
+            label8 = new Label();
+            productComboBoxUpdate = new ComboBox();
+            OrderByPriceSaleBtn = new Button();
+            OrderByCityBtn = new Button();
+            OrderByPriceBtn = new Button();
+            CreatetabControl1.SuspendLayout();
+            ViewOneTabPage1.SuspendLayout();
+            ViewAllTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            CreateTabPage3.SuspendLayout();
+            panelCustomer.SuspendLayout();
+            panelSale.SuspendLayout();
+            panelProduct.SuspendLayout();
+            UpdateTabPage1.SuspendLayout();
+            panelUpdateCustomer.SuspendLayout();
+            panelUpdateSale.SuspendLayout();
+            panelupdatePro.SuspendLayout();
+            SuspendLayout();
             // 
             // CreatetabControl1
             // 
-            this.CreatetabControl1.Controls.Add(this.ViewOneTabPage1);
-            this.CreatetabControl1.Controls.Add(this.ViewAllTabPage2);
-            this.CreatetabControl1.Controls.Add(this.CreateTabPage3);
-            this.CreatetabControl1.Controls.Add(this.DeleteTabPage1);
-            this.CreatetabControl1.Controls.Add(this.UpdateTabPage1);
-            this.CreatetabControl1.Location = new System.Drawing.Point(11, 16);
-            this.CreatetabControl1.Name = "CreatetabControl1";
-            this.CreatetabControl1.SelectedIndex = 0;
-            this.CreatetabControl1.Size = new System.Drawing.Size(800, 545);
-            this.CreatetabControl1.TabIndex = 0;
-            this.CreatetabControl1.SelectedIndexChanged += new System.EventHandler(this.CreatetabControl1_SelectedIndexChanged);
+            CreatetabControl1.Controls.Add(ViewOneTabPage1);
+            CreatetabControl1.Controls.Add(ViewAllTabPage2);
+            CreatetabControl1.Controls.Add(CreateTabPage3);
+            CreatetabControl1.Controls.Add(DeleteTabPage1);
+            CreatetabControl1.Controls.Add(UpdateTabPage1);
+            CreatetabControl1.Location = new Point(13, 17);
+            CreatetabControl1.Name = "CreatetabControl1";
+            CreatetabControl1.SelectedIndex = 0;
+            CreatetabControl1.Size = new Size(800, 545);
+            CreatetabControl1.TabIndex = 0;
+            CreatetabControl1.SelectedIndexChanged += CreatetabControl1_SelectedIndexChanged;
             // 
             // ViewOneTabPage1
             // 
-            this.ViewOneTabPage1.Controls.Add(this.labelDetails);
-            this.ViewOneTabPage1.Controls.Add(this.ShowButton1);
-            this.ViewOneTabPage1.Controls.Add(this.textBox1);
-            this.ViewOneTabPage1.Controls.Add(this.IdLabel1);
-            this.ViewOneTabPage1.Location = new System.Drawing.Point(4, 29);
-            this.ViewOneTabPage1.Name = "ViewOneTabPage1";
-            this.ViewOneTabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.ViewOneTabPage1.Size = new System.Drawing.Size(792, 512);
-            this.ViewOneTabPage1.TabIndex = 0;
-            this.ViewOneTabPage1.Text = "View One";
-            this.ViewOneTabPage1.UseVisualStyleBackColor = true;
-            this.ViewOneTabPage1.Click += new System.EventHandler(this.ViewOneTabPage1_Click);
+            ViewOneTabPage1.Controls.Add(labelDetails);
+            ViewOneTabPage1.Controls.Add(ShowButton1);
+            ViewOneTabPage1.Controls.Add(textBox1);
+            ViewOneTabPage1.Controls.Add(IdLabel1);
+            ViewOneTabPage1.Location = new Point(4, 29);
+            ViewOneTabPage1.Name = "ViewOneTabPage1";
+            ViewOneTabPage1.Padding = new Padding(3);
+            ViewOneTabPage1.Size = new Size(792, 512);
+            ViewOneTabPage1.TabIndex = 0;
+            ViewOneTabPage1.Text = "View One";
+            ViewOneTabPage1.UseVisualStyleBackColor = true;
+            ViewOneTabPage1.Click += ViewOneTabPage1_Click;
             // 
             // labelDetails
             // 
-            this.labelDetails.AutoSize = true;
-            this.labelDetails.Location = new System.Drawing.Point(313, 276);
-            this.labelDetails.Name = "labelDetails";
-            this.labelDetails.Size = new System.Drawing.Size(0, 20);
-            this.labelDetails.TabIndex = 3;
-            this.labelDetails.Click += new System.EventHandler(this.label1_Click);
+            labelDetails.AutoSize = true;
+            labelDetails.Location = new Point(313, 276);
+            labelDetails.Name = "labelDetails";
+            labelDetails.Size = new Size(0, 20);
+            labelDetails.TabIndex = 3;
+            labelDetails.Click += label1_Click;
             // 
             // ShowButton1
             // 
-            this.ShowButton1.Location = new System.Drawing.Point(313, 170);
-            this.ShowButton1.Name = "ShowButton1";
-            this.ShowButton1.Size = new System.Drawing.Size(94, 29);
-            this.ShowButton1.TabIndex = 2;
-            this.ShowButton1.Text = "Show";
-            this.ShowButton1.UseVisualStyleBackColor = true;
-            this.ShowButton1.Click += new System.EventHandler(this.ShowButton1_Click);
+            ShowButton1.Location = new Point(313, 170);
+            ShowButton1.Name = "ShowButton1";
+            ShowButton1.Size = new Size(94, 29);
+            ShowButton1.TabIndex = 2;
+            ShowButton1.Text = "Show";
+            ShowButton1.UseVisualStyleBackColor = true;
+            ShowButton1.Click += ShowButton1_Click;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(272, 91);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 27);
-            this.textBox1.TabIndex = 1;
+            textBox1.Location = new Point(272, 91);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(181, 27);
+            textBox1.TabIndex = 1;
             // 
             // IdLabel1
             // 
-            this.IdLabel1.AutoSize = true;
-            this.IdLabel1.Location = new System.Drawing.Point(197, 91);
-            this.IdLabel1.Name = "IdLabel1";
-            this.IdLabel1.Size = new System.Drawing.Size(22, 20);
-            this.IdLabel1.TabIndex = 0;
-            this.IdLabel1.Text = "Id";
+            IdLabel1.AutoSize = true;
+            IdLabel1.Location = new Point(197, 91);
+            IdLabel1.Name = "IdLabel1";
+            IdLabel1.Size = new Size(22, 20);
+            IdLabel1.TabIndex = 0;
+            IdLabel1.Text = "Id";
             // 
             // ViewAllTabPage2
             // 
-            this.ViewAllTabPage2.Controls.Add(this.dataGridView1);
-            this.ViewAllTabPage2.Location = new System.Drawing.Point(4, 29);
-            this.ViewAllTabPage2.Name = "ViewAllTabPage2";
-            this.ViewAllTabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.ViewAllTabPage2.Size = new System.Drawing.Size(792, 512);
-            this.ViewAllTabPage2.TabIndex = 1;
-            this.ViewAllTabPage2.Text = "View All";
-            this.ViewAllTabPage2.UseVisualStyleBackColor = true;
+            ViewAllTabPage2.Controls.Add(dataGridView1);
+            ViewAllTabPage2.Location = new Point(4, 29);
+            ViewAllTabPage2.Name = "ViewAllTabPage2";
+            ViewAllTabPage2.Padding = new Padding(3);
+            ViewAllTabPage2.Size = new Size(792, 512);
+            ViewAllTabPage2.TabIndex = 1;
+            ViewAllTabPage2.Text = "View All";
+            ViewAllTabPage2.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(786, 506);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(3, 3);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(786, 506);
+            dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
             // CreateTabPage3
             // 
-            this.CreateTabPage3.Controls.Add(this.SubmitBtn);
-            this.CreateTabPage3.Controls.Add(this.panelCustomer);
-            this.CreateTabPage3.Controls.Add(this.panelSale);
-            this.CreateTabPage3.Controls.Add(this.panelProduct);
-            this.CreateTabPage3.Location = new System.Drawing.Point(4, 29);
-            this.CreateTabPage3.Name = "CreateTabPage3";
-            this.CreateTabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.CreateTabPage3.Size = new System.Drawing.Size(792, 512);
-            this.CreateTabPage3.TabIndex = 2;
-            this.CreateTabPage3.Text = "Create";
-            this.CreateTabPage3.UseVisualStyleBackColor = true;
-            this.CreateTabPage3.Click += new System.EventHandler(this.CreateTabPage3_Click);
+            CreateTabPage3.Controls.Add(SubmitBtn);
+            CreateTabPage3.Controls.Add(panelCustomer);
+            CreateTabPage3.Controls.Add(panelSale);
+            CreateTabPage3.Controls.Add(panelProduct);
+            CreateTabPage3.Location = new Point(4, 29);
+            CreateTabPage3.Name = "CreateTabPage3";
+            CreateTabPage3.Padding = new Padding(3);
+            CreateTabPage3.Size = new Size(792, 512);
+            CreateTabPage3.TabIndex = 2;
+            CreateTabPage3.Text = "Create";
+            CreateTabPage3.UseVisualStyleBackColor = true;
+            CreateTabPage3.Click += CreateTabPage3_Click;
             // 
             // SubmitBtn
             // 
-            this.SubmitBtn.Location = new System.Drawing.Point(350, 450);
-            this.SubmitBtn.Name = "SubmitBtn";
-            this.SubmitBtn.Size = new System.Drawing.Size(94, 29);
-            this.SubmitBtn.TabIndex = 3;
-            this.SubmitBtn.Text = "Submit";
-            this.SubmitBtn.UseVisualStyleBackColor = true;
-            this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
+            SubmitBtn.Location = new Point(350, 450);
+            SubmitBtn.Name = "SubmitBtn";
+            SubmitBtn.Size = new Size(94, 29);
+            SubmitBtn.TabIndex = 3;
+            SubmitBtn.Text = "Submit";
+            SubmitBtn.UseVisualStyleBackColor = true;
+            SubmitBtn.Click += SubmitBtn_Click;
             // 
             // panelCustomer
             // 
-            this.panelCustomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelCustomer.Controls.Add(this.Customer_Idlabel3);
-            this.panelCustomer.Controls.Add(this.IdtextBox4);
-            this.panelCustomer.Controls.Add(this.Customer_Namelabel1);
-            this.panelCustomer.Controls.Add(this.Customer_NametextBox2);
-            this.panelCustomer.Controls.Add(this.AddresstextBox2label1);
-            this.panelCustomer.Controls.Add(this.AddresstextBox2);
-            this.panelCustomer.Controls.Add(this.PhoneLabel2);
-            this.panelCustomer.Controls.Add(this.textBox3);
-            this.panelCustomer.Location = new System.Drawing.Point(531, 20);
-            this.panelCustomer.Name = "panelCustomer";
-            this.panelCustomer.Size = new System.Drawing.Size(240, 400);
-            this.panelCustomer.TabIndex = 2;
+            panelCustomer.BorderStyle = BorderStyle.FixedSingle;
+            panelCustomer.Controls.Add(Customer_Idlabel3);
+            panelCustomer.Controls.Add(IdtextBox4);
+            panelCustomer.Controls.Add(Customer_Namelabel1);
+            panelCustomer.Controls.Add(Customer_NametextBox2);
+            panelCustomer.Controls.Add(AddresstextBox2label1);
+            panelCustomer.Controls.Add(AddresstextBox2);
+            panelCustomer.Controls.Add(PhoneLabel2);
+            panelCustomer.Controls.Add(textBox3);
+            panelCustomer.Location = new Point(531, 20);
+            panelCustomer.Name = "panelCustomer";
+            panelCustomer.Size = new Size(240, 400);
+            panelCustomer.TabIndex = 2;
             // 
             // Customer_Idlabel3
             // 
-            this.Customer_Idlabel3.AutoSize = true;
-            this.Customer_Idlabel3.Location = new System.Drawing.Point(10, 20);
-            this.Customer_Idlabel3.Name = "Customer_Idlabel3";
-            this.Customer_Idlabel3.Size = new System.Drawing.Size(22, 20);
-            this.Customer_Idlabel3.TabIndex = 0;
-            this.Customer_Idlabel3.Text = "Id";
+            Customer_Idlabel3.AutoSize = true;
+            Customer_Idlabel3.Location = new Point(10, 20);
+            Customer_Idlabel3.Name = "Customer_Idlabel3";
+            Customer_Idlabel3.Size = new Size(22, 20);
+            Customer_Idlabel3.TabIndex = 0;
+            Customer_Idlabel3.Text = "Id";
             // 
             // IdtextBox4
             // 
-            this.IdtextBox4.Location = new System.Drawing.Point(90, 17);
-            this.IdtextBox4.Name = "IdtextBox4";
-            this.IdtextBox4.Size = new System.Drawing.Size(130, 27);
-            this.IdtextBox4.TabIndex = 1;
+            IdtextBox4.Location = new Point(90, 17);
+            IdtextBox4.Name = "IdtextBox4";
+            IdtextBox4.Size = new Size(130, 27);
+            IdtextBox4.TabIndex = 1;
             // 
             // Customer_Namelabel1
             // 
-            this.Customer_Namelabel1.AutoSize = true;
-            this.Customer_Namelabel1.Location = new System.Drawing.Point(10, 65);
-            this.Customer_Namelabel1.Name = "Customer_Namelabel1";
-            this.Customer_Namelabel1.Size = new System.Drawing.Size(49, 20);
-            this.Customer_Namelabel1.TabIndex = 2;
-            this.Customer_Namelabel1.Text = "Name";
+            Customer_Namelabel1.AutoSize = true;
+            Customer_Namelabel1.Location = new Point(10, 65);
+            Customer_Namelabel1.Name = "Customer_Namelabel1";
+            Customer_Namelabel1.Size = new Size(49, 20);
+            Customer_Namelabel1.TabIndex = 2;
+            Customer_Namelabel1.Text = "Name";
             // 
             // Customer_NametextBox2
             // 
-            this.Customer_NametextBox2.Location = new System.Drawing.Point(90, 62);
-            this.Customer_NametextBox2.Name = "Customer_NametextBox2";
-            this.Customer_NametextBox2.Size = new System.Drawing.Size(130, 27);
-            this.Customer_NametextBox2.TabIndex = 3;
+            Customer_NametextBox2.Location = new Point(90, 62);
+            Customer_NametextBox2.Name = "Customer_NametextBox2";
+            Customer_NametextBox2.Size = new Size(130, 27);
+            Customer_NametextBox2.TabIndex = 3;
             // 
             // AddresstextBox2label1
             // 
-            this.AddresstextBox2label1.AutoSize = true;
-            this.AddresstextBox2label1.Location = new System.Drawing.Point(10, 110);
-            this.AddresstextBox2label1.Name = "AddresstextBox2label1";
-            this.AddresstextBox2label1.Size = new System.Drawing.Size(60, 20);
-            this.AddresstextBox2label1.TabIndex = 4;
-            this.AddresstextBox2label1.Text = "Address";
+            AddresstextBox2label1.AutoSize = true;
+            AddresstextBox2label1.Location = new Point(10, 110);
+            AddresstextBox2label1.Name = "AddresstextBox2label1";
+            AddresstextBox2label1.Size = new Size(62, 20);
+            AddresstextBox2label1.TabIndex = 4;
+            AddresstextBox2label1.Text = "Address";
             // 
             // AddresstextBox2
             // 
-            this.AddresstextBox2.Location = new System.Drawing.Point(90, 107);
-            this.AddresstextBox2.Name = "AddresstextBox2";
-            this.AddresstextBox2.Size = new System.Drawing.Size(130, 27);
-            this.AddresstextBox2.TabIndex = 5;
+            AddresstextBox2.Location = new Point(90, 107);
+            AddresstextBox2.Name = "AddresstextBox2";
+            AddresstextBox2.Size = new Size(130, 27);
+            AddresstextBox2.TabIndex = 5;
             // 
             // PhoneLabel2
             // 
-            this.PhoneLabel2.AutoSize = true;
-            this.PhoneLabel2.Location = new System.Drawing.Point(10, 155);
-            this.PhoneLabel2.Name = "PhoneLabel2";
-            this.PhoneLabel2.Size = new System.Drawing.Size(50, 20);
-            this.PhoneLabel2.TabIndex = 6;
-            this.PhoneLabel2.Text = "Phone";
+            PhoneLabel2.AutoSize = true;
+            PhoneLabel2.Location = new Point(10, 155);
+            PhoneLabel2.Name = "PhoneLabel2";
+            PhoneLabel2.Size = new Size(50, 20);
+            PhoneLabel2.TabIndex = 6;
+            PhoneLabel2.Text = "Phone";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(90, 152);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(130, 27);
-            this.textBox3.TabIndex = 7;
+            textBox3.Location = new Point(90, 152);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(130, 27);
+            textBox3.TabIndex = 7;
             // 
             // panelSale
             // 
-            this.panelSale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSale.Controls.Add(this.Date_Start_Salelabel4);
-            this.panelSale.Controls.Add(this.Date_Start_SaletextBox2);
-            this.panelSale.Controls.Add(this.Date_End_Sale);
-            this.panelSale.Controls.Add(this.textBox8);
-            this.panelSale.Controls.Add(this.Count_Salelabel9);
-            this.panelSale.Controls.Add(this.Count_SaletextBox7);
-            this.panelSale.Controls.Add(this.If_All_Customerslabel8);
-            this.panelSale.Controls.Add(this.If_All_CustomerstextBox8);
-            this.panelSale.Controls.Add(this.Price_SaleLabel9);
-            this.panelSale.Controls.Add(this.Price_SaleTextBox9);
-            this.panelSale.Controls.Add(this.ProductIdlINsALEabel10);
-            this.panelSale.Controls.Add(this.ProductIdtextBox10);
-            this.panelSale.Controls.Add(this.label7);
-            this.panelSale.Controls.Add(this.SaleIdtextBox7);
-            this.panelSale.Location = new System.Drawing.Point(271, 20);
-            this.panelSale.Name = "panelSale";
-            this.panelSale.Size = new System.Drawing.Size(240, 400);
-            this.panelSale.TabIndex = 1;
+            panelSale.BorderStyle = BorderStyle.FixedSingle;
+            panelSale.Controls.Add(Date_Start_Salelabel4);
+            panelSale.Controls.Add(Date_Start_SaletextBox2);
+            panelSale.Controls.Add(Date_End_Sale);
+            panelSale.Controls.Add(textBox8);
+            panelSale.Controls.Add(Count_Salelabel9);
+            panelSale.Controls.Add(Count_SaletextBox7);
+            panelSale.Controls.Add(If_All_Customerslabel8);
+            panelSale.Controls.Add(If_All_CustomerstextBox8);
+            panelSale.Controls.Add(Price_SaleLabel9);
+            panelSale.Controls.Add(Price_SaleTextBox9);
+            panelSale.Controls.Add(ProductIdlINsALEabel10);
+            panelSale.Controls.Add(ProductIdtextBox10);
+            panelSale.Controls.Add(label7);
+            panelSale.Controls.Add(SaleIdtextBox7);
+            panelSale.Location = new Point(271, 20);
+            panelSale.Name = "panelSale";
+            panelSale.Size = new Size(240, 400);
+            panelSale.TabIndex = 1;
             // 
             // Date_Start_Salelabel4
             // 
-            this.Date_Start_Salelabel4.AutoSize = true;
-            this.Date_Start_Salelabel4.Location = new System.Drawing.Point(10, 65);
-            this.Date_Start_Salelabel4.Name = "Date_Start_Salelabel4";
-            this.Date_Start_Salelabel4.Size = new System.Drawing.Size(77, 20);
-            this.Date_Start_Salelabel4.TabIndex = 2;
-            this.Date_Start_Salelabel4.Text = "Start Date";
+            Date_Start_Salelabel4.AutoSize = true;
+            Date_Start_Salelabel4.Location = new Point(10, 65);
+            Date_Start_Salelabel4.Name = "Date_Start_Salelabel4";
+            Date_Start_Salelabel4.Size = new Size(76, 20);
+            Date_Start_Salelabel4.TabIndex = 2;
+            Date_Start_Salelabel4.Text = "Start Date";
             // 
             // Date_Start_SaletextBox2
             // 
-            this.Date_Start_SaletextBox2.Location = new System.Drawing.Point(120, 62);
-            this.Date_Start_SaletextBox2.Name = "Date_Start_SaletextBox2";
-            this.Date_Start_SaletextBox2.Size = new System.Drawing.Size(100, 27);
-            this.Date_Start_SaletextBox2.TabIndex = 3;
+            Date_Start_SaletextBox2.Location = new Point(120, 62);
+            Date_Start_SaletextBox2.Name = "Date_Start_SaletextBox2";
+            Date_Start_SaletextBox2.Size = new Size(100, 27);
+            Date_Start_SaletextBox2.TabIndex = 3;
             // 
             // Date_End_Sale
             // 
-            this.Date_End_Sale.AutoSize = true;
-            this.Date_End_Sale.Location = new System.Drawing.Point(10, 110);
-            this.Date_End_Sale.Name = "Date_End_Sale";
-            this.Date_End_Sale.Size = new System.Drawing.Size(71, 20);
-            this.Date_End_Sale.TabIndex = 4;
-            this.Date_End_Sale.Text = "End Date";
+            Date_End_Sale.AutoSize = true;
+            Date_End_Sale.Location = new Point(10, 110);
+            Date_End_Sale.Name = "Date_End_Sale";
+            Date_End_Sale.Size = new Size(70, 20);
+            Date_End_Sale.TabIndex = 4;
+            Date_End_Sale.Text = "End Date";
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(120, 107);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 27);
-            this.textBox8.TabIndex = 5;
+            textBox8.Location = new Point(120, 107);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(100, 27);
+            textBox8.TabIndex = 5;
             // 
             // Count_Salelabel9
             // 
-            this.Count_Salelabel9.AutoSize = true;
-            this.Count_Salelabel9.Location = new System.Drawing.Point(10, 155);
-            this.Count_Salelabel9.Name = "Count_Salelabel9";
-            this.Count_Salelabel9.Size = new System.Drawing.Size(49, 20);
-            this.Count_Salelabel9.TabIndex = 6;
-            this.Count_Salelabel9.Text = "Count";
+            Count_Salelabel9.AutoSize = true;
+            Count_Salelabel9.Location = new Point(10, 155);
+            Count_Salelabel9.Name = "Count_Salelabel9";
+            Count_Salelabel9.Size = new Size(48, 20);
+            Count_Salelabel9.TabIndex = 6;
+            Count_Salelabel9.Text = "Count";
             // 
             // Count_SaletextBox7
             // 
-            this.Count_SaletextBox7.Location = new System.Drawing.Point(120, 152);
-            this.Count_SaletextBox7.Name = "Count_SaletextBox7";
-            this.Count_SaletextBox7.Size = new System.Drawing.Size(100, 27);
-            this.Count_SaletextBox7.TabIndex = 7;
+            Count_SaletextBox7.Location = new Point(120, 152);
+            Count_SaletextBox7.Name = "Count_SaletextBox7";
+            Count_SaletextBox7.Size = new Size(100, 27);
+            Count_SaletextBox7.TabIndex = 7;
             // 
             // If_All_Customerslabel8
             // 
-            this.If_All_Customerslabel8.AutoSize = true;
-            this.If_All_Customerslabel8.Location = new System.Drawing.Point(10, 245);
-            this.If_All_Customerslabel8.Name = "If_All_Customerslabel8";
-            this.If_All_Customerslabel8.Size = new System.Drawing.Size(104, 20);
-            this.If_All_Customerslabel8.TabIndex = 10;
-            this.If_All_Customerslabel8.Text = "All Customers?";
+            If_All_Customerslabel8.AutoSize = true;
+            If_All_Customerslabel8.Location = new Point(10, 245);
+            If_All_Customerslabel8.Name = "If_All_Customerslabel8";
+            If_All_Customerslabel8.Size = new Size(107, 20);
+            If_All_Customerslabel8.TabIndex = 10;
+            If_All_Customerslabel8.Text = "All Customers?";
             // 
             // If_All_CustomerstextBox8
             // 
-            this.If_All_CustomerstextBox8.Location = new System.Drawing.Point(120, 242);
-            this.If_All_CustomerstextBox8.Name = "If_All_CustomerstextBox8";
-            this.If_All_CustomerstextBox8.Size = new System.Drawing.Size(100, 27);
-            this.If_All_CustomerstextBox8.TabIndex = 11;
+            If_All_CustomerstextBox8.Location = new Point(120, 242);
+            If_All_CustomerstextBox8.Name = "If_All_CustomerstextBox8";
+            If_All_CustomerstextBox8.Size = new Size(100, 27);
+            If_All_CustomerstextBox8.TabIndex = 11;
             // 
             // Price_SaleLabel9
             // 
-            this.Price_SaleLabel9.AutoSize = true;
-            this.Price_SaleLabel9.Location = new System.Drawing.Point(10, 200);
-            this.Price_SaleLabel9.Name = "Price_SaleLabel9";
-            this.Price_SaleLabel9.Size = new System.Drawing.Size(41, 20);
-            this.Price_SaleLabel9.TabIndex = 8;
-            this.Price_SaleLabel9.Text = "Price";
+            Price_SaleLabel9.AutoSize = true;
+            Price_SaleLabel9.Location = new Point(10, 200);
+            Price_SaleLabel9.Name = "Price_SaleLabel9";
+            Price_SaleLabel9.Size = new Size(41, 20);
+            Price_SaleLabel9.TabIndex = 8;
+            Price_SaleLabel9.Text = "Price";
             // 
             // Price_SaleTextBox9
             // 
-            this.Price_SaleTextBox9.Location = new System.Drawing.Point(120, 197);
-            this.Price_SaleTextBox9.Name = "Price_SaleTextBox9";
-            this.Price_SaleTextBox9.Size = new System.Drawing.Size(100, 27);
-            this.Price_SaleTextBox9.TabIndex = 9;
+            Price_SaleTextBox9.Location = new Point(120, 197);
+            Price_SaleTextBox9.Name = "Price_SaleTextBox9";
+            Price_SaleTextBox9.Size = new Size(100, 27);
+            Price_SaleTextBox9.TabIndex = 9;
             // 
             // ProductIdlINsALEabel10
             // 
-            this.ProductIdlINsALEabel10.AutoSize = true;
-            this.ProductIdlINsALEabel10.Location = new System.Drawing.Point(10, 290);
-            this.ProductIdlINsALEabel10.Name = "ProductIdlINsALEabel10";
-            this.ProductIdlINsALEabel10.Size = new System.Drawing.Size(77, 20);
-            this.ProductIdlINsALEabel10.TabIndex = 12;
-            this.ProductIdlINsALEabel10.Text = "Product Id";
+            ProductIdlINsALEabel10.AutoSize = true;
+            ProductIdlINsALEabel10.Location = new Point(10, 290);
+            ProductIdlINsALEabel10.Name = "ProductIdlINsALEabel10";
+            ProductIdlINsALEabel10.Size = new Size(77, 20);
+            ProductIdlINsALEabel10.TabIndex = 12;
+            ProductIdlINsALEabel10.Text = "Product Id";
             // 
             // ProductIdtextBox10
             // 
-            this.ProductIdtextBox10.Location = new System.Drawing.Point(120, 287);
-            this.ProductIdtextBox10.Name = "ProductIdtextBox10";
-            this.ProductIdtextBox10.Size = new System.Drawing.Size(100, 27);
-            this.ProductIdtextBox10.TabIndex = 13;
+            ProductIdtextBox10.Location = new Point(120, 287);
+            ProductIdtextBox10.Name = "ProductIdtextBox10";
+            ProductIdtextBox10.Size = new Size(100, 27);
+            ProductIdtextBox10.TabIndex = 13;
             // 
-            // label7 (Sale Id)
+            // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 20);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Sale Id";
+            label7.AutoSize = true;
+            label7.Location = new Point(10, 20);
+            label7.Name = "label7";
+            label7.Size = new Size(54, 20);
+            label7.TabIndex = 0;
+            label7.Text = "Sale Id";
             // 
             // SaleIdtextBox7
             // 
-            this.SaleIdtextBox7.Location = new System.Drawing.Point(120, 17);
-            this.SaleIdtextBox7.Name = "SaleIdtextBox7";
-            this.SaleIdtextBox7.Size = new System.Drawing.Size(100, 27);
-            this.SaleIdtextBox7.TabIndex = 1;
+            SaleIdtextBox7.Location = new Point(120, 17);
+            SaleIdtextBox7.Name = "SaleIdtextBox7";
+            SaleIdtextBox7.Size = new Size(100, 27);
+            SaleIdtextBox7.TabIndex = 1;
             // 
             // panelProduct
             // 
-            this.panelProduct.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelProduct.Controls.Add(this.Product_Namelabel6);
-            this.panelProduct.Controls.Add(this.ProductNametextBox6);
-            this.panelProduct.Controls.Add(this.ProductPricelabel5);
-            this.panelProduct.Controls.Add(this.textBox5);
-            this.panelProduct.Controls.Add(this.ProductCountlabel4);
-            this.panelProduct.Controls.Add(this.textBox4);
-            this.panelProduct.Controls.Add(this.label2);
-            this.panelProduct.Controls.Add(this.ProductIDtextBox2);
-            this.panelProduct.Controls.Add(this.label5);
-            this.panelProduct.Controls.Add(this.ProductCategoriescomboBox1);
-            this.panelProduct.Location = new System.Drawing.Point(11, 20);
-            this.panelProduct.Name = "panelProduct";
-            this.panelProduct.Size = new System.Drawing.Size(240, 400);
-            this.panelProduct.TabIndex = 0;
+            panelProduct.BorderStyle = BorderStyle.FixedSingle;
+            panelProduct.Controls.Add(Product_Namelabel6);
+            panelProduct.Controls.Add(ProductNametextBox6);
+            panelProduct.Controls.Add(ProductPricelabel5);
+            panelProduct.Controls.Add(textBox5);
+            panelProduct.Controls.Add(ProductCountlabel4);
+            panelProduct.Controls.Add(textBox4);
+            panelProduct.Controls.Add(label2);
+            panelProduct.Controls.Add(ProductIDtextBox2);
+            panelProduct.Controls.Add(label5);
+            panelProduct.Controls.Add(ProductCategoriescomboBox1);
+            panelProduct.Location = new Point(11, 20);
+            panelProduct.Name = "panelProduct";
+            panelProduct.Size = new Size(240, 400);
+            panelProduct.TabIndex = 0;
             // 
             // Product_Namelabel6
             // 
-            this.Product_Namelabel6.AutoSize = true;
-            this.Product_Namelabel6.Location = new System.Drawing.Point(10, 65);
-            this.Product_Namelabel6.Name = "Product_Namelabel6";
-            this.Product_Namelabel6.Size = new System.Drawing.Size(49, 20);
-            this.Product_Namelabel6.TabIndex = 2;
-            this.Product_Namelabel6.Text = "Name";
+            Product_Namelabel6.AutoSize = true;
+            Product_Namelabel6.Location = new Point(10, 65);
+            Product_Namelabel6.Name = "Product_Namelabel6";
+            Product_Namelabel6.Size = new Size(49, 20);
+            Product_Namelabel6.TabIndex = 2;
+            Product_Namelabel6.Text = "Name";
             // 
             // ProductNametextBox6
             // 
-            this.ProductNametextBox6.Location = new System.Drawing.Point(110, 62);
-            this.ProductNametextBox6.Name = "ProductNametextBox6";
-            this.ProductNametextBox6.Size = new System.Drawing.Size(110, 27);
-            this.ProductNametextBox6.TabIndex = 3;
+            ProductNametextBox6.Location = new Point(110, 62);
+            ProductNametextBox6.Name = "ProductNametextBox6";
+            ProductNametextBox6.Size = new Size(110, 27);
+            ProductNametextBox6.TabIndex = 3;
             // 
             // ProductPricelabel5
             // 
-            this.ProductPricelabel5.AutoSize = true;
-            this.ProductPricelabel5.Location = new System.Drawing.Point(10, 110);
-            this.ProductPricelabel5.Name = "ProductPricelabel5";
-            this.ProductPricelabel5.Size = new System.Drawing.Size(41, 20);
-            this.ProductPricelabel5.TabIndex = 4;
-            this.ProductPricelabel5.Text = "Price";
+            ProductPricelabel5.AutoSize = true;
+            ProductPricelabel5.Location = new Point(10, 110);
+            ProductPricelabel5.Name = "ProductPricelabel5";
+            ProductPricelabel5.Size = new Size(41, 20);
+            ProductPricelabel5.TabIndex = 4;
+            ProductPricelabel5.Text = "Price";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(110, 107);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(110, 27);
-            this.textBox5.TabIndex = 5;
+            textBox5.Location = new Point(110, 107);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(110, 27);
+            textBox5.TabIndex = 5;
             // 
             // ProductCountlabel4
             // 
-            this.ProductCountlabel4.AutoSize = true;
-            this.ProductCountlabel4.Location = new System.Drawing.Point(10, 155);
-            this.ProductCountlabel4.Name = "ProductCountlabel4";
-            this.ProductCountlabel4.Size = new System.Drawing.Size(49, 20);
-            this.ProductCountlabel4.TabIndex = 6;
-            this.ProductCountlabel4.Text = "Count";
+            ProductCountlabel4.AutoSize = true;
+            ProductCountlabel4.Location = new Point(10, 155);
+            ProductCountlabel4.Name = "ProductCountlabel4";
+            ProductCountlabel4.Size = new Size(48, 20);
+            ProductCountlabel4.TabIndex = 6;
+            ProductCountlabel4.Text = "Count";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(110, 152);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(110, 27);
-            this.textBox4.TabIndex = 7;
+            textBox4.Location = new Point(110, 152);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(110, 27);
+            textBox4.TabIndex = 7;
             // 
-            // label2 (Product Id)
+            // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(22, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Id";
+            label2.AutoSize = true;
+            label2.Location = new Point(10, 20);
+            label2.Name = "label2";
+            label2.Size = new Size(22, 20);
+            label2.TabIndex = 0;
+            label2.Text = "Id";
             // 
             // ProductIDtextBox2
             // 
-            this.ProductIDtextBox2.Location = new System.Drawing.Point(110, 17);
-            this.ProductIDtextBox2.Name = "ProductIDtextBox2";
-            this.ProductIDtextBox2.Size = new System.Drawing.Size(110, 27);
-            this.ProductIDtextBox2.TabIndex = 1;
+            ProductIDtextBox2.Location = new Point(110, 17);
+            ProductIDtextBox2.Name = "ProductIDtextBox2";
+            ProductIDtextBox2.Size = new Size(110, 27);
+            ProductIDtextBox2.TabIndex = 1;
             // 
-            // label5 (Category)
+            // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 200);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 20);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Category";
+            label5.AutoSize = true;
+            label5.Location = new Point(10, 200);
+            label5.Name = "label5";
+            label5.Size = new Size(69, 20);
+            label5.TabIndex = 8;
+            label5.Text = "Category";
             // 
             // ProductCategoriescomboBox1
             // 
-            this.ProductCategoriescomboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ProductCategoriescomboBox1.FormattingEnabled = true;
-            this.ProductCategoriescomboBox1.Location = new System.Drawing.Point(110, 197);
-            this.ProductCategoriescomboBox1.Name = "ProductCategoriescomboBox1";
-            this.ProductCategoriescomboBox1.Size = new System.Drawing.Size(110, 28);
-            this.ProductCategoriescomboBox1.TabIndex = 9;
-            this.ProductCategoriescomboBox1.SelectedIndexChanged += new System.EventHandler(this.ProductCategoriescomboBox1_SelectedIndexChanged);
+            ProductCategoriescomboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            ProductCategoriescomboBox1.FormattingEnabled = true;
+            ProductCategoriescomboBox1.Location = new Point(110, 197);
+            ProductCategoriescomboBox1.Name = "ProductCategoriescomboBox1";
+            ProductCategoriescomboBox1.Size = new Size(110, 28);
+            ProductCategoriescomboBox1.TabIndex = 9;
+            ProductCategoriescomboBox1.SelectedIndexChanged += ProductCategoriescomboBox1_SelectedIndexChanged;
             // 
             // DeleteTabPage1
             // 
-            this.DeleteTabPage1.Location = new System.Drawing.Point(4, 29);
-            this.DeleteTabPage1.Name = "DeleteTabPage1";
-            this.DeleteTabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.DeleteTabPage1.Size = new System.Drawing.Size(792, 512);
-            this.DeleteTabPage1.TabIndex = 3;
-            this.DeleteTabPage1.Text = "Delete";
-            this.DeleteTabPage1.UseVisualStyleBackColor = true;
+            DeleteTabPage1.Location = new Point(4, 29);
+            DeleteTabPage1.Name = "DeleteTabPage1";
+            DeleteTabPage1.Padding = new Padding(3);
+            DeleteTabPage1.Size = new Size(792, 512);
+            DeleteTabPage1.TabIndex = 3;
+            DeleteTabPage1.Text = "Delete";
+            DeleteTabPage1.UseVisualStyleBackColor = true;
             // 
             // UpdateTabPage1
             // 
-            this.UpdateTabPage1.Location = new System.Drawing.Point(4, 29);
-            this.UpdateTabPage1.Name = "UpdateTabPage1";
-            this.UpdateTabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.UpdateTabPage1.Size = new System.Drawing.Size(792, 512);
-            this.UpdateTabPage1.TabIndex = 4;
-            this.UpdateTabPage1.Text = "Update";
-            this.UpdateTabPage1.UseVisualStyleBackColor = true;
+            UpdateTabPage1.Controls.Add(updateBtn);
+            UpdateTabPage1.Controls.Add(panelUpdateCustomer);
+            UpdateTabPage1.Controls.Add(panelUpdateSale);
+            UpdateTabPage1.Controls.Add(panelupdatePro);
+            UpdateTabPage1.Location = new Point(4, 29);
+            UpdateTabPage1.Name = "UpdateTabPage1";
+            UpdateTabPage1.Padding = new Padding(3);
+            UpdateTabPage1.Size = new Size(792, 512);
+            UpdateTabPage1.TabIndex = 4;
+            UpdateTabPage1.Text = "Update";
+            UpdateTabPage1.UseVisualStyleBackColor = true;
+            UpdateTabPage1.Click += UpdateTabPage1_Click;
+            // 
+            // updateBtn
+            // 
+            updateBtn.Location = new Point(345, 421);
+            updateBtn.Name = "updateBtn";
+            updateBtn.Size = new Size(102, 37);
+            updateBtn.TabIndex = 4;
+            updateBtn.Text = "עדכן";
+            updateBtn.UseVisualStyleBackColor = true;
+            updateBtn.Click += updateBtn_Click;
+            // 
+            // panelUpdateCustomer
+            // 
+            panelUpdateCustomer.BorderStyle = BorderStyle.FixedSingle;
+            panelUpdateCustomer.Controls.Add(label16);
+            panelUpdateCustomer.Controls.Add(textBox17);
+            panelUpdateCustomer.Controls.Add(label17);
+            panelUpdateCustomer.Controls.Add(textBox18);
+            panelUpdateCustomer.Controls.Add(label18);
+            panelUpdateCustomer.Controls.Add(textBox19);
+            panelUpdateCustomer.Controls.Add(label19);
+            panelUpdateCustomer.Controls.Add(textBox20);
+            panelUpdateCustomer.Location = new Point(546, 15);
+            panelUpdateCustomer.Name = "panelUpdateCustomer";
+            panelUpdateCustomer.Size = new Size(240, 400);
+            panelUpdateCustomer.TabIndex = 3;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(10, 20);
+            label16.Name = "label16";
+            label16.Size = new Size(22, 20);
+            label16.TabIndex = 0;
+            label16.Text = "Id";
+            // 
+            // textBox17
+            // 
+            textBox17.Location = new Point(90, 17);
+            textBox17.Name = "textBox17";
+            textBox17.Size = new Size(130, 27);
+            textBox17.TabIndex = 1;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(10, 65);
+            label17.Name = "label17";
+            label17.Size = new Size(49, 20);
+            label17.TabIndex = 2;
+            label17.Text = "Name";
+            // 
+            // textBox18
+            // 
+            textBox18.Location = new Point(90, 62);
+            textBox18.Name = "textBox18";
+            textBox18.Size = new Size(130, 27);
+            textBox18.TabIndex = 3;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(10, 110);
+            label18.Name = "label18";
+            label18.Size = new Size(62, 20);
+            label18.TabIndex = 4;
+            label18.Text = "Address";
+            // 
+            // textBox19
+            // 
+            textBox19.Location = new Point(90, 107);
+            textBox19.Name = "textBox19";
+            textBox19.Size = new Size(130, 27);
+            textBox19.TabIndex = 5;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(10, 155);
+            label19.Name = "label19";
+            label19.Size = new Size(50, 20);
+            label19.TabIndex = 6;
+            label19.Text = "Phone";
+            // 
+            // textBox20
+            // 
+            textBox20.Location = new Point(90, 152);
+            textBox20.Name = "textBox20";
+            textBox20.Size = new Size(130, 27);
+            textBox20.TabIndex = 7;
+            // 
+            // panelUpdateSale
+            // 
+            panelUpdateSale.BorderStyle = BorderStyle.FixedSingle;
+            panelUpdateSale.Controls.Add(label9);
+            panelUpdateSale.Controls.Add(textBox10);
+            panelUpdateSale.Controls.Add(label10);
+            panelUpdateSale.Controls.Add(textBox11);
+            panelUpdateSale.Controls.Add(label11);
+            panelUpdateSale.Controls.Add(textBox12);
+            panelUpdateSale.Controls.Add(label12);
+            panelUpdateSale.Controls.Add(textBox13);
+            panelUpdateSale.Controls.Add(label13);
+            panelUpdateSale.Controls.Add(textBox14);
+            panelUpdateSale.Controls.Add(label14);
+            panelUpdateSale.Controls.Add(textBox15);
+            panelUpdateSale.Controls.Add(label15);
+            panelUpdateSale.Controls.Add(textBox16);
+            panelUpdateSale.Location = new Point(280, 15);
+            panelUpdateSale.Name = "panelUpdateSale";
+            panelUpdateSale.Size = new Size(240, 400);
+            panelUpdateSale.TabIndex = 2;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(10, 65);
+            label9.Name = "label9";
+            label9.Size = new Size(76, 20);
+            label9.TabIndex = 2;
+            label9.Text = "Start Date";
+            // 
+            // textBox10
+            // 
+            textBox10.Location = new Point(120, 62);
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(100, 27);
+            textBox10.TabIndex = 3;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(10, 110);
+            label10.Name = "label10";
+            label10.Size = new Size(70, 20);
+            label10.TabIndex = 4;
+            label10.Text = "End Date";
+            // 
+            // textBox11
+            // 
+            textBox11.Location = new Point(120, 107);
+            textBox11.Name = "textBox11";
+            textBox11.Size = new Size(100, 27);
+            textBox11.TabIndex = 5;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(10, 155);
+            label11.Name = "label11";
+            label11.Size = new Size(48, 20);
+            label11.TabIndex = 6;
+            label11.Text = "Count";
+            // 
+            // textBox12
+            // 
+            textBox12.Location = new Point(120, 152);
+            textBox12.Name = "textBox12";
+            textBox12.Size = new Size(100, 27);
+            textBox12.TabIndex = 7;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(10, 245);
+            label12.Name = "label12";
+            label12.Size = new Size(107, 20);
+            label12.TabIndex = 10;
+            label12.Text = "All Customers?";
+            label12.Click += label12_Click;
+            // 
+            // textBox13
+            // 
+            textBox13.Location = new Point(120, 242);
+            textBox13.Name = "textBox13";
+            textBox13.Size = new Size(100, 27);
+            textBox13.TabIndex = 11;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(10, 200);
+            label13.Name = "label13";
+            label13.Size = new Size(41, 20);
+            label13.TabIndex = 8;
+            label13.Text = "Price";
+            // 
+            // textBox14
+            // 
+            textBox14.Location = new Point(120, 197);
+            textBox14.Name = "textBox14";
+            textBox14.Size = new Size(100, 27);
+            textBox14.TabIndex = 9;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(10, 290);
+            label14.Name = "label14";
+            label14.Size = new Size(77, 20);
+            label14.TabIndex = 12;
+            label14.Text = "Product Id";
+            // 
+            // textBox15
+            // 
+            textBox15.Location = new Point(120, 287);
+            textBox15.Name = "textBox15";
+            textBox15.Size = new Size(100, 27);
+            textBox15.TabIndex = 13;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(10, 20);
+            label15.Name = "label15";
+            label15.Size = new Size(54, 20);
+            label15.TabIndex = 0;
+            label15.Text = "Sale Id";
+            // 
+            // textBox16
+            // 
+            textBox16.Location = new Point(120, 17);
+            textBox16.Name = "textBox16";
+            textBox16.Size = new Size(100, 27);
+            textBox16.TabIndex = 1;
+            // 
+            // panelupdatePro
+            // 
+            panelupdatePro.BorderStyle = BorderStyle.FixedSingle;
+            panelupdatePro.Controls.Add(label1);
+            panelupdatePro.Controls.Add(textBox2);
+            panelupdatePro.Controls.Add(label3);
+            panelupdatePro.Controls.Add(textBox6);
+            panelupdatePro.Controls.Add(label4);
+            panelupdatePro.Controls.Add(textBox7);
+            panelupdatePro.Controls.Add(label6);
+            panelupdatePro.Controls.Add(textBox9);
+            panelupdatePro.Controls.Add(label8);
+            panelupdatePro.Controls.Add(productComboBoxUpdate);
+            panelupdatePro.Location = new Point(19, 15);
+            panelupdatePro.Name = "panelupdatePro";
+            panelupdatePro.Size = new Size(240, 400);
+            panelupdatePro.TabIndex = 1;
+            panelupdatePro.Paint += panel1_Paint;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(10, 65);
+            label1.Name = "label1";
+            label1.Size = new Size(49, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Name";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(110, 62);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(110, 27);
+            textBox2.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(10, 110);
+            label3.Name = "label3";
+            label3.Size = new Size(41, 20);
+            label3.TabIndex = 4;
+            label3.Text = "Price";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(110, 107);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(110, 27);
+            textBox6.TabIndex = 5;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(10, 155);
+            label4.Name = "label4";
+            label4.Size = new Size(48, 20);
+            label4.TabIndex = 6;
+            label4.Text = "Count";
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(110, 152);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(110, 27);
+            textBox7.TabIndex = 7;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(10, 20);
+            label6.Name = "label6";
+            label6.Size = new Size(22, 20);
+            label6.TabIndex = 0;
+            label6.Text = "Id";
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new Point(110, 17);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(110, 27);
+            textBox9.TabIndex = 1;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(10, 200);
+            label8.Name = "label8";
+            label8.Size = new Size(69, 20);
+            label8.TabIndex = 8;
+            label8.Text = "Category";
+            // 
+            // productComboBoxUpdate
+            // 
+            productComboBoxUpdate.DropDownStyle = ComboBoxStyle.DropDownList;
+            productComboBoxUpdate.FormattingEnabled = true;
+            productComboBoxUpdate.Location = new Point(110, 197);
+            productComboBoxUpdate.Name = "productComboBoxUpdate";
+            productComboBoxUpdate.Size = new Size(110, 28);
+            productComboBoxUpdate.TabIndex = 9;
             // 
             // OrderByPriceSaleBtn
             // 
-            this.OrderByPriceSaleBtn.Location = new System.Drawing.Point(810, 375);
-            this.OrderByPriceSaleBtn.Name = "OrderByPriceSaleBtn";
-            this.OrderByPriceSaleBtn.Size = new System.Drawing.Size(107, 123);
-            this.OrderByPriceSaleBtn.TabIndex = 3;
-            this.OrderByPriceSaleBtn.Text = "מיין לפי מחיר מבצע מהגדול לקטן";
-            this.OrderByPriceSaleBtn.UseVisualStyleBackColor = true;
-            this.OrderByPriceSaleBtn.Click += new System.EventHandler(this.OrderByPriceSaleBtn_Click);
+            OrderByPriceSaleBtn.Location = new Point(810, 375);
+            OrderByPriceSaleBtn.Name = "OrderByPriceSaleBtn";
+            OrderByPriceSaleBtn.Size = new Size(107, 123);
+            OrderByPriceSaleBtn.TabIndex = 3;
+            OrderByPriceSaleBtn.Text = "מיין לפי מחיר מבצע מהגדול לקטן";
+            OrderByPriceSaleBtn.UseVisualStyleBackColor = true;
+            OrderByPriceSaleBtn.Click += OrderByPriceSaleBtn_Click;
             // 
             // OrderByCityBtn
             // 
-            this.OrderByCityBtn.Location = new System.Drawing.Point(817, 61);
-            this.OrderByCityBtn.Name = "OrderByCityBtn";
-            this.OrderByCityBtn.Size = new System.Drawing.Size(85, 103);
-            this.OrderByCityBtn.TabIndex = 1;
-            this.OrderByCityBtn.Text = "מיין עפ\"י ערים";
-            this.OrderByCityBtn.UseVisualStyleBackColor = true;
-            this.OrderByCityBtn.Click += new System.EventHandler(this.OrderByCityBtn_Click);
+            OrderByCityBtn.Location = new Point(817, 61);
+            OrderByCityBtn.Name = "OrderByCityBtn";
+            OrderByCityBtn.Size = new Size(85, 103);
+            OrderByCityBtn.TabIndex = 1;
+            OrderByCityBtn.Text = "מיין עפ\"י ערים";
+            OrderByCityBtn.UseVisualStyleBackColor = true;
+            OrderByCityBtn.Click += OrderByCityBtn_Click;
             // 
             // OrderByPriceBtn
             // 
-            this.OrderByPriceBtn.Location = new System.Drawing.Point(817, 189);
-            this.OrderByPriceBtn.Name = "OrderByPriceBtn";
-            this.OrderByPriceBtn.Size = new System.Drawing.Size(75, 158);
-            this.OrderByPriceBtn.TabIndex = 2;
-            this.OrderByPriceBtn.Text = "מיין לפי מחיר מוצר מהקטן לגדול";
-            this.OrderByPriceBtn.UseVisualStyleBackColor = true;
-            this.OrderByPriceBtn.Click += new System.EventHandler(this.OrderByPriceBtn_Click);
+            OrderByPriceBtn.Location = new Point(817, 189);
+            OrderByPriceBtn.Name = "OrderByPriceBtn";
+            OrderByPriceBtn.Size = new Size(75, 158);
+            OrderByPriceBtn.TabIndex = 2;
+            OrderByPriceBtn.Text = "מיין לפי מחיר מוצר מהקטן לגדול";
+            OrderByPriceBtn.UseVisualStyleBackColor = true;
+            OrderByPriceBtn.Click += OrderByPriceBtn_Click;
             // 
             // ManagerController
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 600);
-            this.Controls.Add(this.OrderByPriceSaleBtn);
-            this.Controls.Add(this.OrderByPriceBtn);
-            this.Controls.Add(this.OrderByCityBtn);
-            this.Controls.Add(this.CreatetabControl1);
-            this.Name = "ManagerController";
-            this.Text = "ManagerController";
-            this.Load += new System.EventHandler(this.ManagerController_Load);
-            this.CreatetabControl1.ResumeLayout(false);
-            this.ViewOneTabPage1.ResumeLayout(false);
-            this.ViewOneTabPage1.PerformLayout();
-            this.ViewAllTabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.CreateTabPage3.ResumeLayout(false);
-            this.panelCustomer.ResumeLayout(false);
-            this.panelCustomer.PerformLayout();
-            this.panelSale.ResumeLayout(false);
-            this.panelSale.PerformLayout();
-            this.panelProduct.ResumeLayout(false);
-            this.panelProduct.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(914, 600);
+            Controls.Add(OrderByPriceSaleBtn);
+            Controls.Add(OrderByPriceBtn);
+            Controls.Add(OrderByCityBtn);
+            Controls.Add(CreatetabControl1);
+            Name = "ManagerController";
+            Text = "ManagerController";
+            Load += ManagerController_Load;
+            CreatetabControl1.ResumeLayout(false);
+            ViewOneTabPage1.ResumeLayout(false);
+            ViewOneTabPage1.PerformLayout();
+            ViewAllTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            CreateTabPage3.ResumeLayout(false);
+            panelCustomer.ResumeLayout(false);
+            panelCustomer.PerformLayout();
+            panelSale.ResumeLayout(false);
+            panelSale.PerformLayout();
+            panelProduct.ResumeLayout(false);
+            panelProduct.PerformLayout();
+            UpdateTabPage1.ResumeLayout(false);
+            panelUpdateCustomer.ResumeLayout(false);
+            panelUpdateCustomer.PerformLayout();
+            panelUpdateSale.ResumeLayout(false);
+            panelUpdateSale.PerformLayout();
+            panelupdatePro.ResumeLayout(false);
+            panelupdatePro.PerformLayout();
+            ResumeLayout(false);
         }
 
         private void ProductCategoriescomboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -686,5 +1064,41 @@ namespace UI
         private System.Windows.Forms.Panel panelProduct;
         private System.Windows.Forms.Panel panelCustomer;
         private System.Windows.Forms.Button SubmitBtn;
+        private Panel panelUpdateCustomer;
+        private Label label16;
+        private TextBox textBox17;
+        private Label label17;
+        private TextBox textBox18;
+        private Label label18;
+        private TextBox textBox19;
+        private Label label19;
+        private TextBox textBox20;
+        private Panel panelUpdateSale;
+        private Label label9;
+        private TextBox textBox10;
+        private Label label10;
+        private TextBox textBox11;
+        private Label label11;
+        private TextBox textBox12;
+        private Label label12;
+        private TextBox textBox13;
+        private Label label13;
+        private TextBox textBox14;
+        private Label label14;
+        private TextBox textBox15;
+        private Label label15;
+        private TextBox textBox16;
+        private Panel panelupdatePro;
+        private Label label1;
+        private TextBox textBox2;
+        private Label label3;
+        private TextBox textBox6;
+        private Label label4;
+        private TextBox textBox7;
+        private Label label6;
+        private TextBox textBox9;
+        private Label label8;
+        private ComboBox productComboBoxUpdate;
+        private Button updateBtn;
     }
 }

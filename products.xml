@@ -147,4 +147,18 @@
     <price>23</price>
     <count>32</count>
   </Product>
+  <Product>
+    <id>1040</id>
+    <name>fyhgbj</name>
+    <category>Pastries</category>
+    <price>20</price>
+    <count>500</count>
+  </Product>
+  <Product>
+    <id>1041</id>
+    <name>fuzetea</name>
+    <category>SoftDrinks</category>
+    <price>20</price>
+    <count>500</count>
+  </Product>
 </ArrayOfProduct>
