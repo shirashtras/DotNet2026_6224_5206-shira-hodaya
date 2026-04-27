@@ -112,4 +112,39 @@
     <price>4</price>
     <count>80</count>
   </Product>
+  <Product>
+    <id>1001</id>
+    <name>dfwefdwe</name>
+    <category>Pastries</category>
+    <price>50</price>
+    <count>150</count>
+  </Product>
+  <Product>
+    <id>1002</id>
+    <name>FuzeTea</name>
+    <category>SoftDrinks</category>
+    <price>5</price>
+    <count>12</count>
+  </Product>
+  <Product>
+    <id>1003</id>
+    <name>zero</name>
+    <category>SoftDrinks</category>
+    <price>8</price>
+    <count>485</count>
+  </Product>
+  <Product>
+    <id>1004</id>
+    <name>soda</name>
+    <category>SoftDrinks</category>
+    <price>10</price>
+    <count>48</count>
+  </Product>
+  <Product>
+    <id>1005</id>
+    <name>watat</name>
+    <category>SoftDrinks</category>
+    <price>23</price>
+    <count>32</count>
+  </Product>
 </ArrayOfProduct>

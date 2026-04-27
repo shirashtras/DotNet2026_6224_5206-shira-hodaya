@@ -98,8 +98,6 @@ namespace UI
                 .ToList();
         }
 
-       
-
         private void CreateButton3_Click(object sender, EventArgs e)
         {
             HideAllPanels();
@@ -137,7 +135,7 @@ namespace UI
                 return;
             }
 
-            object result = null;
+            object? result = null;
 
             switch (type)
             {
@@ -248,7 +246,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                // TEMP: show full info while debugging to find root cause
+                MessageBox.Show("Error: " + ex.Message + "\n\nDetails:\n" + ex.ToString());
             }
         }
 

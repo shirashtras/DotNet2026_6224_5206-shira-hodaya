@@ -33,8 +33,26 @@ namespace BlImplementation
             }
             catch (Exception ex)
             {
+                // If the underlying DAL raised an "id exists" error, translate it to BL layer exception.
+                // Avoid masking all other exceptions as "exists" so real errors surface.
+                try
+                {
+                    string exName = ex.GetType().Name ?? "";
+                    if (exName.IndexOf("DalIdExists", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        exName.IndexOf("DalIdAlreadyExists", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Create {item} Product Exeption: {ex.Message}");
+                        throw new BlIdExistsException("The Product is  Exist!");
+                    }
+                }
+                catch
+                {
+                    // ignore - fall through to rethrow original
+                }
+
+                // For all other exceptions, log and rethrow the original exception so caller can see the root cause.
                 Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Create {item} Product Exeption: {ex.Message}");
-                throw new BlIdExistsException("The Product is  Exist!");
+                throw;
             }
         }
 
@@ -97,11 +115,9 @@ namespace BlImplementation
                 throw new BlIdNotExistsException("The products are not  Exist!");
             }
 
-        
+
         }
         
-
-
 
         public void Update(BO.Product item)
         {
