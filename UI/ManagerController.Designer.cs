@@ -108,6 +108,9 @@
             OrderByPriceSaleBtn = new Button();
             OrderByCityBtn = new Button();
             OrderByPriceBtn = new Button();
+            buttonDelete = new Button();
+            textBoxDelete = new TextBox();
+            label20 = new Label();
             CreatetabControl1.SuspendLayout();
             ViewOneTabPage1.SuspendLayout();
             ViewAllTabPage2.SuspendLayout();
@@ -116,6 +119,7 @@
             panelCustomer.SuspendLayout();
             panelSale.SuspendLayout();
             panelProduct.SuspendLayout();
+            DeleteTabPage1.SuspendLayout();
             UpdateTabPage1.SuspendLayout();
             panelUpdateCustomer.SuspendLayout();
             panelUpdateSale.SuspendLayout();
@@ -399,7 +403,6 @@
             If_All_CustomersCheckBox.Name = "If_All_CustomersCheckBox";
             If_All_CustomersCheckBox.Size = new Size(18, 17);
             If_All_CustomersCheckBox.TabIndex = 11;
-            If_All_CustomersCheckBox.Checked = false;
             // 
             // Price_SaleLabel9
             // 
@@ -552,6 +555,9 @@
             // 
             // DeleteTabPage1
             // 
+            DeleteTabPage1.Controls.Add(buttonDelete);
+            DeleteTabPage1.Controls.Add(textBoxDelete);
+            DeleteTabPage1.Controls.Add(label20);
             DeleteTabPage1.Location = new Point(4, 29);
             DeleteTabPage1.Name = "DeleteTabPage1";
             DeleteTabPage1.Padding = new Padding(3);
@@ -688,78 +694,77 @@
             panelUpdateSale.TabIndex = 2;
             // 
             // label9
-			// 
-			label9.AutoSize = true;
-			label9.Location = new Point(10, 65);
-			label9.Name = "label9";
-			label9.Size = new Size(76, 20);
-			label9.TabIndex = 2;
-			label9.Text = "Start Date";
-			// 
-			// textBox10
-			// 
-			textBox10.Location = new Point(120, 62);
-			textBox10.Name = "textBox10";
-			textBox10.Size = new Size(100, 27);
-			textBox10.TabIndex = 3;
-			// 
-			// label10
-			// 
-			label10.AutoSize = true;
-			label10.Location = new Point(10, 110);
-			label10.Name = "label10";
-			label10.Size = new Size(70, 20);
-			label10.TabIndex = 4;
-			label10.Text = "End Date";
-			// 
-			// textBox11
-		 // 
-		 textBox11.Location = new Point(120, 107);
-		 textBox11.Name = "textBox11";
-		 textBox11.Size = new Size(100, 27);
-		 textBox11.TabIndex = 5;
-		 // 
-		 // label11
-		 // 
-		 label11.AutoSize = true;
-		 label11.Location = new Point(10, 155);
-		 label11.Name = "label11";
-		 label11.Size = new Size(48, 20);
-		 label11.TabIndex = 6;
-		 label11.Text = "Count";
-		 // 
-		 // textBox12
-		 // 
-		 textBox12.Location = new Point(120, 152);
-		 textBox12.Name = "textBox12";
-		 textBox12.Size = new Size(100, 27);
-		 textBox12.TabIndex = 7;
-		 // 
-		 // label12
-		 // 
-		 label12.AutoSize = true;
-		 label12.Location = new Point(10, 245);
-		 label12.Name = "label12";
-		 label12.Size = new Size(107, 20);
-		 label12.TabIndex = 10;
-		 label12.Text = "All Customers?";
-		 label12.Click += label12_Click;
-		 // 
-		 // If_All_CustomersCheckBoxUpdate
-		 // 
-		 If_All_CustomersCheckBoxUpdate.AutoSize = true;
-		 If_All_CustomersCheckBoxUpdate.Location = new Point(120, 242);
-		 If_All_CustomersCheckBoxUpdate.Name = "If_All_CustomersCheckBoxUpdate";
-		 If_All_CustomersCheckBoxUpdate.Size = new Size(18, 17);
-		 If_All_CustomersCheckBoxUpdate.TabIndex = 11;
-		 If_All_CustomersCheckBoxUpdate.Checked = false;
-		 // 
-		 // label13
-		 // 
-		 label13.AutoSize = true;
-		 label13.Location = new Point(10, 200);
-		 label13.Name = "label13";
-		 label13.Size = new Size(41, 20);
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(10, 65);
+            label9.Name = "label9";
+            label9.Size = new Size(76, 20);
+            label9.TabIndex = 2;
+            label9.Text = "Start Date";
+            // 
+            // textBox10
+            // 
+            textBox10.Location = new Point(120, 62);
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(100, 27);
+            textBox10.TabIndex = 3;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(10, 110);
+            label10.Name = "label10";
+            label10.Size = new Size(70, 20);
+            label10.TabIndex = 4;
+            label10.Text = "End Date";
+            // 
+            // textBox11
+            // 
+            textBox11.Location = new Point(120, 107);
+            textBox11.Name = "textBox11";
+            textBox11.Size = new Size(100, 27);
+            textBox11.TabIndex = 5;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(10, 155);
+            label11.Name = "label11";
+            label11.Size = new Size(48, 20);
+            label11.TabIndex = 6;
+            label11.Text = "Count";
+            // 
+            // textBox12
+            // 
+            textBox12.Location = new Point(120, 152);
+            textBox12.Name = "textBox12";
+            textBox12.Size = new Size(100, 27);
+            textBox12.TabIndex = 7;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(10, 245);
+            label12.Name = "label12";
+            label12.Size = new Size(107, 20);
+            label12.TabIndex = 10;
+            label12.Text = "All Customers?";
+            label12.Click += label12_Click;
+            // 
+            // If_All_CustomersCheckBoxUpdate
+            // 
+            If_All_CustomersCheckBoxUpdate.AutoSize = true;
+            If_All_CustomersCheckBoxUpdate.Location = new Point(120, 242);
+            If_All_CustomersCheckBoxUpdate.Name = "If_All_CustomersCheckBoxUpdate";
+            If_All_CustomersCheckBoxUpdate.Size = new Size(18, 17);
+            If_All_CustomersCheckBoxUpdate.TabIndex = 11;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(10, 200);
+            label13.Name = "label13";
+            label13.Size = new Size(41, 20);
             label13.TabIndex = 8;
             label13.Text = "Price";
             // 
@@ -933,6 +938,34 @@
             OrderByPriceBtn.UseVisualStyleBackColor = true;
             OrderByPriceBtn.Click += OrderByPriceBtn_Click;
             // 
+            // buttonDelete
+            // 
+            buttonDelete.Location = new Point(333, 222);
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.Size = new Size(94, 29);
+            buttonDelete.TabIndex = 5;
+            buttonDelete.Text = "Delete";
+            buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += this.button1_Click;
+            // 
+            // textBoxDelete
+            // 
+            textBoxDelete.Location = new Point(292, 143);
+            textBoxDelete.Name = "textBoxDelete";
+            textBoxDelete.Size = new Size(181, 27);
+            textBoxDelete.TabIndex = 4;
+            textBoxDelete.TextChanged += this.textBox13_TextChanged;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(217, 143);
+            label20.Name = "label20";
+            label20.Size = new Size(22, 20);
+            label20.TabIndex = 3;
+            label20.Text = "Id";
+            label20.Click += label20_Click;
+            // 
             // ManagerController
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -957,6 +990,8 @@
             panelSale.PerformLayout();
             panelProduct.ResumeLayout(false);
             panelProduct.PerformLayout();
+            DeleteTabPage1.ResumeLayout(false);
+            DeleteTabPage1.PerformLayout();
             UpdateTabPage1.ResumeLayout(false);
             panelUpdateCustomer.ResumeLayout(false);
             panelUpdateCustomer.PerformLayout();
@@ -1103,5 +1138,8 @@
         private Label label8;
         private ComboBox productComboBoxUpdate;
         private Button updateBtn;
+        private Button buttonDelete;
+        private TextBox textBoxDelete;
+        private Label label20;
     }
 }

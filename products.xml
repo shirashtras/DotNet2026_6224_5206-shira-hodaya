@@ -168,18 +168,4 @@
     <price>4512</price>
     <count>45120</count>
   </Product>
-  <Product>
-    <id>1041</id>
-    <name>dxcfvgb </name>
-    <category>Pastries</category>
-    <price>256</price>
-    <count>48512</count>
-  </Product>
-  <Product>
-    <id>1044</id>
-    <name>xdcfvgb</name>
-    <category>HotDrinks</category>
-    <price>458</price>
-    <count>22</count>
-  </Product>
 </ArrayOfProduct>

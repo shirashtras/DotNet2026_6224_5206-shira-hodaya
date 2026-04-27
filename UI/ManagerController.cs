@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using BIApi;
@@ -244,6 +245,8 @@ namespace UI
                 }
 
                 MessageBox.Show("Added successfully!");
+                textBoxDelete.Text = "";
+                textBoxDelete.Focus();
                 ClearAllFields();
             }
             catch (Exception ex)
@@ -281,6 +284,23 @@ namespace UI
 
         private void ManagerController_Load(object sender, EventArgs e)
         {
+            //// adjust filename to match exact file + extension you added
+            //var fileName = "istockphoto-515238576-612x612.jpg";
+
+            //// runtime path: Application base + project relative folder. Adjust if you used a different folder name.
+            //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UI", "NewFolder", fileName);
+
+            //if (!File.Exists(path))
+            //{
+            //    MessageBox.Show("Background image not found: " + path);
+            //}
+            //else
+            //{
+            //    // put background on the TabControl so it's visible (TabControl covers the form)
+            //    CreatetabControl1.BackgroundImage = Image.FromFile(path);
+            //    CreatetabControl1.BackgroundImageLayout = ImageLayout.Stretch;
+            //}
+
             HideAllPanels();
         }
 
@@ -530,6 +550,58 @@ namespace UI
 
             // fallback to culture-aware parse
             return DateTime.TryParse(input, CultureInfo.CurrentCulture, DateTimeStyles.None, out result);
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(textBoxDelete.Text, out int id))
+            {
+                MessageBox.Show("ID must be a number");
+                return;
+            }
+
+            try
+            {
+                switch (type)
+                {
+                    case Types.PRODUCT:
+                        Factory.Get().iProduct.Delete(id);
+                        dataGridView1.DataSource = Factory.Get().iProduct.ReadAll().ToList();
+                        break;
+
+                    case Types.CUSTOMER:
+                        Factory.Get().iCustomer.Delete(id);
+                        dataGridView1.DataSource = Factory.Get().iCustomer.ReadAll().ToList();
+                        break;
+
+                    case Types.SALE:
+                        Factory.Get().iSale.Delete(id);
+                        dataGridView1.DataSource = Factory.Get().iSale.ReadAll().ToList();
+                        break;
+                }
+
+                MessageBox.Show("Deleted successfully!");
+                ClearAllFields();
+
+                // clear delete ID field and return focus for convenience
+                textBoxDelete.Text = "";
+                textBoxDelete.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting item: " + ex.Message);
+            }
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+            // optional: validate input as the user types
+            // For now keep empty to satisfy designer wiring.
         }
     }
 }
