@@ -468,4 +468,13 @@
     <startDate>2024-08-08T00:00:00</startDate>
     <endDate>2024-08-08T00:00:00</endDate>
   </Sale>
+  <Sale>
+    <id>2006</id>
+    <idSale>2003</idSale>
+    <price>70</price>
+    <count>50</count>
+    <isSaleToAll>false</isSaleToAll>
+    <startDate>2026-04-28T00:00:00</startDate>
+    <endDate>2026-05-05T00:00:00</endDate>
+  </Sale>
 </ArrayOfSale>

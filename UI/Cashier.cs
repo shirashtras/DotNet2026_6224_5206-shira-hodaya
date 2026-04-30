@@ -20,7 +20,11 @@ namespace UI
 
         private void DoOrderbutton1_Click(object sender, EventArgs e)
         {
-            //Factory.Get().iOrder.DoOrder();
+            CashiarController cashiarController = new CashiarController();
+            // When the controller form is closed, show this Cashier form again
+            cashiarController.FormClosed += (s, args) => this.Show();
+            cashiarController.Show();
+            this.Hide();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
