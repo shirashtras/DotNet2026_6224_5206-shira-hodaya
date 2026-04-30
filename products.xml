@@ -8,13 +8,6 @@
     <count>40</count>
   </Product>
   <Product>
-    <id>1012</id>
-    <name>Hot Chocolate</name>
-    <category>HotDrinks</category>
-    <price>10</price>
-    <count>500</count>
-  </Product>
-  <Product>
     <id>1013</id>
     <name>American IceCream</name>
     <category>IceCream</category>
@@ -148,13 +141,6 @@
     <count>100</count>
   </Product>
   <Product>
-    <id>1040</id>
-    <name>fyhgbj</name>
-    <category>Pastries</category>
-    <price>20</price>
-    <count>500</count>
-  </Product>
-  <Product>
     <id>1023</id>
     <name>Water</name>
     <category>SoftDrinks</category>
@@ -167,5 +153,19 @@
     <category>HotDrinks</category>
     <price>12</price>
     <count>50</count>
+  </Product>
+  <Product>
+    <id>1040</id>
+    <name>fyhgbj</name>
+    <category>Pastries</category>
+    <price>20</price>
+    <count>500</count>
+  </Product>
+  <Product>
+    <id>1012</id>
+    <name>Hot Chocolate</name>
+    <category>HotDrinks</category>
+    <price>10</price>
+    <count>500</count>
   </Product>
 </ArrayOfProduct>

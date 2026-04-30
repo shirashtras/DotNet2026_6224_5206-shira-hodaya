@@ -282,23 +282,7 @@ namespace UI
         }
 
         private void ManagerController_Load(object sender, EventArgs e)
-        {
-            //// adjust filename to match exact file + extension you added
-            //var fileName = "istockphoto-515238576-612x612.jpg";
-
-            //// runtime path: Application base + project relative folder. Adjust if you used a different folder name.
-            //var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UI", "NewFolder", fileName);
-
-            //if (!File.Exists(path))
-            //{
-            //    MessageBox.Show("Background image not found: " + path);
-            //}
-            //else
-            //{
-            //    // put background on the TabControl so it's visible (TabControl covers the form)
-            //    CreatetabControl1.BackgroundImage = Image.FromFile(path);
-            //    CreatetabControl1.BackgroundImageLayout = ImageLayout.Stretch;
-            //}
+        { 
 
             HideAllPanels();
         }

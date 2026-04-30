@@ -76,8 +76,7 @@ namespace UI
                 var products = Factory.Get().iProduct.ReadAll();
                 comboProducts.Items.Clear();
                 foreach (var p in products)
-                {
-                    // "id - name" format to allow selection or manual entry
+                {  
                     comboProducts.Items.Add($"{p.Product_Id} - {p.Product_Name}");
                 }
 
@@ -103,10 +102,8 @@ namespace UI
             int qty = (int)numQuantity.Value;
             try
             {
-                // Add product to order via BL. This should populate product info and sales on the order.
                 Factory.Get().iOrder.AddProductToOrder(currentOrder, qty, productId);
 
-                // Ensure each ProductInOrder has a sensible final price for display
                 RecalculateOrderFallback();
 
                 RefreshOrderDisplay();
@@ -138,7 +135,6 @@ namespace UI
 
         private void RecalculateOrderFallback()
         {
-            // If BL did not calculate final prices for products, compute basic fallback:
             foreach (var p in currentOrder.listProductInOrder)
             {
                 if (p.finalPriceProductInOrder <= 0)

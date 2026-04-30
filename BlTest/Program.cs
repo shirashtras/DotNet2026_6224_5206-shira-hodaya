@@ -282,7 +282,7 @@ namespace BlTest
             Console.WriteLine("Enter stock count:");
             int count = int.Parse(Console.ReadLine()!);
 
-            return new BO.Product(id, name,  price,count,(Category)cat );
+            return new BO.Product(id, name, price, count, (BL.BO.Category)(Category)cat);
         }
 
         private static BO.Sale AskSale(int id = 0)
