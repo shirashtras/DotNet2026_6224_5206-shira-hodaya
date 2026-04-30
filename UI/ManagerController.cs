@@ -6,9 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using BIApi;
-using BO;
-using DO;
 using System.Globalization;
+using BL.BO;
 
 namespace UI
 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BIApi;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,18 @@ namespace UI
         public Cashier()
         {
             InitializeComponent();
+        }
+
+        private void DoOrderbutton1_Click(object sender, EventArgs e)
+        {
+            //Factory.Get().iOrder.DoOrder();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            Main main = new Main();
+            main.Show();
+            this.Hide();
         }
     }
 }

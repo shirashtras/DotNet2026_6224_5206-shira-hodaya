@@ -29,16 +29,21 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manager));
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
+            buttonBack = new Button();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(263, 79);
+            button1.Font = new Font("Sitka Banner", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.FromArgb(128, 64, 0);
+            button1.Location = new Point(302, 107);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(167, 58);
+            button1.Size = new Size(207, 101);
             button1.TabIndex = 0;
             button1.Text = "Customers";
             button1.UseVisualStyleBackColor = true;
@@ -46,32 +51,57 @@ namespace UI
             // 
             // button2
             // 
-            button2.Location = new Point(263, 160);
+            button2.BackColor = Color.White;
+            button2.Font = new Font("Sitka Banner", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.FromArgb(128, 64, 0);
+            button2.Location = new Point(301, 216);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(167, 56);
+            button2.Size = new Size(207, 99);
             button2.TabIndex = 1;
             button2.Text = "Products";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // button3
             // 
-            button3.Location = new Point(263, 242);
+            button3.Font = new Font("Sitka Banner", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.FromArgb(128, 64, 0);
+            button3.Location = new Point(301, 323);
+            button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(167, 58);
+            button3.Size = new Size(207, 101);
             button3.TabIndex = 2;
             button3.Text = "Sales";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += this.button3_Click;
+            button3.Click += button3_Click;
+            // 
+            // buttonBack
+            // 
+            buttonBack.AccessibleRole = AccessibleRole.TitleBar;
+            buttonBack.Font = new Font("Sitka Banner", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonBack.ForeColor = Color.FromArgb(128, 64, 0);
+            buttonBack.Location = new Point(331, 458);
+            buttonBack.Name = "buttonBack";
+            buttonBack.Size = new Size(144, 44);
+            buttonBack.TabIndex = 3;
+            buttonBack.Text = "Back";
+            buttonBack.UseVisualStyleBackColor = true;
+            buttonBack.Click += buttonBack_Click;
             // 
             // Manager
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AccessibleRole = AccessibleRole.MenuBar;
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(914, 600);
+            Controls.Add(buttonBack);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Manager";
             Text = "Form2";
             ResumeLayout(false);
@@ -106,5 +136,6 @@ namespace UI
         private Button button1;
         private Button button2;
         private Button button3;
+        private Button buttonBack;
     }
 }

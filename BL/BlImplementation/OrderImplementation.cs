@@ -102,7 +102,7 @@ namespace BlImplementation
             foreach (var item in order.listProductInOrder)
             {
                 var product = _dal.Product.Read(item.idProductInOrder);
-                if (product.count < item.amountProductInOrder)
+                if (product?.count < item.amountProductInOrder)
                     throw new Exception("אין מספיק במלאי");
                 var updatedProduct = product with { count = product.count - item.amountProductInOrder };
                 _dal.Product.Update(product);

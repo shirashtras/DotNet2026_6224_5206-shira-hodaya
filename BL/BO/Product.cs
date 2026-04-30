@@ -23,13 +23,13 @@ namespace BO
         public string Product_Name { get; set; }
         public double Price { get; set; }
         public int Count { get; set; }
-        public Category category { get; set; }
+        public BL.BO.Category category { get; set; }
         private List<SaleInProduct> listSaleInProduct { get; set; }
 
         /// <summary>
         /// בנאי לאתחול שדות / ערכים
         /// </summary>
-        public Product(int Product_Id, string Product_Name, double Price, int Count, Category category)
+        public Product(int Product_Id, string Product_Name, double Price, int Count, BL.BO.Category category)
         {
             this.Product_Id = Product_Id;
             this.Product_Name = Product_Name;

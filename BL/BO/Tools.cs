@@ -53,8 +53,9 @@ namespace BO
                     Product_Id = product.id,
                     Product_Name = product.name,
                     Price = (double)product.price,
-                    Count = (int)product.count, 
-                    category = (Category)product.category };
+                    Count = (int)product.count,
+                    category = (BL.BO.Category)(Category)product.category
+                };
             }
             catch (Exception ex)
             {
