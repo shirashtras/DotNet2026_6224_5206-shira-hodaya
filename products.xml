@@ -29,13 +29,6 @@
     <count>50</count>
   </Product>
   <Product>
-    <id>1024</id>
-    <name>Cola</name>
-    <category>SoftDrinks</category>
-    <price>6</price>
-    <count>40</count>
-  </Product>
-  <Product>
     <id>1025</id>
     <name>Chocolate Cake</name>
     <category>Cakes</category>
@@ -167,5 +160,12 @@
     <category>HotDrinks</category>
     <price>10</price>
     <count>500</count>
+  </Product>
+  <Product>
+    <id>1024</id>
+    <name>Cola</name>
+    <category>SoftDrinks</category>
+    <price>6</price>
+    <count>40</count>
   </Product>
 </ArrayOfProduct>

@@ -587,7 +587,7 @@
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(102, 37);
             updateBtn.TabIndex = 4;
-            updateBtn.Text = "עדכן";
+            updateBtn.Text = "Update";
             updateBtn.UseVisualStyleBackColor = true;
             updateBtn.Click += updateBtn_Click;
             // 
