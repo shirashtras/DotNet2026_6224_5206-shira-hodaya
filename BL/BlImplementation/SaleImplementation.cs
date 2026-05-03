@@ -40,6 +40,11 @@ namespace BlImplementation
                 throw new BlIdExistsException("The sale is  Exist!");
             }
         }
+        /// <summary>
+        /// פונקציה למחיקת מבצע 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="BlIdNotExistsException"></exception>
         public void Delete(int id)
         {
             try
@@ -53,7 +58,12 @@ namespace BlImplementation
                 throw new BlIdNotExistsException("The sale is not Exist!");
             }
         }
-
+        /// <summary>
+        /// פונקציה להחזרת מבצע בודד
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="BlIdNotExistsException"></exception>
         public BO.Sale? Read(int id)
         {
 
@@ -68,7 +78,12 @@ namespace BlImplementation
                 throw new BlIdNotExistsException("The sale is not Exist!");
             }
         }
-
+        /// <summary>
+        /// פונקציה להחזרת מצבע בודד לפי תנאי מסוים
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        /// <exception cref="BlIdNotExistsException"></exception>
         public BO.Sale? Read(Func<BO.Sale, bool> filter)
         {
             try
@@ -84,7 +99,12 @@ namespace BlImplementation
                 throw new BlIdNotExistsException("The sale is not Exist!");
             }
         }
-
+        /// <summary>
+        /// פונקציה להחזרת כל המבצעים
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        /// <exception cref="BlIdExistsException"></exception>
         public List<BO.Sale?> ReadAll(Func<BO.Sale, bool>? filter = null)
         {
             try
@@ -100,6 +120,11 @@ namespace BlImplementation
             }
 
         }
+        /// <summary>
+        /// פונקציה לעדכון כל המבצעים
+        /// </summary>
+        /// <param name="item"></param>
+        /// <exception cref="BlIdExistsException"></exception>
 
         public void Update(BO.Sale item)
         {

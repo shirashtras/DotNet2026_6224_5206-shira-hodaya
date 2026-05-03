@@ -19,6 +19,11 @@ namespace BlImplementation
 
         }
         private DalApi.IDal _dal = DalApi.Factory.Get;
+        /// <summary>
+        /// פונקציה לחיפוש מבצע עבור מוצר 
+        /// </summary>
+        /// <param name="productInOrder"></param>
+        /// <param name="isOrderToExistCustomer"></param>
 
         public void SearchSaleForProduct(BO.ProductInOrder productInOrder, bool isOrderToExistCustomer)
         {
@@ -30,12 +35,20 @@ namespace BlImplementation
                     .ToList();
 
         }
+        /// <summary>
+        /// פונקציה לחישוב מחיר סופי
+        /// </summary>
+        /// <param name="order"></param>
         public void CalcTotalPrice(Order order)
         {
             order.finalPrice += (from product in order.listProductInOrder
                                  select product.basePriceProductInOrder).Sum();
 
         }
+        /// <summary>
+        /// פונקציה לחישוב מחיר  עבור מוצר
+        /// </summary>
+        /// <param name="productForCalc"></param>
         public void CalcTotalPriceForProduct(BO.ProductInOrder productForCalc)
         {
             int count = productForCalc.amountProductInOrder;
@@ -56,6 +69,14 @@ namespace BlImplementation
             productForCalc.finalPriceProductInOrder = totalPrice;
             productForCalc.listSaleToProductInOrder = usedProducts;
         }
+        /// <summary>
+        /// פונקציה להוספת מוצר להזמנה
+        /// </summary>
+        /// <param name="order"></param>
+        /// <param name="amountProductInOrder"></param>
+        /// <param name="idProductInOrder"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public List<SaleInProduct> AddProductToOrder(Order order, int amountProductInOrder, int idProductInOrder)
         {
             var product = _dal.Product.Read(idProductInOrder);
@@ -97,6 +118,11 @@ namespace BlImplementation
             return existingProductInOrder.listSaleToProductInOrder;
 
         }
+        /// <summary>
+        /// פונקציה ליצירת הזמנה 
+        /// </summary>
+        /// <param name="order"></param>
+        /// <exception cref="Exception"></exception>
         public void DoOrder(Order order)
         {
             foreach (var item in order.listProductInOrder)

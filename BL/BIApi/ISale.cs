@@ -41,6 +41,11 @@ namespace BIApi
         /// <param name="id">מזהה המבצע הרצוי למחיקה</param>
         void Delete(int id);
 
+        /// <summary>
+        /// פונקציה שמחזירה מבצע לפי תנאי מסוים שקיבלה, אם לא קיבלה תנאי מחזירה את המבצע הראשון שנמצא
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         BO.Sale? Read(Func<BO.Sale, bool>? filter);
         
     }

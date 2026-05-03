@@ -40,8 +40,11 @@ namespace Tools
                 writeText.WriteLine($"{DateTime.Now}\t{projectName}.{funcName}:\t{message}");
             }
         }
-
-
+       
+   
+        /// <summary>
+        /// פונקציה למחיקת תיקייה מהחודשיים האחרונים
+        /// </summary>
         public static void DeleteOldFolder()
         {
             if (!Directory.Exists(LogDirPath))

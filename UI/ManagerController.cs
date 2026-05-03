@@ -21,7 +21,6 @@ namespace UI
         {
             InitializeComponent();
 
-            // מילוי קטגוריות ליצירה ולעדכון
             ProductCategoriescomboBox1.DataSource = Enum.GetNames(typeof(Category));
             productComboBoxUpdate.DataSource = Enum.GetNames(typeof(Category));
 
@@ -51,7 +50,6 @@ namespace UI
             }
         }
 
-        // הסתרת שדות ID לפי סוג (יצירה)
         private void AdjustIdFields()
         {
             if (type == Types.PRODUCT)
@@ -73,7 +71,6 @@ namespace UI
             }
         }
 
-        // מיון מוצר לפי מחיר
         private void OrderByPriceBtn_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource =
@@ -91,7 +88,6 @@ namespace UI
                 .ToList();
         }
 
-        // מיון לקוחות לפי עיר
         private void OrderByCityBtn_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource =
@@ -250,7 +246,6 @@ namespace UI
             }
             catch (Exception ex)
             {
-                // TEMP: show full info while debugging to find root cause
                 MessageBox.Show("Error: " + ex.Message + "\n\nDetails:\n" + ex.ToString());
             }
         }
@@ -266,7 +261,6 @@ namespace UI
             foreach (Control c in panelCustomer.Controls)
                 if (c is TextBox) c.Text = "";
 
-            // Uncheck any checkboxes in sale/update panels
             foreach (Control c in panelSale.Controls)
                 if (c is CheckBox) ((CheckBox)c).Checked = false;
 
@@ -299,7 +293,6 @@ namespace UI
                 switch (type)
                 {
                     case Types.PRODUCT:
-                        // update panel fields: textBox9 = id, textBox2 = name, textBox6 = price, textBox7 = count
                         if (!int.TryParse(textBox9.Text, out int prodId))
                         {
                             MessageBox.Show("Product ID must be a number");
@@ -382,7 +375,6 @@ namespace UI
                             return;
                         }
 
-                        // read checkbox state directly
                         bool allCustomers = If_All_CustomersCheckBoxUpdate.Checked;
 
                         if (!TryParseDate(textBox10.Text, out DateTime startDate))
@@ -418,7 +410,6 @@ namespace UI
             }
             catch (Exception ex)
             {
-                // TEMP: show full info while debugging to find root cause
                 MessageBox.Show("Error: " + ex.Message + "\n\nDetails:\n" + ex.ToString());
             }
         }
@@ -426,7 +417,6 @@ namespace UI
         {
             if (type == Types.PRODUCT)
             {
-                // For update we need to show the product id to choose which product to update
                 textBox9.Visible = true;
                 label6.Visible = true;
             }
@@ -461,7 +451,6 @@ namespace UI
             switch (type)
             {
                 case Types.PRODUCT:
-                    // populate update category combobox (defensive)
                     productComboBoxUpdate.DataSource = Enum.GetNames(typeof(Category));
                     panelupdatePro.Visible = true;
                     break;
@@ -531,7 +520,6 @@ namespace UI
             if (DateTime.TryParseExact(input, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
                 return true;
 
-            // fallback to culture-aware parse
             return DateTime.TryParse(input, CultureInfo.CurrentCulture, DateTimeStyles.None, out result);
         }
 
@@ -571,7 +559,6 @@ namespace UI
                 MessageBox.Show("Deleted successfully!");
                 ClearAllFields();
 
-                // clear delete ID field and return focus for convenience
                 textBoxDelete.Text = "";
                 textBoxDelete.Focus();
             }
@@ -583,8 +570,6 @@ namespace UI
 
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
-            // optional: validate input as the user types
-            // For now keep empty to satisfy designer wiring.
         }
     }
 }

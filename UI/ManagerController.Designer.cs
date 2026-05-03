@@ -1027,30 +1027,7 @@
         {
         }
 
-        //private void CreatetabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (CreatetabControl1.SelectedTab == CreateTabPage3)
-        //    {
-        //        HideAllPanels();
-
-        //        switch (type)
-        //        {
-        //            case Types.PRODUCT:
-        //                panelProduct.Show();
-        //                break;
-
-        //            case Types.SALE:
-        //                panelSale.Show();
-        //                break;
-
-        //            case Types.CUSTOMER:
-        //                panelCustomer.Show();
-        //                break;
-        //        }
-
-        //        AdjustIdFields();
-        //    }
-        //}
+        
 
 
         #endregion

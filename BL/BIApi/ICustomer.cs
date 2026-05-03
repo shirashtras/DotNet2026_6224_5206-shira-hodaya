@@ -41,6 +41,11 @@ namespace BIApi
         /// <param name="id">מזהה הלקוח הרצוי למחיקה</param>
         void Delete(int id);
 
+        /// <summary>
+        /// פונקציה שמחזירה לקוח לפי תנאי מסוים שקיבלה
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         BO.Customer? Read(Func<BO.Customer, bool>? filter);
         /// <summary>
         /// בדיקה האם לקוח קיים

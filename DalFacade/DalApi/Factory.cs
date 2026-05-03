@@ -18,12 +18,10 @@ public static class Factory
 
             try
             {
-                // Try load by assembly name first (when referenced)
                 asm = Assembly.Load(dal);
             }
             catch
             {
-                // If that fails, try load from file path next
                 if (File.Exists(assemblyFile))
                 {
                     try
@@ -44,7 +42,6 @@ public static class Factory
             if (asm == null)
                 throw new DalConfigException($"Failed to load {dal}.dll package");
 
-            // First try to find a type that implements IDal and exposes a public static Instance property
             var dalTypeCandidates = asm.GetTypes()
                 .Where(t => typeof(IDal).IsAssignableFrom(t) && t.IsClass)
                 .ToList();
@@ -59,7 +56,6 @@ public static class Factory
                 }
             }
 
-            // Fallback: try the original expected name "Dal.{dal}"
             var explicitType = asm.GetType($"Dal.{dal}") ?? Type.GetType($"Dal.{dal}, {dal}");
             if (explicitType != null)
             {

@@ -13,7 +13,10 @@ namespace Dal
         const string path = @"..\customers.xml";
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Customer>));
         List<Customer>? customers;
-
+        /// <summary>
+        /// פונקציה לטעינת הנתונים
+        /// </summary>
+        /// <returns></returns>
         private List<Customer> LoadList()
         {
             if (!File.Exists(path))
@@ -24,7 +27,10 @@ namespace Dal
                 return xmlSerializer.Deserialize(sr) as List<Customer> ?? new List<Customer>();
             }
         }
-
+        /// <summary>
+        /// פונקציה לשמירת הנתונים
+        /// </summary>
+        /// <param name="list"></param>
         private void SaveList(List<Customer> list)
         {
             using (StreamWriter sw = new StreamWriter(path))
@@ -32,8 +38,12 @@ namespace Dal
                 xmlSerializer.Serialize(sw, list);
             }
         }
-
-        // יצירת לקוח חדש
+        /// <summary>
+        /// פונקציה ליצירת לקוח
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        /// <exception cref="DalIdExists"></exception>
         public int Create(Customer item)
         {
             customers = LoadList();
@@ -53,8 +63,12 @@ namespace Dal
 
             return newItem.id;
         }
-
-        // קריאה לפי מזהה
+        /// <summary>
+        /// פונקציה לקריאת לקוח בודד
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="DalIdNotExists"></exception>
         public Customer? Read(int id)
         {
             customers = LoadList();
@@ -65,8 +79,12 @@ namespace Dal
 
             return customer;
         }
-
-        // קריאה לפי תנאי
+        /// <summary>
+        /// פונקציה לקריאת לקוח עפ"י פרמטר מסוים
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        /// <exception cref="DalFilterNotExists"></exception>
         public Customer? Read(Func<Customer, bool> filter)
         {
             customers = LoadList();
@@ -77,8 +95,12 @@ namespace Dal
 
             return c;
         }
+         /// <summary>
+         /// פונקציה לקריאת כל הלקוחות
+         /// </summary>
+         /// <param name="filter"></param>
+         /// <returns></returns>
 
-        // קריאה של כל הלקוחות
         public List<Customer?> ReadAll(Func<Customer, bool>? filter)
         {
             customers = LoadList();
@@ -88,8 +110,11 @@ namespace Dal
 
             return customers.Where(filter).ToList();
         }
-
-        // עדכון לקוח
+        /// <summary>
+        /// פונקציה לעדכון לקוח מסוים 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <exception cref="DalIdNotExists"></exception>
         public void Update(Customer item)
         {
             customers = LoadList();
@@ -103,8 +128,11 @@ namespace Dal
 
             SaveList(customers);
         }
-
-        // מחיקת לקוח
+        /// <summary>
+        /// פונקציה למחיקת לקוח מסוים
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="DalIdNotExists"></exception>
         public void Delete(int id)
         {
             customers = LoadList();

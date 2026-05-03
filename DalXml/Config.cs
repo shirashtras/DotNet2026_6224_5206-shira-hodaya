@@ -13,16 +13,14 @@ internal static class Config
 
     private static XElement Initialize()
     {
-        // Ensure directory exists
         var dir = Path.GetDirectoryName(path) ?? Path.Combine(AppContext.BaseDirectory, "xml");
         if (!Directory.Exists(dir))
             Directory.CreateDirectory(dir);
 
-        // If file does not exist, create a default config file with safe initial IDs
         if (!File.Exists(path))
         {
             var defaultXml = new XElement("config",
-                new XElement(PRODUCTID, "1039"), // מאחסן 1039 => הקריאה הראשונה תחזיר 1040
+                new XElement(PRODUCTID, "1039"), 
                 new XElement(IDSALE, "2000")
             );
 

@@ -21,7 +21,11 @@ namespace BlImplementation
         }
         private DalApi.IDal _dal = DalApi.Factory.Get;
 
-       
+       /// <summary>
+       /// פונקציה ליצירת מוצר
+       /// </summary>
+       /// <param name="item"></param>
+       /// <returns></returns>
         public int Create(BO.Product item)
         {
             try
@@ -33,8 +37,6 @@ namespace BlImplementation
             }
             catch (Exception ex)
             {
-                // If the underlying DAL raised an "id exists" error, translate it to BL layer exception.
-                // Avoid masking all other exceptions as "exists" so real errors surface.
                 try
                 {
                     string exName = ex.GetType().Name ?? "";
@@ -47,15 +49,17 @@ namespace BlImplementation
                 }
                 catch
                 {
-                    // ignore - fall through to rethrow original
                 }
 
-                // For all other exceptions, log and rethrow the original exception so caller can see the root cause.
                 Tools.LogManager.writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Create {item} Product Exeption: {ex.Message}");
                 throw;
             }
         }
-
+        /// <summary>
+        /// פונקציה למחיקת מוצר
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="BlIdNotExistsException"></exception>
         public void Delete(int id)
         {
             try
@@ -69,7 +73,12 @@ namespace BlImplementation
                 throw new BlIdNotExistsException("The product is not  Exist!");
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="BlIdNotExistsException"></exception>
         public BO.Product? Read(int id)
         {
             try
@@ -98,7 +107,12 @@ namespace BlImplementation
             }
 
         }
-
+        /// <summary>
+        /// פונקציה להחזרת כל המוצרים
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        /// <exception cref="BlIdNotExistsException"></exception>
         public List<BO.Product?> ReadAll(Func<BO.Product, bool>? filter = null)
         {
             try
@@ -117,9 +131,13 @@ namespace BlImplementation
 
 
         }
-        
+        /// <summary>
+        /// פונקציה לעדכון מוצר
+        /// </summary>
+        /// <param name="item"></param>
+        /// <exception cref="BlIdNotExistsException"></exception>
 
-        public void Update(BO.Product item)
+        public void Update(Product item)
         {
             try
             {
@@ -132,7 +150,11 @@ namespace BlImplementation
                 throw new BlIdNotExistsException("The product is not Exist!");
             }
         }
-
+        /// <summary>
+        /// פונקציה להחזרת כל המבצעים בתאריך הזה
+        /// </summary>
+        /// <param name="product"></param>
+        /// <param name="isPreferedCus"></param>
 
         public void AllSalesInDate(BO.ProductInOrder product, bool isPreferedCus)
         {
