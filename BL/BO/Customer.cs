@@ -11,7 +11,7 @@ namespace BO
         public int Customer_Id { get; set; }
         public string Customer_Name { get; set; }
         public string Customer_Phone { get; set; }
-       
+
         public string? Customer_Address { get; set; }
 
         public Customer(int Customer_Id, string Customer_Name, string Customer_Phone, bool isClub, string? Customer_Address)
@@ -25,6 +25,7 @@ namespace BO
         {
 
         }
-    }
 
+        public override string ToString() => this.ToStringProperty();
+    }
 }
