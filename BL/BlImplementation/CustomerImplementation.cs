@@ -15,7 +15,7 @@ namespace BlImplementation
 
         }
         private DalApi.IDal _dal = DalApi.Factory.Get;
-        public int Create(BO.Customer item)
+        public int Create(Customer item)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace BlImplementation
             }
         }
 
-        public BO.Customer? Read(Func<BO.Customer, bool> filter)
+        public BO.Customer? Read(Func<Customer, bool> filter)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace BlImplementation
 
         }
 
-        public List<BO.Customer?> ReadAll(Func<BO.Customer, bool>? filter = null)
+        public List<BO.Customer?> ReadAll(Func<Customer, bool>? filter = null)
         {
 
             try
@@ -94,7 +94,7 @@ namespace BlImplementation
 
         }
 
-        public void Update(BO.Customer item)
+        public void Update(Customer item)
         {
             try
             {

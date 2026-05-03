@@ -22,6 +22,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerController));
             CreatetabControl1 = new TabControl();
             ViewOneTabPage1 = new TabPage();
             labelDetails = new Label();
@@ -68,6 +69,9 @@
             label5 = new Label();
             ProductCategoriescomboBox1 = new ComboBox();
             DeleteTabPage1 = new TabPage();
+            buttonDelete = new Button();
+            textBoxDelete = new TextBox();
+            label20 = new Label();
             UpdateTabPage1 = new TabPage();
             updateBtn = new Button();
             panelUpdateCustomer = new Panel();
@@ -108,9 +112,6 @@
             OrderByPriceSaleBtn = new Button();
             OrderByCityBtn = new Button();
             OrderByPriceBtn = new Button();
-            buttonDelete = new Button();
-            textBoxDelete = new TextBox();
-            label20 = new Label();
             CreatetabControl1.SuspendLayout();
             ViewOneTabPage1.SuspendLayout();
             ViewAllTabPage2.SuspendLayout();
@@ -566,6 +567,34 @@
             DeleteTabPage1.Text = "Delete";
             DeleteTabPage1.UseVisualStyleBackColor = true;
             // 
+            // buttonDelete
+            // 
+            buttonDelete.Location = new Point(333, 222);
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.Size = new Size(94, 29);
+            buttonDelete.TabIndex = 5;
+            buttonDelete.Text = "Delete";
+            buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += button1_Click;
+            // 
+            // textBoxDelete
+            // 
+            textBoxDelete.Location = new Point(292, 143);
+            textBoxDelete.Name = "textBoxDelete";
+            textBoxDelete.Size = new Size(181, 27);
+            textBoxDelete.TabIndex = 4;
+            textBoxDelete.TextChanged += textBox13_TextChanged;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(217, 143);
+            label20.Name = "label20";
+            label20.Size = new Size(22, 20);
+            label20.TabIndex = 3;
+            label20.Text = "Id";
+            label20.Click += label20_Click;
+            // 
             // UpdateTabPage1
             // 
             UpdateTabPage1.Controls.Add(updateBtn);
@@ -938,38 +967,12 @@
             OrderByPriceBtn.UseVisualStyleBackColor = true;
             OrderByPriceBtn.Click += OrderByPriceBtn_Click;
             // 
-            // buttonDelete
-            // 
-            buttonDelete.Location = new Point(333, 222);
-            buttonDelete.Name = "buttonDelete";
-            buttonDelete.Size = new Size(94, 29);
-            buttonDelete.TabIndex = 5;
-            buttonDelete.Text = "Delete";
-            buttonDelete.UseVisualStyleBackColor = true;
-            buttonDelete.Click += this.button1_Click;
-            // 
-            // textBoxDelete
-            // 
-            textBoxDelete.Location = new Point(292, 143);
-            textBoxDelete.Name = "textBoxDelete";
-            textBoxDelete.Size = new Size(181, 27);
-            textBoxDelete.TabIndex = 4;
-            textBoxDelete.TextChanged += this.textBox13_TextChanged;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Location = new Point(217, 143);
-            label20.Name = "label20";
-            label20.Size = new Size(22, 20);
-            label20.TabIndex = 3;
-            label20.Text = "Id";
-            label20.Click += label20_Click;
-            // 
             // ManagerController
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(914, 600);
             Controls.Add(OrderByPriceSaleBtn);
             Controls.Add(OrderByPriceBtn);

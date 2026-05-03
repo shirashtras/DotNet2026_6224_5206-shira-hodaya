@@ -40,6 +40,8 @@ namespace BO
         public Sale()
         {
         }
+        public override string ToString() => this.ToStringProperty();
+
     }
 }
 

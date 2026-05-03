@@ -20,6 +20,8 @@ namespace BO
         {
             listSaleToProductInOrder = new List<SaleInProduct>();
         }
+        public override string ToString() => this.ToStringProperty();
+
 
     }
 }

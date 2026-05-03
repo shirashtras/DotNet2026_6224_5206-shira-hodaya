@@ -1,32 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Product>
-    <id>1013</id>
-    <name>American IceCream</name>
-    <category>IceCream</category>
-    <price>6</price>
-    <count>90</count>
-  </Product>
-  <Product>
-    <id>1015</id>
-    <name>ncxmz</name>
-    <category>HotDrinks</category>
-    <price>20</price>
-    <count>50</count>
-  </Product>
-  <Product>
     <id>1025</id>
     <name>Chocolate Cake</name>
     <category>Cakes</category>
     <price>20</price>
     <count>100</count>
-  </Product>
-  <Product>
-    <id>1026</id>
-    <name>Hot Coffee</name>
-    <category>HotDrinks</category>
-    <price>12</price>
-    <count>50</count>
   </Product>
   <Product>
     <id>1027</id>
@@ -43,46 +22,11 @@
     <count>90</count>
   </Product>
   <Product>
-    <id>1001</id>
-    <name>dfwefdwe</name>
-    <category>Pastries</category>
-    <price>50</price>
-    <count>150</count>
-  </Product>
-  <Product>
-    <id>1004</id>
-    <name>soda</name>
-    <category>SoftDrinks</category>
-    <price>10</price>
-    <count>48</count>
-  </Product>
-  <Product>
-    <id>1005</id>
-    <name>watat</name>
-    <category>SoftDrinks</category>
-    <price>23</price>
-    <count>32</count>
-  </Product>
-  <Product>
-    <id>1042</id>
-    <name>xdcfgv</name>
-    <category>Pastries</category>
-    <price>6</price>
-    <count>562</count>
-  </Product>
-  <Product>
     <id>1043</id>
     <name>woww</name>
     <category>Pastries</category>
     <price>4512</price>
     <count>45120</count>
-  </Product>
-  <Product>
-    <id>1045</id>
-    <name>cfgvhjb</name>
-    <category>Cakes</category>
-    <price>45</price>
-    <count>45</count>
   </Product>
   <Product>
     <id>1046</id>
@@ -111,13 +55,6 @@
     <category>HotDrinks</category>
     <price>12</price>
     <count>50</count>
-  </Product>
-  <Product>
-    <id>1040</id>
-    <name>fyhgbj</name>
-    <category>Pastries</category>
-    <price>20</price>
-    <count>500</count>
   </Product>
   <Product>
     <id>1012</id>
@@ -155,6 +92,20 @@
     <count>12</count>
   </Product>
   <Product>
+    <id>1029</id>
+    <name>Borax</name>
+    <category>Pastries</category>
+    <price>4</price>
+    <count>80</count>
+  </Product>
+  <Product>
+    <id>1013</id>
+    <name>American IceCream</name>
+    <category>IceCream</category>
+    <price>6</price>
+    <count>90</count>
+  </Product>
+  <Product>
     <id>1003</id>
     <name>zero</name>
     <category>SoftDrinks</category>
@@ -162,10 +113,17 @@
     <count>485</count>
   </Product>
   <Product>
-    <id>1029</id>
-    <name>Borax</name>
-    <category>Pastries</category>
-    <price>4</price>
-    <count>80</count>
+    <id>1004</id>
+    <name>soda</name>
+    <category>SoftDrinks</category>
+    <price>10</price>
+    <count>48</count>
+  </Product>
+  <Product>
+    <id>1026</id>
+    <name>Hot Coffee</name>
+    <category>HotDrinks</category>
+    <price>12</price>
+    <count>50</count>
   </Product>
 </ArrayOfProduct>

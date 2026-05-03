@@ -28,35 +28,71 @@ namespace UI
 
         private void InitializeComponent()
         {
-            Text = "Cashiar";
-            Size = new Size(820, 640);
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(CashiarController));
 
-            comboProducts = new ComboBox { Left = 20, Top = 18, Width = 420, DropDownStyle = ComboBoxStyle.DropDownList };
-            txtProductId = new TextBox { Left = 460, Top = 18, Width = 140, PlaceholderText = "Product Id" };
-            numQuantity = new NumericUpDown { Left = 610, Top = 18, Width = 80, Minimum = 1, Value = 1 };
-            btnAdd = new Button { Left = 700, Top = 16, Width = 90, Text = "Add" };
+            comboProducts = new ComboBox();
+            txtProductId = new TextBox();
+            numQuantity = new NumericUpDown();
+            btnAdd = new Button();
+            lvOrder = new ListView();
+            lblTotal = new Label();
+            btnFinish = new Button();
+
+            ((System.ComponentModel.ISupportInitialize)numQuantity).BeginInit();
+            SuspendLayout();
+
+            // comboProducts
+            comboProducts.Location = new Point(20, 20);
+            comboProducts.Size = new Size(200, 28);
+            comboProducts.BackColor = Color.White;
+
+            // txtProductId
+            txtProductId.Location = new Point(20, 60);
+            txtProductId.Size = new Size(200, 27);
+            txtProductId.BackColor = Color.White;
+
+            // numQuantity
+            numQuantity.Location = new Point(20, 100);
+            numQuantity.Size = new Size(200, 27);
+            numQuantity.BackColor = Color.White;
+
+            // btnAdd
+            btnAdd.Location = new Point(20, 140);
+            btnAdd.Size = new Size(200, 30);
+            btnAdd.Text = "Add";
+            btnAdd.BackColor = Color.White;
             btnAdd.Click += BtnAdd_Click;
 
-            lvOrder = new ListView
-            {
-                Left = 20,
-                Top = 60,
-                Width = 770,
-                Height = 480,
-                View = View.Details,
-                FullRowSelect = true,
-                GridLines = true
-            };
-            lvOrder.Columns.Add("Product Id", 80);
-            lvOrder.Columns.Add("Name", 280);
-            lvOrder.Columns.Add("Qty", 60);
+            // lvOrder
+            lvOrder.Location = new Point(250, 20);
+            lvOrder.Size = new Size(500, 400);
+            lvOrder.BackColor = Color.White;
+            lvOrder.View = View.Details;
+            lvOrder.Columns.Add("ID", 50);
+            lvOrder.Columns.Add("Name", 150);
+            lvOrder.Columns.Add("Qty", 50);
             lvOrder.Columns.Add("Base Price", 100);
-            lvOrder.Columns.Add("Applied Sales", 160);
-            lvOrder.Columns.Add("Final Price", 90);
+            lvOrder.Columns.Add("Sales", 100);
+            lvOrder.Columns.Add("Final Price", 100);
 
-            lblTotal = new Label { Left = 20, Top = 555, Width = 400, Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold) };
-            btnFinish = new Button { Left = 700, Top = 548, Width = 90, Text = "Finish" };
+            // lblTotal
+            lblTotal.Location = new Point(250, 440);
+            lblTotal.Size = new Size(300, 30);
+            lblTotal.BackColor = Color.White;
+            lblTotal.Font = new Font("Arial", 12, FontStyle.Bold);
+
+            // btnFinish
+            btnFinish.Location = new Point(250, 480);
+            btnFinish.Size = new Size(200, 30);
+            btnFinish.Text = "Finish Order";
+            btnFinish.BackColor = Color.White;
             btnFinish.Click += BtnFinish_Click;
+
+            // Form
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(802, 593);
 
             Controls.Add(comboProducts);
             Controls.Add(txtProductId);
@@ -66,7 +102,13 @@ namespace UI
             Controls.Add(lblTotal);
             Controls.Add(btnFinish);
 
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Text = "Cashiar";
             Load += CashiarController_Load;
+
+            ((System.ComponentModel.ISupportInitialize)numQuantity).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private void CashiarController_Load(object? sender, EventArgs e)
@@ -75,10 +117,9 @@ namespace UI
             {
                 var products = Factory.Get().iProduct.ReadAll();
                 comboProducts.Items.Clear();
+
                 foreach (var p in products)
-                {  
                     comboProducts.Items.Add($"{p.Product_Id} - {p.Product_Name}");
-                }
 
                 if (comboProducts.Items.Count > 0)
                     comboProducts.SelectedIndex = 0;
@@ -100,12 +141,11 @@ namespace UI
             }
 
             int qty = (int)numQuantity.Value;
+
             try
             {
                 Factory.Get().iOrder.AddProductToOrder(currentOrder, qty, productId);
-
                 RecalculateOrderFallback();
-
                 RefreshOrderDisplay();
             }
             catch (Exception ex)
@@ -117,11 +157,10 @@ namespace UI
         private bool TryGetSelectedProductId(out int id)
         {
             id = 0;
+
             var manual = txtProductId.Text?.Trim();
             if (!string.IsNullOrEmpty(manual))
-            {
                 return int.TryParse(manual, out id);
-            }
 
             if (comboProducts.SelectedItem != null)
             {
@@ -141,18 +180,23 @@ namespace UI
                     p.finalPriceProductInOrder = p.amountProductInOrder * p.basePriceProductInOrder;
             }
 
-            currentOrder.finalPrice = currentOrder.listProductInOrder.Sum(p => p.finalPriceProductInOrder);
+            currentOrder.finalPrice =
+                currentOrder.listProductInOrder.Sum(p => p.finalPriceProductInOrder);
         }
 
         private void RefreshOrderDisplay()
         {
             lvOrder.Items.Clear();
+
             foreach (var p in currentOrder.listProductInOrder)
             {
                 string salesText = "";
+
                 if (p.listSaleToProductInOrder != null && p.listSaleToProductInOrder.Any())
                 {
-                    salesText = string.Join(", ", p.listSaleToProductInOrder.Select(s => $"{s.amountSaleInProduct}@{s.priceSaleInProduct:0.00}"));
+                    salesText = string.Join(", ",
+                        p.listSaleToProductInOrder.Select(s =>
+                            $"{s.amountSaleInProduct}@{s.priceSaleInProduct:0.00}"));
                 }
 
                 var item = new ListViewItem(new[]

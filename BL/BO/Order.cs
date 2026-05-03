@@ -18,5 +18,7 @@ namespace BL.BO
             listProductInOrder= new List<ProductInOrder>(); 
 
         }
+        public override string ToString() => this.ToStringProperty();
+
     }
 }

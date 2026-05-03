@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,7 @@ namespace BL.BO
         {
             
         }
+        public override string ToString() => this.ToStringProperty();
+
     }
 }
