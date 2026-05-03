@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Product>
-    <id>1009</id>
-    <name>Cola</name>
-    <category>SoftDrinks</category>
-    <price>6</price>
-    <count>40</count>
-  </Product>
-  <Product>
     <id>1013</id>
     <name>American IceCream</name>
     <category>IceCream</category>
     <price>6</price>
     <count>90</count>
-  </Product>
-  <Product>
-    <id>1014</id>
-    <name>Borax</name>
-    <category>Pastries</category>
-    <price>4</price>
-    <count>80</count>
   </Product>
   <Product>
     <id>1015</id>
@@ -57,25 +43,11 @@
     <count>90</count>
   </Product>
   <Product>
-    <id>1029</id>
-    <name>Borax</name>
-    <category>Pastries</category>
-    <price>4</price>
-    <count>80</count>
-  </Product>
-  <Product>
     <id>1001</id>
     <name>dfwefdwe</name>
     <category>Pastries</category>
     <price>50</price>
     <count>150</count>
-  </Product>
-  <Product>
-    <id>1002</id>
-    <name>FuzeTea</name>
-    <category>SoftDrinks</category>
-    <price>5</price>
-    <count>12</count>
   </Product>
   <Product>
     <id>1004</id>
@@ -120,13 +92,6 @@
     <count>50</count>
   </Product>
   <Product>
-    <id>1003</id>
-    <name>zero</name>
-    <category>SoftDrinks</category>
-    <price>8</price>
-    <count>485</count>
-  </Product>
-  <Product>
     <id>1010</id>
     <name>Chocolate Cake</name>
     <category>Cakes</category>
@@ -167,5 +132,40 @@
     <category>SoftDrinks</category>
     <price>6</price>
     <count>40</count>
+  </Product>
+  <Product>
+    <id>1009</id>
+    <name>Cola</name>
+    <category>SoftDrinks</category>
+    <price>6</price>
+    <count>40</count>
+  </Product>
+  <Product>
+    <id>1014</id>
+    <name>Borax</name>
+    <category>Pastries</category>
+    <price>4</price>
+    <count>80</count>
+  </Product>
+  <Product>
+    <id>1002</id>
+    <name>FuzeTea</name>
+    <category>SoftDrinks</category>
+    <price>5</price>
+    <count>12</count>
+  </Product>
+  <Product>
+    <id>1003</id>
+    <name>zero</name>
+    <category>SoftDrinks</category>
+    <price>8</price>
+    <count>485</count>
+  </Product>
+  <Product>
+    <id>1029</id>
+    <name>Borax</name>
+    <category>Pastries</category>
+    <price>4</price>
+    <count>80</count>
   </Product>
 </ArrayOfProduct>
