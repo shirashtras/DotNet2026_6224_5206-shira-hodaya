@@ -28,7 +28,7 @@ namespace BlImplementation
         public void SearchSaleForProduct(BO.ProductInOrder productInOrder, bool isOrderToExistCustomer)
         {
             productInOrder.listSaleToProductInOrder = _dal.Sale.ReadAll(s => s.idSale == productInOrder.idProductInOrder &&
-            s.startDate <= DateTime.Now && s.endDate >= DateTime.Now && s.count == productInOrder.amountProductInOrder
+            s.startDate <= DateTime.Now && s.endDate >= DateTime.Now && s.count <= productInOrder.amountProductInOrder
             && (isOrderToExistCustomer || s.isSaleToAll))
                  .Select(s => new SaleInProduct() { idSaleInProduct = s.idSale, amountSaleInProduct = s.count, priceSaleInProduct = s.price, isSaleInProductSpecialToAll = s.isSaleToAll })
                  .OrderBy(s => s.priceSaleInProduct)

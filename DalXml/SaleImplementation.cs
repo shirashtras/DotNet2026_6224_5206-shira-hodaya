@@ -20,7 +20,7 @@ namespace Dal
 
         const string SALE = "Sale";
         
-        const string path = @"..\sales.xml";
+        const string path = @"..\xml\sales.xml";
         XElement sales;
         private XElement LoadXElement()
         {

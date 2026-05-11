@@ -12,7 +12,7 @@ namespace Dal
 {
     internal class CustomerImplementation:ICustomer
     {
-        const string path = @"..\customers.xml";
+        const string path = @"..\xml\customers.xml";
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Customer>));
         List<Customer>? customers;
         private List<Customer> LoadList()
